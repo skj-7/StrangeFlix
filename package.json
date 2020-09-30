@@ -1,0 +1,22 @@
+{
+  "name": "strangeflix",
+  "version": "1.0.0",
+  "description": "Webster 2k20 Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsLord/StrangeFlix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wsLord/StrangeFlix/issues"
+  },
+  "homepage": "https://github.com/wsLord/StrangeFlix#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
