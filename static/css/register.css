@@ -12,11 +12,11 @@
 }
 .container::before{
     content: " ";
-    background:url('/static/bg.jpg')repeat;
+    background:url('/static/bg.jpg')no-repeat center/cover;
     z-index: -1;
     position: absolute;
     width: 100%;
-    height: 140%;
+    height: 120%;
     left: 0;
     top: 0;
     opacity: 1;
@@ -71,6 +71,7 @@
     color: white;
     text-shadow:2px 2px black;
     width: 30%;
+    position: relative;
 }
 section p{
     font-size: 30px;
@@ -78,7 +79,6 @@ section p{
 .slider
 {
     width: 50%;
-    
     margin-left: 10%;
 }
 .slider img{
@@ -135,19 +135,6 @@ section p{
 .box form{
   width:50%;
 }
-.post
-{
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    padding: 7px;
-    border-radius: 9px;
-    box-shadow:2px 2px black;
-}
-.post input[type="radio"]
-{
-    margin: 7px;
-}
 .signin
 {
     padding-top: 20px;
@@ -171,3 +158,54 @@ section p{
     height: 40px;
     padding: 5px;
 }
+
+
+@media screen and (max-width:1120px){
+    .container{
+        display: flex;
+        flex-direction: column;
+       justify-content: center;
+        align-items: center;
+    }
+    .container::before
+    {
+        height: 260%;
+    }
+    .slider{
+        width: 50%;
+        margin-top: 20px ;
+    }
+  }
+  @media screen and (max-width:900px)
+  {
+    .slider img{
+        width: 350px;
+        padding: 10px;
+    }
+    .slider{
+        width: 50%;
+        margin-top: 20px ;
+    }
+    .slider p{
+font-size: 30px;
+    }
+    .box input, .box textarea 
+    {
+        width: 250%;
+    }
+    
+  }
+  @media screen and (max-width:630px)
+  {
+    .slider img{
+        width: 220px;
+        padding: 7px;
+    }
+  }
+  @media screen and (max-width:445px)
+  {
+    .slider img{
+        width: 180px;
+        padding: 5px;
+    }
+  }
