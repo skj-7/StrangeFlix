@@ -1,5 +1,7 @@
+'use strict';
 const router = require('express').Router();
 var validator = require("email-validator");
+const passport = require('passport');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var mongoose = require('mongoose');
@@ -96,7 +98,29 @@ router.get(link ,(req, res) => {
       "message": "Successfully Registered.Ready to login"
     });
 })
-loginRouter = require("./login");
+
+
+//Google Login
+router.get('/login/google', passport.authenticate('google', { scope: ['profile'] }));
+router.get('/return', 
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res, next) => {
+    res.redirect('/');
+});
+
+
+
+//Facebook Login
+router.get('/login/facebook', passport.authenticate('facebook'));
+router.get('/return', 
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  (req, res, next) => {
+    res.redirect('/');
+});
+
+
+
+const loginRouter = require("./login");
 router.get("/login", loginRouter);
 router.post("/login", loginRouter);
 module.exports = router;
