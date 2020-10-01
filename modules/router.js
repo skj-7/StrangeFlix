@@ -4,18 +4,10 @@ var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var mongoose = require('mongoose');
 const { getMaxListeners } = require('process');
-var mySchema = new mongoose.Schema({
-  lname: String,
-  fname: String,
-  email: String,
-  password: String
-});
-var emailVef = new mongoose.Schema({
-  email: String,
-  token:String,
-});
-var usertoken = mongoose.model('mailvef', emailVef);
-var userdata = mongoose.model('registration', mySchema);
+
+const usertoken = require('../schemas/mailVerify');
+const userdata = require('../schemas/userReg');
+
 router.get('/', (req, res) => {
   res.status(200).render('register.ejs', {
     "error": "",

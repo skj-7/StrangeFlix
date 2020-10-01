@@ -9,7 +9,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use("/static",express.static('static')) ;
 app.set("view engine", "ejs");
 const hostname = 'localhost';
-const port = 27017;
+const port = 3000;
 mongoose.connect('mongodb://localhost:27017/StrangeFlix', {useNewUrlParser: true,useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
