@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.nav img
+{
+    height: 100%;
+    width: 60px;
+    border-radius: 30px;
+}
+.nav p{
+    font-size: 45px;
+    padding-top: 10px;
+    padding-left: 3px;
+    text-align: center;
+    color: white;
+    text-shadow:2px 2px black;
+}
+.alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.alert-success
+{
+    width: 280px;
+    height: 25px;
+    border: 2px solid green;
+    background-color: lightgreen;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+}
+.alert-danger
+{
+    width: 280px;
+    height: 45px;
+    border: 2px solid red;
+    background-color: lightcoral;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+    font-size: 30px;
+}
+.container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+.container img
+{
+    border: 7px ridge black;
+    border-radius: 200px;
+    background-color: white;
+}
+body::before{
+    content: " ";
+    background:url('/static/bg.jpg')repeat center/cover;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
+input[type="button"]
+{
+    width: 200px;
+    height: 50px;
+    font-size: 26px;
+    border: 4px groove rgb(39, 24, 56);
+}
+input[type="button"]:hover
+{
+    width: 200px;
+    height: 50px;
+    font-size: 26px;
+    border: 4px groove black;
+    box-shadow:inset 3px 3px 14px 14px rgb(48, 30, 65);
+    font-weight: bold;
+}
+.security
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 41px;
+    padding: 30px;
+    font-size: 42px;
+    background-color: white;
+}
+input[type="password"]
+{
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 34px;
+    font-size: 30px;
+}
+input[type="submit"]
+{
+    background-color: black;
+    color: white;
+    width: 120px;
+    margin-top: 10px;
+    height: 34px;
+    font-size: 20px;
+}
+input[type="submit"]:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+}
