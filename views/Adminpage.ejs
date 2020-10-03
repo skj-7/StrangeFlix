@@ -45,40 +45,40 @@
             <div class="detail">
                 <p>Name:<%= videoarray[i].name %></p>
                 <p>Duration:<%=videoarray[i].duration %></p>
-                    <p>Description:<%=videoarray[i].description %></p>
-                    <p>Tags:<%=videoarray[i].tags %></p>
-                    <p>Category:<%=videoarray[i].catagory %></p>
-                </div>
-                <div class="btns">
-                    <button>Remove</button>
-                    <button>Comment</button>
-                </div>
+                <p>Description:<%=videoarray[i].description %></p>
+                <p>Tags:<%=videoarray[i].tags %></p>
+                <p>Category:<%=videoarray[i].catagory %></p>
             </div>
-            }%>
-        </div>
-        <div id="middle-series">
-            <% for(var i=0;i<series.length;i++) {%>
-            <p>Series name:<%=series[i].name %></p>
-            <div class="serial">
-                <% for(var j=0;j<series[i].video.length;j++) {%>
-                    <img src="<%= series[i].video[j].imgpath %>" alt="">
-                    <div class="detail">
-                        <p>Name:<%= series[i].video[j].name %></p>
-                        <p>Duration:<%=series[i].video[j].duration %></p>
-                            <p>Description:<%=series[i].video[j].description %></p>
-                            <p>Tags:<%=series[i].video[j].tags %></p>
-                            <p>Category:<%=series[i].video[j].catagory %></p>
-                        </div>
-                        <div class="btns">
-                            <button>Remove</button>
-                            <button>Comment</button>
-                        </div>
-                    </div>    
-                }%>
+            <div class="btns">
+                <button>Remove</button>
+                <button>Comment</button>
             </div>
-            }%>
+            <% } %>
         </div>
-            <script src="/static/fe_js/adminpage.js"></script>
+    </div>
+    <div id="middle-series">
+        <% for(var i=0;i<series.length;i++) {%>
+        <p>Series name:<%=series[i].name %></p>
+        <div class="serial">
+            <% for(var j=0;j<series[i].video.length;j++) {%>
+            <img src="<%= series[i].video[j].imgpath %>" alt="">
+            <div class="detail">
+                <p>Name:<%= series[i].video[j].name %></p>
+                <p>Duration:<%=series[i].video[j].duration %></p>
+                <p>Description:<%=series[i].video[j].description %></p>
+                <p>Tags:<%=series[i].video[j].tags %></p>
+                <p>Category:<%=series[i].video[j].catagory %></p>
+            </div>
+            <div class="btns">
+                <button>Remove</button>
+                <button>Comment</button>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    </div>
+    <script src="/static/fe_js/adminpage.js"></script>
 </body>
 
 </html>

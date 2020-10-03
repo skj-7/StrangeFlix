@@ -16,7 +16,7 @@ adminrouter.post('/admin', (req, res) => {
         });
     }
     else {
-        res.status(200).render('Adminpage.ejs');
+        res.status(200).render('Adminpage.ejs',{"videoarray":"","series":""});
     }
 })
 
