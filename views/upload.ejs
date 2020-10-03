@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload-Video</title>
+    <link rel="stylesheet" href="/static/css/upload.css">
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <img src="/static/icon.jpg" alt="">
+            <p>Strangeflix</p>
+        </div>
+    </header>
+    <form method="POST" action="/uploadvideo" enctype="multipart/form-data">
+        <div class="upload">
+            <p>Upload options</p>
+            <div class="formgroup">
+                <label>Youtube-link</label>
+                <input type="text"  name="ytlink" >
+             </div>
+    
+             <div class="formgroup">
+                <label>Amazon S3 bucket-link</label>
+                <input type="text"  name="ytlink" >
+             </div>
+    
+            <div class="formgroup">
+               <label>Normal upload</label>
+               <input type="file" accept="video/mp4,video/*" name="video">
+            </div>
+        </div>
+
+        <div class="form-group" id="thumbnail">
+           <label>Select thumbnail</label>
+           <input type="file" name="thumbnail" accept="image/*" required>
+        </div>
+
+        <div class="form-group">
+           <label>Title</label>
+           <input type="text" name="title" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+           <label>Description</label>
+           <textarea type="text" name="description" rows="5" cols="30" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+           <label>Tags</label>
+           <input type="text" name="tags" class="form-control">
+        </div>
+
+        <div class="form-group">
+           <label>Category</label>
+           <select name="category" class="form-control">
+              <option value="">Select category</option>
+              <option value="Action & Adventure">Action & Adventure</option>
+              <option value="Anime">Anime</option>
+              <option value="Children & Family ">Children & Family</option>
+              <option value="Comedies">Comedies</option>
+              <option value="Documentaries">Documentaries</option>
+              <option value="Horror">Horror</option>
+              <option value="Music">Music</option>
+              <option value="Romantic ">Romantic </option>
+              <option value="Sci-fi & Fantasy ">Sci-fi & Fantasy</option>
+              <option value="Sports">Sports</option>
+              <option value="Thrillers">Thrillers</option>
+              <option value="TV Shows">TV Shows</option>
+           </select>
+        </div>
+
+        <input type="submit" class="btn" value="Upload Video">
+     </form>
+</body>
+</html>
