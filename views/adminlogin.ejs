@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin-Portal</title>
+	<link rel="stylesheet" href="/static/css/adminlogin.css">
+</head>
+
+<body>
+	<header>
+		<div class="nav">
+			<img src="/static/icon.jpg" alt="">
+			<p>Strangeflix</p>
+		</div>
+	</header>
+	<div class="alert">
+		<% if (message != "") { %>
+			<div class="alert-success">
+			   <%= message %>
+			</div>
+		 <% } %>
+	
+		 <% if (error != "") { %>
+			<div class="alert-danger">
+			   <%= error %>
+			</div>
+		 <% } %>
+	</div>
+	<div class="container">
+		<img src="/static/adicon.jpg" alt="" srcset="">
+		<input type="button" class="btn" onclick="pin()" value="ADMIN">
+		<form action="/admin" method="post">
+			<div class="security" id="sec">
+				<label for="pin">Security Pin</label>
+				<input type="password" name="pin" id="pin">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+	</div>
+	<script src="/static/fe_js/adminlogin.js"></script>
+</body>
+
+</html>

@@ -11,7 +11,6 @@ router.use("/login", loginRouter);
 
 router.use("/confirmation", verifRouter);
 
-router.get("/admin",adminRouter);
-router.post("/admin",adminRouter);
+router.use("/admin",adminRouter);
 
 module.exports = router;
