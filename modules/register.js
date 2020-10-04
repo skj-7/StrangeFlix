@@ -68,7 +68,7 @@ register.post('/', (req, res) => {
 			var mailOptions = {
 				from: 'strangeflix01@gmail.com',
 				to: Email, subject: 'Account Verification Token',
-				text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\nThe link is valid for next 12 hours only.\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
+				text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\nThe link is valid for next 5 minutes only.\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
 			};
 			transporter.sendMail(mailOptions, function (err) {
 				if (err) {
