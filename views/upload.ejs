@@ -13,7 +13,12 @@
             <p>Strangeflix</p>
         </div>
     </header>
-    <form method="POST" action="/uploadvideo" enctype="multipart/form-data">
+    <% if (message != "") { %>
+      <div class="alert-success">
+         <%= message %>
+      </div>
+   <% } %>
+    <form method="get" action="/admin/uploadvideo/download" enctype="multipart/form-data">
         <div class="upload">
             <p>Upload options</p>
             <div class="formgroup">
@@ -23,7 +28,7 @@
     
              <div class="formgroup">
                 <label>Amazon S3 bucket-link</label>
-                <input type="text"  name="ytlink" >
+                <input type="text"  name="AS3link" >
              </div>
     
             <div class="formgroup">

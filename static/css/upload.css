@@ -93,6 +93,23 @@ select
     color: blue;
     border: 2px solid blue;
 }
+.alert-success
+{
+    margin-left: 40%;
+    margin-right: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 45px;
+    border: 2px solid green;
+    background-color: lightgreen;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+}
 @media screen and (max-width:730px)
 {
     form{

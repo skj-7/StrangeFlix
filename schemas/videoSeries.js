@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 
 const video = require('../schemas/videos');
 
+require('mongoose-currency').loadType(mongoose);
+var Currency = mongoose.Types.Currency;
+
 const seriesSchema = new mongoose.Schema({
 	seriesTitle: {
 		type: String,
