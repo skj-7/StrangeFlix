@@ -39,6 +39,12 @@ body::before{
       color: white;
       border-radius: 30px;
   }
+  .flag
+  {
+    background-color:blue;
+      color: white;
+      border-radius: 30px;
+  }
 .mid{
     display: flex;
     flex-direction: row;
