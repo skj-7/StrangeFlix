@@ -4,15 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload-Video</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/upload.css">
 </head>
 <body>
-    <header>
-        <div class="nav">
-            <img src="/static/icon.jpg" alt="">
-            <p>Strangeflix</p>
-        </div>
-    </header>
+   <div class="nav">
+      <header>
+          <a href="/admin/flags">Flags</a>
+          <a href="/admin/users">Users</a>
+      </header>
+      <div class="mid">
+          <img src="/static/icon.jpg" alt="">
+          <p>StrangeFlix</p>
+      </div>
+
+      <div class="topnav">
+          <a href="#home" class="active"></a>
+          <!-- Navigation links (hidden by default) -->
+          <div id="myLinks">
+              <a href="/register">Logout</a>
+              <a href="#setting">Setting</a>
+          </div>
+          <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+          </a>
+      </div>
+  </div>
     <% if (message != "") { %>
       <div class="alert-success">
          <%= message %>
@@ -78,5 +96,6 @@
 
         <input type="submit" class="btn" value="Upload Video">
      </form>
+     <script src="/static/fe_js/upload.js"></script>
 </body>
 </html>

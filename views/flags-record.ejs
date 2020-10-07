@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Record</title>
+    <link rel="stylesheet" href="/static/css/flags-record.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="nav">
+        <header>
+            <a href="/admin/uploadvideo">Upload</a>
+            <a href="/admin/users">Users</a>
+        </header>
+        <div class="mid">
+            <img src="/static/icon.jpg" alt="">
+            <p>StrangeFlix</p>
+        </div>
+
+        <div class="topnav">
+            <a href="#home" class="active"></a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="/register">Logout</a>
+                <a href="#setting">Setting</a>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sider">
+            <button onclick="video()">Flagged Videos</button>
+            <button onclick="comment()">Flagged Comments</button>
+        </div>
+        <div class="middle">
+            <div id="video">
+                <p>Videos</p>
+            </div>
+            <div id="comment">
+                <p>Comments</p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/fe_js/flags-record.js"></script>
+</body>
+
+</html>

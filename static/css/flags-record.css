@@ -60,6 +60,7 @@ body::before{
     color: blue;
     text-shadow:2px 2px purple;
 }
+
   .topnav {
       overflow: hidden;
       display: flex;
@@ -109,96 +110,37 @@ body::before{
       background-color: #4CAF50;
       color: white;
     }
-form{
-    display: flex;
-    flex-direction: column;
-    margin-left: 40%;
-    margin-right: 40%;
-}
-input ,textarea,select
-{
-    width: 300px;
-    height: 40px;
-}
-select
-{
-    font-size: 20px;
-}
-.upload
-{
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    border: 1px solid black;
-    width: 300px;
-    padding: 10px;
-    border-radius: 2px;
-}
-.upload p
-{
-    font-size: 23px;
-}
-.formgroup
-{
-    display: flex;
-    flex-direction: column;
-}
-.form-group
-{
-    display: flex;
-    flex-direction: column;
-    font-size: 23px;
-}
-.btn
-{
-    margin-top: 20px;
-    width: 140px;
-    height: 40px;
-    margin-left: 80px;
-    font-size: 20px;
-    background-color: blue;
-    color: white;
-    border-radius: 200px;
-}
-.btn:hover
-{
-    background-color: whitesmoke;
-    color: blue;
-    border: 2px solid blue;
-}
-.alert-success
-{
-    margin-left: 40%;
-    margin-right: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 45px;
-    border: 2px solid green;
-    background-color: lightgreen;
-    margin-bottom: 5px;
-    text-align: center;
-    color: black;
-    text-shadow: none;
-    border-radius: 9px;
-}
-@media screen and (max-width:730px)
-{
-    form{
-        display: flex;
-        flex-direction: column;
-        margin-left: 25%;
+    .main
+    {
+       display: grid;
+       grid-template-columns:1fr 3fr 1fr;
     }
-}
-@media screen and (max-width:470px)
-{
-    input ,textarea,select
-{
-    width: 250px;
-    height: 40px;
-}
-.upload{
-    width: 250px;
-}
-}
+    .sider
+    {
+        display: inline-flex;
+        flex-direction: column;
+    }
+    .sider button{
+        height: 50px;
+        font-size: 23px;
+        background-color: blue;
+        color: white;
+    }
+    .sider button:hover{
+        background-color: white;
+        color: blue;
+    }
+    #video
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #comment
+    {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
