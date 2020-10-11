@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/adminsettings.css">
+</head>
+<body>
+    <div class="nav">
+        <header>
+            <a href="/admin/uploadvideo">Upload</a>
+            <a href="/admin/flags">Flags</a>
+            <a href="/admin/users">Users</a>
+        </header>
+        <div class="mid">
+            <img src="/static/icon.jpg" alt="">
+            <p>StrangeFlix</p>
+        </div>
+
+        <div class="topnav">
+            <a href="#home" class="active"></a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="/admin/home">Home</a>
+                <a href="/register">Logout</a>
+                <div class="adminlink">
+                    <a href="/admin/settings">Setting</a>
+                </div>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <div class="msg">
+        <% if (message != "") { %>
+        <div class="alert alert-success" role="alert">
+           <%= message %>
+        </div>
+     <% } %>
+
+     <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+           <%= error %>
+        </div>
+     <% } %>
+    </div>
+    <div class="middle">
+        <form action="/admin/settings" method="post">
+            <label for="old-pin">Old Pin</label>
+            <input type="password" name="old-pin" id="old-pin">
+            <label for="new-pin">New Pin</label>
+            <input type="password" name="new-pin" id="new-pin">
+            <label for="confirm-pin">Confirm Pin</label>
+            <input type="password" name="confirm-pin" id="confirm-pin">
+            <div class="btns">
+                <button type="reset" value="Reset">Reset</button>
+                <button type="submit" value="Submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="../static/fe_js/adminsettings.js"></script>
+</body>
+</html>

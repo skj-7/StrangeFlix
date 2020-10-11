@@ -25,6 +25,9 @@ adminrouter.post('/', (req, res) => {
     }
 })
 
+adminrouter.get('/home', (req, res) => {
+    res.status(200).render('admincontrol.ejs', { "videoarray": "", "series": "" });
+})
 
 adminrouter.get('/uploadvideo', (req, res) => {
     res.status(200).render('upload.ejs', { "message": "" });
@@ -35,7 +38,12 @@ adminrouter.get('/users', (req, res) => {
 adminrouter.get('/flags', (req, res) => {
     res.status(200).render('flags-record.ejs');
 })
-
+adminrouter.get('/settings', (req, res) => {
+    res.status(200).render('adminsettings.ejs', {
+		"error": "",
+		"message": ""
+	});
+})
 
 adminrouter.get('/uploadvideo/download', (req, res) => {
     var url = req.query.ytlink;
