@@ -28,7 +28,7 @@
                 <div class="adminlink">
                     <a href="/admin/home">Home</a>
                 </div>
-                <a href="/register">Logout</a>
+                <a href="/admin">Logout</a>
                 <a href="/admin/settings">Setting</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
@@ -44,42 +44,47 @@
         </div>
         <div id="middle-solo">
             <% for(var i=0;i<videoarray.length;i++) {%>
-            <img src="<%= videoarray[i].imgpath %>" alt="">
-            <div class="detail">
-                <p>Name:<%= videoarray[i].name %></p>
-                <p>Duration:<%=videoarray[i].duration %></p>
-                <p>Description:<%=videoarray[i].description %></p>
-                <p>Tags:<%=videoarray[i].tags %></p>
-                <p>Category:<%=videoarray[i].catagory %></p>
-            </div>
-            <div class="btns">
-                <button>Remove</button>
-                <button>Comment</button>
-            </div>
-            <% } %>
-        </div>
-    </div>
-    <div id="middle-series">
-        <% for(var i=0;i<series.length;i++) {%>
-        <p>Series name:<%=series[i].name %></p>
-        <div class="serial">
-            <% for(var j=0;j<series[i].video.length;j++) {%>
-            <img src="<%= series[i].video[j].imgpath %>" alt="">
-            <div class="detail">
-                <p>Name:<%= series[i].video[j].name %></p>
-                <p>Duration:<%=series[i].video[j].duration %></p>
-                <p>Description:<%=series[i].video[j].description %></p>
-                <p>Tags:<%=series[i].video[j].tags %></p>
-                <p>Category:<%=series[i].video[j].catagory %></p>
-            </div>
-            <div class="btns">
-                <button>Remove</button>
-                <button>Comment</button>
+            <div id="vid">
+                <img id="thumbnail" src="<%= videoarray[i].imgpath %>" alt="" onclick="play()">
+                <div class="detail">
+                    <p>Name:<%= videoarray[i].name %></p>
+                    <p>Duration:<%=videoarray[i].duration %></p>
+                    <p>Description:<%=videoarray[i].description %></p>
+                    <p>Tags:<%=videoarray[i].tags %></p>
+                    <p>Category:<%=videoarray[i].catagory %></p>
+                </div>
+                <div class="btns">
+                    <button>Remove</button>
+                    <button>Comment</button>
+                </div>
             </div>
             <% } %>
         </div>
-        <% } %>
-    </div>
+        <div id="middle-series">
+            <% for(var i=0;i<series.length;i++) {%>
+            <div class="vidseries">
+                <p class="series-name">Series name:<%=series[i].name %></p>
+                <div class="serial">
+                    <% for(var j=0;j<series[i].video.length;j++) {%>
+                    <div id="vid">
+                        <img id="thumbnail" src="<%= series[i].video[j].imgpath %>" alt="" onclick="play()">
+                        <div class="detail">
+                            <p>Name:<%= series[i].video[j].name %></p>
+                            <p>Duration:<%=series[i].video[j].duration %></p>
+                            <p>Description:<%=series[i].video[j].description %></p>
+                            <p>Tags:<%=series[i].video[j].tags %></p>
+                            <p>Category:<%=series[i].video[j].catagory %></p>
+                        </div>
+                        <div class="btns">
+                            <button>Remove</button>
+                            <button>Comment</button>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+        </div>
     </div>
     <script src="/static/fe_js/admincontrol.js"></script>
 </body>

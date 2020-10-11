@@ -6,7 +6,7 @@
   }
   body::before{
     content: " ";
-    background:url('/static/adminbg.jpg')repeat center/cover;
+    background:url('/static/adminbg.jpg')repeat-y center/cover;
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -137,15 +137,55 @@
     #middle-solo
     {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
+    #vid
+    {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        border: 2px solid blue;
+        padding: 10px;
+        border-radius: 10px;
+        color: blue;
+        font-size: 22px;
+    }
+    
+    #vid img
+    {
+        width: 260px;
+        height: 150px;
+        border: 2px solid blue;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    #vid button
+    {
+        height: 30px;
+        font-size: 14px;
+        width:100px;
+        background-color: blue;
+        color: white;
+        border-radius: 20px;
+    }
+    #vid button:hover{
+      background-color: white;
+      color: blue;
+  }
     .detail
     {
       display: flex;
       flex-direction: column;
+      margin-left: 30px;
     }
     #middle-series
     {
         display: none;
         flex-direction: column;
+    }
+    .series-name
+    {
+      font-size: 30px;
+      color: blue;
+      text-align: center;
     }

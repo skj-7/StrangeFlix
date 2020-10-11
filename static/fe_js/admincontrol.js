@@ -10,19 +10,13 @@ function myFunction() {
 	{
 		var solo = document.getElementById("middle-solo");
 		var series = document.getElementById("middle-series");
-		if(solo.style.display=="none")
-		{
 			solo.style.display="flex";
 			series.style.display="none";
-		}
 	}
-	function single()
+	function series()
 	{
 		var solo = document.getElementById("middle-solo");
 		var series = document.getElementById("middle-series");
-		if(series.style.display=="none")
-		{
 			solo.style.display="none";
 			series.style.display="flex";
-		}
 	}

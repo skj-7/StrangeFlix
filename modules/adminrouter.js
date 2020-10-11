@@ -21,7 +21,7 @@ adminrouter.post('/', (req, res) => {
         });
     }
     else {
-        res.status(200).render('admincontrol.ejs', { "videoarray": "", "series": "" });
+        res.status(200).render('admincontrol.ejs', { "videoarray": "", "series": ""});
     }
 })
 
