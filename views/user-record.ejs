@@ -42,14 +42,32 @@
             <button onclick="premium()">Premium</button>
         </div>
         <div class="middle">
+            <p class="fa fa-users" id="icon"></p>
             <div id="free">
-                
+                <% for(var i=0;i<free.length;i++) {%>
+                    <div id="free-user">
+                        <p>USER NAME:<%= free[i].name %></p><hr>
+                        <p>USER ID:<%= free[i].Emailid %></p>
+                    </div>
+                <% } %>
             </div>
             <div id="ppv">
-                
+                <% for(var i=0;i<ppv.length;i++) {%>
+                    <div id="ppv-user">
+                        <p>USER NAME:<%= ppv[i].name %></p><hr>
+                        <p>USER ID:<%= ppv[i].Emailid %></p><hr>
+                        <p>Duration-left:<%=ppv[i].durationleft%></p>
+                    </div>
+                <% } %>
             </div>
             <div id="premium">
-                
+                <% for(var i=0;i<premium.length;i++) {%>
+                    <div id="premium-user">
+                        <p>USER NAME:<%= premium[i].name %></p><hr>
+                        <p>USER ID:<%= premium[i].Emailid %></p><hr>
+                        <p>Duration-left:<%=premium[i].durationleft%></p>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>

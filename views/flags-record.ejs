@@ -42,10 +42,34 @@
         </div>
         <div class="middle">
             <div id="video">
-                <p>Videos</p>
+                <% for(var i=0;i<videoarray.length;i++) {%>
+                <div id="vid">
+                    <img id="thumbnail" src="<%= videoarray[i].imgpath %>" alt="" onclick="play()">
+                    <div class="detail">
+                        <p>Name:<%= videoarray[i].name %></p>
+                        <p>Duration:<%=videoarray[i].duration %></p>
+                        <p>Description:<%=videoarray[i].description %></p>
+                        <p>Tags:<%=videoarray[i].tags %></p>
+                        <p>Category:<%=videoarray[i].catagory %></p>
+                    </div>
+                    <div class="btns">
+                        <button>Remove Flag</button>
+                        <button>Remove Video</button>
+                    </div>
+                </div>
+                <% } %>
             </div>
             <div id="comment">
-                <p>Comments</p>
+                <% for(var i=0;i<comments.length;i++) {%>
+                    <div id="list">
+                        <div class="fa fa-user-circle" id="com"><%=comments[i].username%></div>
+                        <p><%=comments[i].comment%></p>
+                        <div class="btns-com">
+                            <button>Remove Flag</button>
+                            <button>Remove Comment</button>
+                        </div>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>

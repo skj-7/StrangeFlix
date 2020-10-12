@@ -13,7 +13,7 @@ body::before{
     height: 105%;
     left: 0;
     top: 0;
-    opacity: 1;
+    opacity: 0.5;
   }
   .nav{
     display: flex;
@@ -143,10 +143,113 @@ body::before{
       align-items: center;
       justify-content: center;
     }
+    #video
+    {
+      display: flex;
+      flex-direction: column;
+    }
+    #vid
+    {
+      display: flex;
+      flex-direction: row;
+    }
+    #vid
+    {
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+        border: 2px solid blue;
+        padding: 10px;
+        border-radius: 10px;
+        color: blue;
+        font-size: 22px;
+    }
+    
+    #vid img
+    {
+        width: 260px;
+        height: 150px;
+        border: 2px solid blue;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    #vid button
+    {
+        height: 30px;
+        font-size: 14px;
+        width:100px;
+        background-color: blue;
+        color: white;
+        border-radius: 20px;
+        margin: 5px;
+    }
+    #vid button:hover
+    {
+      background-color: white;
+      color: blue;
+    }
+  .btns
+  {
+    display: flex;
+    flex-direction: column;
+  }
+    .detail
+    {
+      display: flex;
+      flex-direction: column;
+      margin-left: 30px;
+    }
     #comment
     {
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+    #list
+    {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid blue;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin: 20px;
+    }
+    #list p
+    {
+      padding: 10px;
+      font-size: 19px;
+      background-color: rgba(177, 177, 226, 0.26);
+      border: 1px solid rgba(136, 136, 187, 0.548);
+      border-radius: 10px;
+      margin: 15px;
+      box-shadow: 4px 4px rgba(21, 21, 194, 0.589);
+    }
+    #com
+    {
+      font-size: 34px;
+    }
+    .btns-com
+    {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    #list button
+    {
+        height: 40px;
+        font-size: 14px;
+        width:120px;
+        background-color: blue;
+        color: white;
+        border-radius: 20px;
+        margin: 5px;
+        text-align: center;
+    }
+    #list button:hover
+    {
+      background-color: white;
+      color: blue;
     }

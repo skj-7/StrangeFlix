@@ -33,10 +33,10 @@ adminrouter.get('/uploadvideo', (req, res) => {
     res.status(200).render('upload.ejs', { "message": "" });
 })
 adminrouter.get('/users', (req, res) => {
-    res.status(200).render('user-record.ejs');
+    res.status(200).render('user-record.ejs',{"free":'',"ppv":"","premium":""});
 })
 adminrouter.get('/flags', (req, res) => {
-    res.status(200).render('flags-record.ejs');
+    res.status(200).render('flags-record.ejs',{"videoarray":'',"comments":""});
 })
 adminrouter.get('/settings', (req, res) => {
     res.status(200).render('adminsettings.ejs', {

@@ -114,6 +114,15 @@
       background-color: #4CAF50;
       color: white;
     }
+    .middle
+    {
+      background-color: rgba(177, 177, 226, 0.26);
+      border: 1px solid rgba(136, 136, 187, 0.548);
+      margin-left: 37%;
+      margin-right: 37%;
+      border-radius: 2030px;
+      padding: 30px;
+    }
     form
     {
         display: flex;
