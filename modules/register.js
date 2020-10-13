@@ -13,7 +13,7 @@ require('dotenv').config();
 
 register.get('/', (req, res) => {
 	if (req.session.user_id) {
-		res.render('Flexing.ejs');
+		res.redirect('/home');
 	}
 	else {
 		res.render('register.ejs', {
@@ -37,8 +37,8 @@ register.post('/', (req, res) => {
 	}
 	if (validator.validate(Email) == false) {
 		res.render('register.ejs', {
-		"error": "Email is invalid",
-		"message": ""
+			"error": "Email is invalid",
+			"message": ""
 		});
 		return;
 	}
@@ -82,7 +82,7 @@ register.post('/', (req, res) => {
 					from: process.env.TOKEN_MAIL,
 					to: Email,
 					subject: 'Account Verification Token',
-					text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\nThe link is valid for next 5 minutes only.\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
+					text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
 				};
 				transporter.sendMail(mailOptions, function (err) {
 					if (err) {

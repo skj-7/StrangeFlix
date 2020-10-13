@@ -10,7 +10,7 @@
 <body>
     <div class="nav">
         <header>
-            <a href="/admin/uploadvideo">Upload</a>
+            <a href="/admin/upload">Upload</a>
             <a href="/admin/flags">Flags</a>
             <a href="/admin/users">Users</a>
         </header>
@@ -24,9 +24,9 @@
             <!-- Navigation links (hidden by default) -->
             <div id="myLinks">
                 <a href="/admin/home">Home</a>
-                <a href="/admin">Logout</a>
+                <a href="/admin/logout">Logout</a>
                 <div class="adminlink">
-                    <a href="/admin/settings">Setting</a>
+                    <a href="/admin/setting">Setting</a>
                 </div>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
@@ -37,25 +37,25 @@
     </div>
     <div class="msg">
         <% if (message != "") { %>
-        <div class="alert alert-success" role="alert">
-           <%= message %>
-        </div>
-     <% } %>
+            <div class="alert alert-success" role="alert">
+                <%= message %>
+            </div>
+        <% } %>
 
-     <% if (error != "") { %>
-        <div class="alert alert-danger" role="alert">
-           <%= error %>
-        </div>
-     <% } %>
+        <% if (error != "") { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
     </div>
     <div class="middle">
-        <form action="/admin/settings" method="post">
+        <form action="/admin/setting" method="post">
             <label for="old-pin">Old Pin</label>
-            <input type="password" name="old-pin" id="old-pin">
+            <input type="password" name="old_pin" id="old_pin">
             <label for="new-pin">New Pin</label>
-            <input type="password" name="new-pin" id="new-pin">
+            <input type="password" name="new_pin" id="new_pin">
             <label for="confirm-pin">Confirm Pin</label>
-            <input type="password" name="confirm-pin" id="confirm-pin">
+            <input type="password" name="confirm_pin" id="confirm_pin">
             <div class="btns">
                 <button type="reset" value="Reset">Reset</button>
                 <button type="submit" value="Submit">Submit</button>

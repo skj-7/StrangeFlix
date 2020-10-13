@@ -14,10 +14,10 @@ const tokenSchema = new mongoose.Schema({
 		type: Date,
 		required: true,
 		default: Date.now,
-		expires: 300
+		// expires: 300
 	}
 });
 
-var usertoken = mongoose.model('token', tokenSchema);
+var usertoken = mongoose.model('Tokens', tokenSchema);
 
 module.exports = usertoken;
