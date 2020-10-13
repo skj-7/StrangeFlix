@@ -28,7 +28,7 @@ const seriesSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	seriesDuration: durationSchema,
+	// seriesDuration: durationSchema,
 	seriesTags: [String],
 	videoList: [{
 		type: mongoose.Schema.Types.ObjectId,
