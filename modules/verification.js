@@ -12,7 +12,7 @@ verification.get('/:tokenID', (req, res) => {
 		if (err)
 			console.log(err);
 		else if (token == null) {
-			res.status(200).render('error.ejs', {
+			res.render('error.ejs', {
 				"error": "",
 				"message": "We were unable to find a valid token. Your token may have expired."
 			});
@@ -24,14 +24,14 @@ verification.get('/:tokenID', (req, res) => {
 				if (err)
 					console.log(err);
 				else if (!user) {
-					res.status(200).render('error.ejs', {
+					res.render('error.ejs', {
 						"error": "",
 						"message": "We were unable to find a user for this token. Please try again!"
 					});
 					return;
 				}
 				else if (user.isVerified) {
-					res.status(200).render('login.ejs', {
+					res.render('login.ejs', {
 						"error": "",
 						"message": 'This user has already been verified.'
 					});
@@ -43,14 +43,14 @@ verification.get('/:tokenID', (req, res) => {
 				user.save((err) => {
 					if (err) {
 						console.log(err);
-						res.status(200).render('error.ejs', {
+						res.render('error.ejs', {
 							"error": "",
 							"message": "Unable to verify. Please try later."
 						});
 						return;
 					}
 					
-					res.status(200).render('login.ejs', {
+					res.render('login.ejs', {
 						"error": "",
 						"message": "The account has been verified. Please log in."
 					});

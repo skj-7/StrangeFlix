@@ -6,11 +6,18 @@ var usertoken = mongoose.model('token');
 // const usertoken = require('../schemas/token');
 // const userdata = require('../schemas/userData');
 
+require('dotenv').config();
+
 resendToken.get('/', (req, res) => {
-	res.status(200).render('reVerify.ejs', {
-		"error": "",
-		"message": ""
-	});
+	if (req.session.user_id) {
+		res.render('Flexing.ejs');
+	}
+	else {
+		res.render('reVerify.ejs', {
+			"error": "",
+			"message": ""
+		});
+	}
 });
 
 resendToken.post('/', (req, res) => {
@@ -56,8 +63,13 @@ resendToken.post('/', (req, res) => {
 		});
 
 		// Send the email
-		var transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: 'strangeflix01@gmail.com', pass: 'Strangeflix@01' } });
-		var mailOptions = { from: 'strangeflix01@gmail.com', to: Email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n' };
+		var transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: process.env.TOKEN_MAIL, pass: process.env.TOKEN_PASS } });
+		var mailOptions = {
+			from: process.env.TOKEN_MAIL,
+			to: Email,
+			subject: 'Account Verification Token',
+			text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\nThe link is valid for next 5 minutes only.\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
+		};
 		transporter.sendMail(mailOptions, function (err) {
 			if (err) {
 				console.error(err);
@@ -74,49 +86,4 @@ resendToken.post('/', (req, res) => {
 	});
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-exports.resendTokenPost = function (req, res, next) {
-	req.assert('email', 'Email is not valid').isEmail();
-	req.assert('email', 'Email cannot be blank').notEmpty();
-	req.sanitize('email').normalizeEmail({ remove_dots: false });
-
-	// Check for validation errors    
-	var errors = req.validationErrors();
-	if (errors) return res.status(400).send(errors);
-
-	User.findOne({ email: req.body.email }, function (err, user) {
-		if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
-		if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
-
-		// Create a verification token, save it, and send email
-		var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
-
-		// Save the token
-		token.save(function (err) {
-			if (err) { return res.status(500).send({ msg: err.message }); }
-
-			// Send the email
-			var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: process.env.SENDGRID_USERNAME, pass: process.env.SENDGRID_PASSWORD } });
-			var mailOptions = { from: 'no-reply@codemoto.io', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n' };
-			transporter.sendMail(mailOptions, function (err) {
-				if (err) { return res.status(500).send({ msg: err.message }); }
-				res.status(200).send('A verification email has been sent to ' + user.email + '.');
-			});
-		});
-
-	});
-};
+module.exports = resendToken;
