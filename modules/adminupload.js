@@ -6,9 +6,9 @@ const fs = require("fs");
 // const videos = require('../schemas/videos');
 // const videoSeries = require('../schemas/videoSeries');
 
-// adminrouter.get('/', (req, res) => {
-// 	res.render('upload.ejs', { "message": "" });
-// })
+adminupload.get('/', (req, res) => {
+	res.render('upload.ejs', { "message": "" });
+})
 
 // adminrouter.get('/download', (req, res) => {
 // 	var url = req.query.ytlink;
