@@ -26,6 +26,6 @@ var mySchema = new mongoose.Schema({
 	timestamps: true
 });
 
-var userdata = mongoose.model('user', mySchema);
+var userdata = mongoose.model('Users', mySchema);
 
 module.exports = userdata;

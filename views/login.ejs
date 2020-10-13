@@ -25,27 +25,27 @@
             </section>
             <% if (message != "") { %>
                 <div class="alert-success">
-                   <%= message %>
+                    <%= message %>
                 </div>
-             <% } %>
+            <% } %>
 
-             <% if (error != "") { %>
+            <% if (error != "") { %>
                 <div class="alert-danger">
-                   <%= error %>
+                    <%= error %>
                 </div>
-             <% } %>
+            <% } %>
              
             <form action="/login" method="post">
             <div class="form">
-               <label for="name">Email ID:</label>
-               <input type="email" name="email" id="email">
+                <label for="name">Email ID:</label>
+                <input type="email" name="email" id="email">
             </div>
             <div class="form">
-               <label for="name">Password:</label>
-               <input type="password" name="password" id="password">
+                <label for="name">Password:</label>
+                <input type="password" name="password" id="password">
             </div>
             <div class="form">
-               <input type="submit" value="Sign In">
+                <input type="submit" value="Sign In">
             </div>
             </form>
             <p class="signin">Do not have an Account? <a href="/register">Sign Up</a></p>

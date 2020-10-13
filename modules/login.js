@@ -1,11 +1,11 @@
 const routerLogin = require('express').Router();
 var mongoose = require('mongoose');
 var bcrypt = require("bcrypt");
-var userdata = mongoose.model('user');
+var userdata = mongoose.model('Users');
 
 routerLogin.get('/', (req, res) => {
 	if (req.session.user_id) {
-		res.render('Flexing.ejs');
+		res.redirect('/home');
 	}
 	else {
 		res.render('login.ejs', {
@@ -64,11 +64,6 @@ routerLogin.post('/',(req, res) => {
 							"message": ""
 						});
 						return;
-
-
-						//Redirect a button here to resend token....
-
-
 					}
 					else {
 						req.session.user_id = user._id;
@@ -76,7 +71,7 @@ routerLogin.post('/',(req, res) => {
 							email: user.email,
 							verification: user.isVerified
 						};
-						res.render('Flexing.ejs');
+						res.redirect('/home');
 					}
 				});
 			}

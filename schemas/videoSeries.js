@@ -5,6 +5,27 @@ const video = require('../schemas/videos');
 require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
+const durationSchema = new mongoose.Schema({
+	hours: {
+		type: Number,
+		min: 0,
+		max: 10,
+		default: 0
+	},
+	minutes: {
+		type: Number,
+		min: 0,
+		max: 59,
+		required: true
+	},
+	seconds: {
+		type: Number,
+		min: 0,
+		max: 59,
+		required: true
+	}
+});
+
 const seriesSchema = new mongoose.Schema({
 	seriesTitle: {
 		type: String,
@@ -28,7 +49,7 @@ const seriesSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	// seriesDuration: durationSchema,
+	seriesDuration: durationSchema,
 	seriesTags: [String],
 	videoList: [{
 		type: mongoose.Schema.Types.ObjectId,

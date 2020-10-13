@@ -22,7 +22,7 @@ mongoose.connect('mongodb://localhost:27017/StrangeFlix', {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	console.log('DB connected');
+	console.log('DB Connected!');
 });
 
 app.use(session({
