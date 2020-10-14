@@ -26,6 +26,7 @@ db.once('open', function() {
 });
 
 app.use(session({
+	key: "user_id",
 	secret: process.env.EXP_SESS_SECRET,
 	resave: true,
 	saveUninitialized: true
