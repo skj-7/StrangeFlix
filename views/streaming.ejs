@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrangeFlix-Streaming</title>
+    <link rel="stylesheet" href="../static/css/streaming.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap/mdb.css">
+    <link rel="stylesheet" href="../static/css/vid-player.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="sficon">
+        <img src="../static/icon.jpg" alt="">
+        <p>StrangeFlix</p>
+        <form action="/home/search" method="post" class="form-search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input class="search" type="text" placeholder="Search" aria-label="Search">
+        </form>
+        <div class="dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <hr>
+                <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="player">
+            <video class="player__video viewer" src="../static/videos/b.mp4"
+                poster="../static/img/3515433-endgamedek.jpg"></video>
+
+            <div class="player__controls">
+                <div class="progress">
+                    <div class="progress__filled"></div>
+                </div>
+                <button class="player__button">
+                    <p class="fa fa-step-backward">
+                </button>
+                <button class="player__button toggle" id="play-btn" title="Toggle Play">►</button>
+                <button class="player__button">
+                    <p class="fa fa-step-forward">
+                </button>
+                <span class="vol">vol</span>
+                <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+                <span class="speed">speed</span>
+                <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+                <span class="current">00:00</span> / <span class="duration">00:00</span>
+                <button data-skip="-10" class="player__button">
+                    <p class="fa fa-fast-backward">
+                </button>
+                <button data-skip="10" class="player__button">
+                    <p class="fa fa-fast-forward"></p>
+                </button>
+                <button class="fullscreen-btn">
+                    <p class="fa fa-expand"></p>
+                </button>
+            </div>
+        </div>
+        <div class="like">
+            <p>Avengers:End Game</p>
+            <div class="likebar">
+
+                <div class="dropdown" id="description">
+                    <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Description
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <p>Thiller</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia, beatae, fugiat distinctio quos tenetur nam ab temporibus sequi sed tempora dicta! Facere nihil eaque et nam obcaecati. Unde, impedit.</p>
+                    </div>
+                </div>
+
+                <div class="cat">
+                    <form action="home/video/like" method="post" class="like-btn">
+                        <button type="submit"><i class="fa fa-thumbs-o-up">100</i></button>
+                    </form>
+    
+                    <form action="home/video/dislike" method="post" class="like-btn">
+                        <button type="submit"><i class="fa fa-thumbs-o-down">12</i></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="../static/fe_js/vid-player.js"></script>
+
+    <script src="../static/fe_js/streaming.js"></script>
+    <%- include ("footer") %>
+
+
+
+
+    <!-- <div class="dropdown" id="comments">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comments
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <form action="home/video/comment" method="post" class="comment-box">
+                <textarea name="comment" id="" cols="70" rows="2" placeholder="Add a public comment"></textarea>
+                <button type="submit" value="comment">comment</button>
+            </form>
+
+            <hr>
+            <p>Shyam</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia, beatae, fugiat distinctio quos tenetur nam ab temporibus sequi sed tempora dicta! Facere nihil eaque et nam obcaecati. Unde, impedit.</p>
+        </div>
+    </div> -->

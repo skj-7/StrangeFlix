@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+
+.sficon
+{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.sficon p
+{
+    color: #C3073F;
+    font-size: 50px;
+    position: sticky;
+}
+.sficon img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 200px;
+    border: 2px solid rgba(0, 0, 0, 0.753);
+    font-weight: bold;
+}
+.form-search
+{
+    position: absolute;
+    right: 40%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+}
+.form-search .fa 
+{
+    font-size: 30px;
+    color:white;
+    padding-right: 2px;
+}
+.search
+{
+    width: 400px;
+    font-size: 25px;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    border:2px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.sficon .dropdown
+{
+    position: relative;
+    margin-top: 1%;
+    margin-left: 75%;
+    background-color: black;
+}
+.sficon .dropdown .btn
+{
+    background-color: black;
+}
+.sficon .dropdown .btn .fa
+{
+    color: aliceblue;
+    font-size: 29px;
+}
+.sficon .dropdown-menu a
+{
+    font-size: 20px;
+    color: #C3073F;
+}
+.mid
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.player
+{
+    width: 85%;
+    border-radius: 20px;
+}
+.player__button
+{
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+}
+.player .fa
+{
+    margin: 5px;
+    padding: 0;
+}
+.like
+{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+.like p
+{
+    color: #C3073F;
+    font-size: 40px;
+}
+.likebar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+#comments .dropdown-menu,
+#description .dropdown-menu
+{
+    width: 800px;
+    
+}
+#description .dropdown-menu p,
+#comments .dropdown-menu p
+{
+    font-size: 15px;
+}
+.comment-box
+{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.comment-box button
+{
+    width: 120px;
+    margin: 3px;
+    background-color: #C3073F;
+    color: white;
+    border: 2px solid #C3073F;
+}
+.comment-box button:hover
+{
+    background-color: white;
+    color:#C3073F ;
+}
+.like-btn button
+{
+    outline: 0;
+    background-color: black;
+    border: 2px solid black;
+}
+.like-btn .fa
+{
+    color: white;
+    font-size: 40px;
+}
+.cat
+{
+    display: flex;
+    flex-direction: row;
+}
+.cat button
+{
+    margin-right: 20px;
+}
+.like-btn .fa:hover
+{
+    color: #C3073F;
+}

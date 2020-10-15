@@ -1,57 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME-StrangeFlix</title>
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../static/bootstrap/mdb.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/home.css">
-</head>
-
-<body>
-    <div class="sficon">
-        <img src="../static/icon.jpg" alt="">
-        <p>StrangeFlix</p>
-    </div>
-    <div class="top">
-        <div id="sidebar">
-            <div class="icon">
-                <a class="active" href="#"><i class="fa fa-home"></i></a>
-                <p>HOME</p>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-search"></i></a>
-                <div class="serach">
-                    <p>SEARCH</p>
-
-                </div>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-laptop"></i></a>
-                <p>SERIES</p>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-film"></i></a>
-                <p>FILM</p>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-television"></i></a>
-                <p>TV</p>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-star"></i></a>
-                <p>PREMIUM</p>
-            </div>
-            <div class="icon">
-                <a href="#"><i class="fa fa-cog"></i></a>
-                <p>SETTING</p>
-            </div>
-        </div>
+<%- include ("header") %>
         <div id="slider">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -116,82 +63,13 @@
                 <div class="box">
                     <img src="../static/img/m1.jpg" alt="">
                     <div class="text">Ep-1 <p>Genres: Action | Crime | Drama | Thriller</p>
-                        <button class="fa fa-play-circle-o"></button>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../static/img/m2.jpg" alt="">
-                    <div class="text">Ep-2<p>Genres: Action | Crime | Drama | Thriller</p>
-                        <button class="fa fa-play-circle-o"></button>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="../static/img/m3.jpg" alt="">
-                    <div class="text">Ep-3<p>Genres: Action | Crime | Drama | Thriller</p>
-                        <button class="fa fa-play-circle-o"></button>
+                        <form action="/home/play" method="post">
+                            <button type="submit" class="fa fa-play-circle-o"></button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <!-- Footer -->
-        <footer class="page-footer font-small  pt-4">
-
-            <!-- Footer Elements -->
-            <div class="container">
-
-                <!-- Social buttons -->
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-fb mx-1">
-                            <i class="fa fa-facebook-f"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-tw mx-1">
-                            <i class="fa fa-twitter"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-gplus mx-1">
-                            <i class="fa fa-google-plus"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-li mx-1">
-                            <i class="fa fa-instagram"> </i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- Social buttons -->
-
-            </div>
-            <!-- Footer Elements -->
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="http://localhost:3000/register"> StrangeFlix.com</a>
-                <p>Made with <i class="fa fa-heart"></i> by PG & SJ</p>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-        <!-- Footer -->
-    </div>
-
-    <!-- Scripts -->
     
-    <script src="../static/fe_js/home.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <%- include ("footer") %>
