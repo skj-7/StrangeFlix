@@ -1,0 +1,78 @@
+<title>StrangeFlix-Premium</title>
+<%- include ("header") %>
+<link rel="stylesheet" href="../static/css/premium.css">
+<div class="top-right">
+    <% if (premium == "false") { %>
+    <p>You are not a premium user</p>
+    <p id="choose"> <i class="fa fa-hand-o-right"></i> Join Premium <i class="fa fa-hand-o-left"></i></p>
+    <div class="pack">
+        <div class="card">
+            <img class="card-img-top" src="../static/img/vip.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">StrangeFlix Premium+</h5>
+                <p>₹89/month</p>
+                <p class="card-text">
+                    <i>
+                        Multiplex blockbusters <br>
+                        All Latest Shows & movies: Uncut & ad-free. <br>
+                        Exclusive StrangeFlix serials.
+                    </i>
+                </p>
+                <a href="#" class="btn btn-danger">Subscribe Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="../static/img/vip.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">StrangeFlix VIP+</h5>
+                <p>₹499/year</p>
+                <p class="card-text">
+                    <i>
+                        Multiplex blockbusters <br>
+                        All Latest Shows & movies: Uncut & ad-free. <br>
+                        Exclusive StrangeFlix serials. <br>
+                        Sports
+                    </i>
+                </p>
+                <a href="#" class="btn btn-danger">Subscribe Now</a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <% if (premium == "true") { %>
+        <div class="pro">
+            <p>You are a premium user</p>
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+        </div>
+    <% } %>
+
+</div>
+</div>
+<p class="ben">BENEFITS</p>
+<div class="benefits">
+    <div class="tags">
+        <i class="fa fa">HD</i>
+        <p>Available</p>
+    </div>
+    <div class="tags">
+        <i class="fa fa-ban"></i>
+        <p>AD Free</p>
+    </div>
+    <div class="tags">
+        <i class="fa fa-jsfiddle"></i>
+        <p>Unlimited movies & shows</p>
+    </div>
+    <div class="tags">
+        <i class="fa fa-star-half-o"></i>
+        <p>First one month free for new user</p>
+    </div>
+    <div class="tags">
+        <i class="fa fa-music"></i>
+        <p>Unlimited Music</p>
+    </div>
+</div>
+
+
+<%- include ("footer") %>

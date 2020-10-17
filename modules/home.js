@@ -9,5 +9,8 @@ homeRouter.post('/play',(req, res)=>{
     res.render('streaming.ejs');
 });
 
+homeRouter.get('/premium',(req, res)=>{
+    res.render('premium.ejs',{"premium":"false"});
+});
 
 module.exports = homeRouter;

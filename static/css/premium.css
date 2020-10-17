@@ -1,0 +1,104 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.top-right p
+{
+    text-align: center;
+    font-size: 38px;
+    color: white;
+}
+.top-right #choose
+{
+    text-align: center;
+    font-size: 50px;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+}
+.pro
+{
+    text-align: center;
+    font-size: 10rem;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.pro p
+{
+    font-size: 7rem;
+}
+.pack
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.card
+{
+    width: 24rem;
+    height: 37rem;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+.card-text i
+{
+    font-size: 18px;
+    color: black;
+}
+.card-title
+{
+    font-size: 2rem;
+}
+.card p
+{
+    color: #C3073F;
+}
+.ben
+{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+}
+.benefits
+{
+    background-color: white;
+    border: 10px double black;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 40px;
+    margin-top: 20px;
+    padding: 70px;
+}
+.benefits .tags
+{
+    height: 160px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0.815);
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 5px 5px  rgba(0, 0, 0, 0.479);
+}
+.benefits .tags i
+{
+    font-size: 45px;
+    color: white;
+    padding: 5px;
+}
