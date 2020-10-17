@@ -35,7 +35,7 @@ const upload = multer({ storage: storage }).fields(
 );
 
 adminupload.get('/', (req, res) => {
-	res.render('upload.ejs', { "message": "" ,"ID":"" });
+	res.render('upload.ejs', { "message": "" });
 })
 
 adminupload.post('/file', (req, res) => {

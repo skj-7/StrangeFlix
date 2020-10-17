@@ -167,3 +167,59 @@ body
 {
     color: #350513;
 }
+@media screen and (max-width:1036px)
+{
+    .carousel-item img
+    {
+        width: 600px;
+        height: 450px;
+    }
+}
+@media screen and (max-width:880px)
+{
+    .carousel-item img
+    {
+        width: 500px;
+        height: 350px;
+    }
+    #sidebar
+    {
+        font-size: 24px;
+        width: 50px;
+    }
+    #sidebar:hover
+    {
+        font-size: 24px;
+        width: 200px;
+    }
+    #sidebar i
+    {
+        font-size: 28px;
+    }
+    .icon:hover
+    {
+        font-size: 26px;
+    }
+}
+@media screen and (max-width:620px)
+{
+    .carousel-item img
+    {
+        width: 400px;
+    }
+    .imgs img
+    {
+        width: 150px;
+        height: 200px;
+    }
+    .text p
+    {
+       color: white;
+       font-size: 12px;
+    }
+    .text button
+    {
+        font-size: 24px;
+        width: 30px;
+    }
+}

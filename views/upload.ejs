@@ -41,7 +41,36 @@
 	</div>
 	<% } %>
 	<div class="middle">
-		<form method="post" action="/admin/upload/details" enctype="multipart/form-data">
+		<form method="post" action="/admin/upload/files" enctype="multipart/form-data">
+
+			<div class="upload">
+
+				<p>Upload options</p>
+				<div class="selection">
+					<p onclick="yt()" id="yl">Youtube-link</p>
+					<p onclick="s3()" id="s3l">S3 bucket</p>
+					<p onclick="nu()" id="NU">Normal</p>
+				</div>
+
+				<div class="formgroup" id="yt">
+					<label>Youtube-link</label>
+					<input type="text" name="ytlink">
+				</div>
+
+				<div class="formgroup" id="s3">
+					<label>Amazon S3 bucket-link</label>
+					<input type="text" name="AS3link">
+				</div>
+
+				<div class="formgroup" id="nu">
+					<label>Normal upload</label>
+					<input type="file" accept="video/mp4,video/*" name="video">
+					<div class="form-group" id="thumbnail">
+						<label>Select thumbnail</label>
+						<input type="file" name="thumbnail" accept="image/*" required>
+					</div>
+				</div>
+			</div>
 			<div class="form-group">
 				<label>Title</label>
 				<input type="text" name="title" class="form-control" required>
@@ -97,43 +126,7 @@
 					<option value="TV Shows">TV Shows</option>
 				</select>
 			</div>
-
-			<input type="submit" class="btn" value="Upload Details">
-		</form>
-		<form action="/admin/upload/files" method="post" class="files" enctype="multipart/form-data">
-			<div class="upload">
-
-				<% if (ID != "") { %>
-				<div class="formgroup">
-					<label>ID</label>
-					<input type="text" name="ID" value=<%= ID %> readonly>
-				</div>
-				<% } %>
-
-				<p>Upload options</p>
-				<div class="formgroup">
-					<label>Youtube-link</label>
-					<input type="text" name="ytlink">
-				</div>
-
-				<div class="formgroup">
-					<label>Amazon S3 bucket-link</label>
-					<input type="text" name="AS3link">
-				</div>
-
-				<div class="formgroup">
-					<label>Normal upload</label>
-					<input type="file" accept="video/mp4,video/*" name="video">
-				</div>
-
-				<div class="form-group" id="thumbnail">
-					<label>Select thumbnail</label>
-					<input type="file" name="thumbnail" accept="image/*" required>
-				</div>
-
-				<input type="submit" class="btn" value="Upload Files">
-
-			</div>
+			<input type="submit" class="btn" value="Upload">
 		</form>
 	</div>
 	<script src="/static/fe_js/upload.js"></script>

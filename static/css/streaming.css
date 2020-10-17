@@ -9,27 +9,22 @@
 {
     display: flex;
     flex-direction: row;
-    position: relative;
+    justify-content: space-between;
+    /* position: relative; */
 }
-.sficon p
+.sficon .back
+{
+    margin-top: 1%;
+    font-size: 44px;
+    color: white;
+}
+.sficon .back:hover
 {
     color: #C3073F;
-    font-size: 50px;
-    position: sticky;
-}
-.sficon img
-{
-    width: 70px;
-    height: 70px;
-    border-radius: 200px;
-    border: 2px solid rgba(0, 0, 0, 0.753);
-    font-weight: bold;
 }
 .form-search
 {
-    position: absolute;
-    right: 40%;
-    margin-top: 2%;
+    margin-top: 1%;
     display: flex;
     flex-direction: row;
 }
@@ -38,11 +33,13 @@
     font-size: 30px;
     color:white;
     padding-right: 2px;
+    margin-top: 1%;
 }
 .search
 {
-    width: 400px;
-    font-size: 25px;
+    width: 450px;
+    height: 40px;
+    font-size: 22px;
     color: black;
     background-color: white;
     border-radius: 8px;
@@ -51,10 +48,10 @@
 }
 .sficon .dropdown
 {
-    position: relative;
     margin-top: 1%;
-    margin-left: 75%;
+    right: 0;
     background-color: black;
+    width: 100px;
 }
 .sficon .dropdown .btn
 {
@@ -70,12 +67,17 @@
     font-size: 20px;
     color: #C3073F;
 }
+#user .dropdown-menu
+{
+    max-width: 50px;
+}
 .mid
 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
 .player
 {
@@ -163,4 +165,199 @@
 .like-btn .fa:hover
 {
     color: #C3073F;
+}
+.descp
+{
+    background-color: rgba(255, 255, 255, 0.096); 
+    border-radius: 10px;
+    border-style: double;
+    margin-right: 20px;
+}
+.descp p
+{
+    font-size: 18px;
+    color:white;
+    padding: 10px; 
+}
+#btn-comment
+{
+    margin-left: 8.1%;
+    background-color: white;
+    font-family: 'Baloo 2', cursive;
+}
+#comment-section
+{
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.recom
+{
+    margin-left: 20px;
+}
+.recom p
+{
+    color: white;
+    font-size: 40px;
+}
+.content
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.content p
+{
+    font-size: 34px;
+    color:#C3073F;
+}
+.imgs
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.imgs img
+{
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin: 15px;
+}
+.box
+{
+    position: relative;
+}
+.text
+{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+.text p
+{
+    color: white;
+    font-size: 18px;
+}
+.text button
+{
+    width: 50px;
+    text-align: center;
+    border-radius: 2020px;
+    font-size: 43px;
+    border: 2px solid black;
+}
+.box:hover img
+{
+    opacity: 0.19;
+    transform: scale(1.3);
+}
+.box:hover .text
+{
+    opacity: 1;
+}
+@media screen and (max-width:850px)
+{
+    .search
+    {
+        width: 300px;
+        height: 35px;
+        font-size: 20px;
+        margin-top: 2%;
+    }
+    .like-btn .fa
+    {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:782px)
+{
+    .search
+    {
+        width: 200px;
+        height: 25px;
+        font-size: 17px;
+        margin-top: 3%;
+    }
+    .player__button
+    {
+        font-size: 9px;
+        margin-top: 6px;
+    }
+    .like p
+    {
+        font-size: 30px;
+    }
+    .descp p
+    {
+        padding: 0;
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:480px)
+{
+    .recom p
+    {
+        font-size: 24px;
+    }
+    .like-btn .fa
+    {
+        font-size: 22px;
+    }
+    .sficon .back
+    {
+        font-size: 22px;
+    }
+    .sficon .dropdown .btn .fa
+    {
+        font-size: 20px;
+    }
+    .form-search .fa 
+    {
+        margin-top: 2%;
+        font-size: 20px;
+    }
+    .search
+    {
+        width: 160px;
+        height: 25px;
+        font-size: 15px;
+        margin-top: 3%;
+    }
+    .like p
+    {
+        font-size: 22px;
+    }
+    .imgs img
+    {
+        width: 150px;
+        height: 200px;
+    }
+    .text p
+    {
+       color: white;
+       font-size: 12px;
+    }
+    .text button
+    {
+        font-size: 24px;
+        width: 30px;
+    }
+    .descp p
+    {
+        padding: 0;
+        font-size: 10px;
+    }
 }

@@ -13,7 +13,7 @@ body::before{
     height: 145%;
     left: 0;
     top: 0;
-    opacity: 1;
+    opacity: 0.5;
   }
   .nav{
     display: flex;
@@ -217,12 +217,43 @@ select
 {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 .files
 {
     margin-top: 20px;
+}
+
+
+#yt
+{
+    display: none;
+}
+#s3
+{
+    display: none;
+}
+#nu
+{
+    display: none;
+}
+.selection
+{
+    margin-bottom: 5px;
+}
+.selection p
+{
+    display: inline;
+    cursor: pointer;
+    font-size: 18px;
+    border: 2px double blue;
+    padding: 2px;
+    border-radius: 10px;
+}
+.selection p:hover
+{
+    font-size: 21px;
 }
 
 @media screen and (max-width:730px)

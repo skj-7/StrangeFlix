@@ -17,13 +17,12 @@
 
 <body>
     <div class="sficon">
-        <img src="../static/icon.jpg" alt="">
-        <p>StrangeFlix</p>
+        <a class="back" href="/home"><i class="fa fa-chevron-circle-left"></i></a>
         <form action="/home/search" method="post" class="form-search">
             <i class="fa fa-search" aria-hidden="true"></i>
             <input class="search" type="text" placeholder="Search" aria-label="Search">
         </form>
-        <div class="dropdown">
+        <div class="dropdown" id="user">
             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-secret"></i>
             </button>
@@ -70,22 +69,15 @@
         <div class="like">
             <p>Avengers:End Game</p>
             <div class="likebar">
-
-                <div class="dropdown" id="description">
-                    <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Description
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <p>Thiller</p>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia, beatae, fugiat distinctio quos tenetur nam ab temporibus sequi sed tempora dicta! Facere nihil eaque et nam obcaecati. Unde, impedit.</p>
-                    </div>
+                <div class="descp">
+                    <p>Genres: Action | Crime | Drama | Thriller.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum ducimus adipisci natus nulla libero sunt dicta. Ducimus velit maiores esse perferendis dolorem ex, voluptatem quos labore quas, iste earum!</p>
                 </div>
-
                 <div class="cat">
                     <form action="home/video/like" method="post" class="like-btn">
                         <button type="submit"><i class="fa fa-thumbs-o-up">100</i></button>
                     </form>
-    
+
                     <form action="home/video/dislike" method="post" class="like-btn">
                         <button type="submit"><i class="fa fa-thumbs-o-down">12</i></button>
                     </form>
@@ -94,29 +86,41 @@
             </div>
         </div>
     </div>
+    <button class="btn  dropdown-toggle" onclick="comments()" id="btn-comment" type="button" aria-haspopup="true"
+        aria-expanded="false">Comments
+    </button>
+    <div id="comment-section">
+        <form action="home/video/comment" method="post" class="comment-box">
+            <textarea name="comment" id="" cols="70" rows="2" placeholder="Add a public comment"></textarea>
+            <button type="submit" value="comment">comment</button>
+        </form>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quidem nesciunt mollitia labore debitis accusamus ab culpa natus neque eaque veniam nobis voluptatibus repellendus nemo, sed delectus asperiores iste qui?</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quidem nesciunt mollitia labore debitis accusamus ab culpa natus neque eaque veniam nobis voluptatibus repellendus nemo, sed delectus asperiores iste qui?</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quidem nesciunt mollitia labore debitis accusamus ab culpa natus neque eaque veniam nobis voluptatibus repellendus nemo, sed delectus asperiores iste qui?</p>
     </div>
+    <hr>
+    <div class="recom">
+        <p>Recommendations</p>
+        <div class="content">
+            <p>Mirzapur S2</p>
+            <div class="imgs">
+                <div class="box">
+                    <img src="../static/img/m1.jpg" alt="">
+                    <div class="text">Ep-1 <p>Genres: Action | Crime | Drama | Thriller</p>
+                        <form action="/home/play" method="post">
+                            <button type="submit" class="fa fa-play-circle-o"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <script src="../static/fe_js/vid-player.js"></script>
 
     <script src="../static/fe_js/streaming.js"></script>
     <%- include ("footer") %>
-
-
-
-
-    <!-- <div class="dropdown" id="comments">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comments
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <form action="home/video/comment" method="post" class="comment-box">
-                <textarea name="comment" id="" cols="70" rows="2" placeholder="Add a public comment"></textarea>
-                <button type="submit" value="comment">comment</button>
-            </form>
-
-            <hr>
-            <p>Shyam</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia, beatae, fugiat distinctio quos tenetur nam ab temporibus sequi sed tempora dicta! Facere nihil eaque et nam obcaecati. Unde, impedit.</p>
-        </div>
-    </div> -->
