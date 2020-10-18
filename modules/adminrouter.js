@@ -4,10 +4,13 @@ const upload = require('./adminupload');
 const login = require('./adminlogin');
 const control = require('./admincontrol');
 const setting = require('./adminsetting');
+const regseries = require('./adminregseries');
 
 adminrouter.use('/login', login);
 
 adminrouter.use('/control', control);
+
+adminrouter.use('/regseries', regseries);
 
 adminrouter.use('/upload', upload);
 

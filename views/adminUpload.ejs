@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Upload-Video</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/upload.css">
+</head>
+
+<body>
+	<div class="nav">
+		<header>
+			<a class="upload-btn" href="/admin/upload">Upload</a>
+			<a href="/admin/flags">Flags</a>
+			<a href="/admin/users">Users</a>
+		</header>
+		<div class="mid">
+			<img src="/static/icon.jpg" alt="">
+			<p>StrangeFlix</p>
+		</div>
+
+		<div class="topnav">
+			<a href="#home" class="active"></a>
+			<!-- Navigation links (hidden by default) -->
+			<div id="myLinks">
+				<a href="/admin/control">Home</a>
+				<a href="/admin/logout">Logout</a>
+				<a href="/admin/setting">Setting</a>
+			</div>
+			<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+	</div>
+	<% if (message != "") { %>
+	<div class="alert-success">
+		<%= message %>
+	</div>
+	<% } %>
+	<div class="middle">
+		<form method="post" action="/admin/upload" enctype="multipart/form-data">
+			<div class="upload">
+				<p>Upload options</p>
+				<div class="selection">
+					<p onclick="yt()" id="yl">Youtube-link</p>
+					<p onclick="s3()" id="s3l">S3 bucket</p>
+					<p onclick="nu()" id="NU">Normal</p>
+				</div>
+
+				<div class="formgroup" id="yt">
+					<label>Youtube-link</label>
+					<input type="text" name="ytlink">
+				</div>
+
+				<div class="formgroup" id="s3">
+					<label>Amazon S3 bucket-link</label>
+					<input type="text" name="AS3link">
+				</div>
+
+				<div class="formgroup" id="nu">
+					<label>Normal upload</label>
+					<input type="file" accept="video/mp4,video/*" name="video">
+					<div class="form-group" id="thumbnail">
+						<label>Select thumbnail</label>
+						<input type="file" name="thumbnail" accept="image/*">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Title</label>
+				<input type="text" name="title" class="form-control" required>
+			</div>
+
+			<div class="form-group">
+				<label>Price</label>
+				<div id="price">
+					<input type="text" name="sym" id="sym" value=&#x20B9; readonly>
+					<input type="number" name="price" id="price-value" class="form-control" min="0" required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Duration</label>
+				<div id="duration">
+					<input type="number" name="hours" class="form-control" placeholder="hrs" min="0" required>
+					<input type="number" name="minutes" class="form-control" placeholder="mins" min="0" required>
+					<input type="number" name="seconds" class="form-control" placeholder="secs" min="0" required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>Series</label>
+				<input type="text" name="series" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label>Description</label>
+				<textarea type="text" name="description" rows="5" cols="30" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label>Tags (Use "," to separate)</label>
+				<input type="text" name="tags" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label>Category</label>
+				<select name="category" class="form-control">
+					<option value="">Select category</option>
+					<option value="Action & Adventure">Action & Adventure</option>
+					<option value="Anime">Anime</option>
+					<option value="Children & Family ">Children & Family</option>
+					<option value="Comedies">Comedies</option>
+					<option value="Documentaries">Documentaries</option>
+					<option value="Horror">Horror</option>
+					<option value="Music">Music</option>
+					<option value="Romantic ">Romantic </option>
+					<option value="Sci-fi & Fantasy ">Sci-fi & Fantasy</option>
+					<option value="Sports">Sports</option>
+					<option value="Thrillers">Thrillers</option>
+					<option value="TV Shows">TV Shows</option>
+				</select>
+			</div>
+			<input type="submit" class="btn" value="Upload">
+		</form>
+	</div>
+	<script src="/static/fe_js/upload.js"></script>
+</body>
+
+</html>

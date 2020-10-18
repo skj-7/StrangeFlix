@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Upload-Video</title>
+	<title>Add Series</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/static/css/upload.css">
 </head>
@@ -26,7 +26,7 @@
 			<!-- Navigation links (hidden by default) -->
 			<div id="myLinks">
 				<a href="/admin/control">Home</a>
-				<a href="/admin">Logout</a>
+				<a href="/admin/logout">Logout</a>
 				<a href="/admin/setting">Setting</a>
 			</div>
 			<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
@@ -41,29 +41,12 @@
 	</div>
 	<% } %>
 	<div class="middle">
-		<form method="post" action="/admin/upload/files" enctype="multipart/form-data">
-
+		<form method="post" action="/admin/regseries" enctype="multipart/form-data">
 			<div class="upload">
-
-				<p>Upload options</p>
-				<div class="selection">
-					<p onclick="yt()" id="yl">Youtube-link</p>
-					<p onclick="s3()" id="s3l">S3 bucket</p>
-					<p onclick="nu()" id="NU">Normal</p>
-				</div>
-
-				<div class="formgroup" id="yt">
-					<label>Youtube-link</label>
-					<input type="text" name="ytlink">
-				</div>
-
-				<div class="formgroup" id="s3">
-					<label>Amazon S3 bucket-link</label>
-					<input type="text" name="AS3link">
-				</div>
+				<p>Series Register</p>
 
 				<div class="formgroup" id="nu">
-					<label>Normal upload</label>
+					<label>Series Thumbnail</label>
 					<input type="file" accept="video/mp4,video/*" name="video">
 					<div class="form-group" id="thumbnail">
 						<label>Select thumbnail</label>
@@ -72,12 +55,12 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Title</label>
+				<label>Series Title</label>
 				<input type="text" name="title" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label>Price</label>
+				<label>Series Price</label>
 				<div id="price">
 					<input type="text" name="sym" id="sym" value=&#x20B9; readonly>
 					<input type="number" name="price" id="price-value" class="form-control" min="0" required>
@@ -85,7 +68,7 @@
 			</div>
 
 			<div class="form-group">
-				<label>Duration</label>
+				<label>Series Net Duration</label>
 				<div id="duration">
 					<input type="number" name="hours" class="form-control" placeholder="hrs" min="0" required>
 					<input type="number" name="minutes" class="form-control" placeholder="mins" min="0" required>
@@ -94,17 +77,12 @@
 			</div>
 
 			<div class="form-group">
-				<label>Series</label>
-				<input type="text" name="series" class="form-control" required>
-			</div>
-
-			<div class="form-group">
 				<label>Description</label>
 				<textarea type="text" name="description" rows="5" cols="30" class="form-control"></textarea>
 			</div>
 
 			<div class="form-group">
-				<label>Tags</label>
+				<label>Tags (Use "," to separate)</label>
 				<input type="text" name="tags" class="form-control">
 			</div>
 
@@ -126,7 +104,7 @@
 					<option value="TV Shows">TV Shows</option>
 				</select>
 			</div>
-			<input type="submit" class="btn" value="Upload">
+			<input type="submit" class="btn" value="Add Series">
 		</form>
 	</div>
 	<script src="/static/fe_js/upload.js"></script>
