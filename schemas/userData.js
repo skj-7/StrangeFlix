@@ -14,6 +14,10 @@ var mySchema = new mongoose.Schema({
 		required: true,
 		unique: true
 	},
+	age: {
+		type: Number,
+		required: true
+	},
 	password: {
 		type: String,
 		required: true
@@ -21,6 +25,11 @@ var mySchema = new mongoose.Schema({
 	isVerified: {
 		type: Boolean,
 		default: false
+	},
+	subscriptionCode: {
+		type: Number,
+		default: 0,
+		required: true
 	}
 }, {
 	timestamps: true

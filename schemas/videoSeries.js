@@ -49,6 +49,10 @@ const seriesSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	episodeCount: {
+		type: Number,
+		min: 0
+	},
 	seriesDuration: durationSchema,
 	seriesTags: [String],
 	videoList: [{
