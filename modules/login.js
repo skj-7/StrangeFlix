@@ -82,7 +82,7 @@ routerLogin.post('/',(req, res) => {
 // Logout endpoint
 routerLogin.get('/logout', (req, res) => {
 	req.session.destroy();
-	res.send("logout success!");
+	res.redirect('/login');
 });
 
 module.exports = routerLogin;

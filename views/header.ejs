@@ -16,7 +16,18 @@
 <body>
     <div class="sficon">
         <img src="../static/icon.jpg" alt="">
-        <p>StrangeFlix</p>  
+        <p>StrangeFlix</p>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="msg">
+                <p>Are you sure you want to logout</p>
+                <span class="close">&times;</span>
+            </div>
+            <div class="confirm">
+                <a href="/login/logout" class="btn btn-danger">OK</a>
+            </div>
+        </div>
     </div>
     <div class="top">
         <div id="sidebar">
@@ -51,17 +62,20 @@
                 <a href="#"><i class="fa fa-cog"></i></a>
                 <p>SETTING</p>
             </div>
+            <div class="icon">
+                <a href="#" id="myBtn"><i class="fa fa-sign-out"></i></a>
+                <p>LOGOUT</p>
+            </div>
         </div>
-    
-    <!-- Scripts -->
+        <!-- Scripts -->
 
-    <script src="../static/fe_js/home.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+        <script src="../static/fe_js/home.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>

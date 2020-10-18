@@ -102,3 +102,123 @@
     color: white;
     padding: 5px;
 }
+
+
+@media screen and (max-width:1200px)
+{
+    .benefits .tags
+    {
+        width: 280px;
+        height: 130px;
+    }
+    .benefits .tags i
+    {
+        font-size: 32px;
+    }
+}
+@media screen and (max-width:1097px)
+{
+    .card
+    {
+        width: 19rem;
+        height: 32rem;
+        border-radius: 10px;
+        margin-left: 10%;
+    }
+    .card img
+    {
+        height: 12rem;
+    }
+    .card-title
+    {
+        font-size: 1.5rem;
+    }
+    .card p
+    {
+        font-size: 1.6rem;
+    }
+    .card-text i
+    {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:852px)
+{
+    .pack
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card
+    {
+        width: 25rem;
+        height: 37rem;
+        border-radius: 10px;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    .card-text i
+    {
+        font-size: 19px;
+    }
+    .card-title,
+    .card p
+    {
+        font-size: 2.1rem;
+    }
+    .card img
+    {
+        height: 16rem;
+    }
+    #sidebar
+    {
+        height: 32rem;
+    }
+}
+@media screen and (max-width:548px)
+{
+    .benefits .tags
+    {
+        width: 480px;
+        height: 150px;
+        padding: 0pc;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .card
+    {
+        width: 19rem;
+        height: 32rem;
+        border-radius: 10px;
+    }
+    .card img
+    {
+        height: 12rem;
+    }
+    .card-title
+    {
+        font-size: 1.5rem;
+    }
+    .card p
+    {
+        font-size: 1.6rem;
+    }
+    .card-text i
+    {
+        font-size: 15px;
+    }
+    .top-right #choose
+    {
+        font-size: 38px;
+    }
+    .tags p
+    {
+        font-size: 16px;
+    }
+    .benefits .tags i
+    {
+        font-size: 22px;
+    }
+}
