@@ -13,4 +13,8 @@ homeRouter.get('/premium',(req, res)=>{
     res.render('premium.ejs',{"premium":"false"});
 });
 
+homeRouter.get('/search',(req, res)=>{
+    res.render('search.ejs',{"results":""});
+});
+
 module.exports = homeRouter;

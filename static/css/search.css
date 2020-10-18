@@ -1,0 +1,109 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.form-inline
+{
+    font-size: 120px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.form-inline input
+{
+    font-size: 100px;
+    color: white;
+}
+.result
+{
+    text-align: center;
+    font-size: 50px;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+}
+.noresult
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.noresult img
+{
+    max-width: 900px;
+    max-height: 500px;
+}
+@media screen and (max-width:1190px)
+{
+    .noresult img
+    {
+       max-width: 600px;
+       max-height: 400px;
+    }
+}
+@media screen and (max-width:800px)
+{
+    .noresult img
+    {
+       max-width: 400px;
+       max-height: 200px;
+    }
+}
+@media screen and (max-width:580px)
+{
+    .noresult img
+    {
+       max-width: 200px;
+       max-height: 100px;
+    }
+}
+@media screen and (max-width:690px)
+{
+    .form-inline
+    {
+        font-size: 80px;
+    }
+    .form-inline input
+    {
+        font-size: 68px;
+        color: white;
+    }
+    .result
+    {
+        font-size: 37px;
+    }
+}
+@media screen and (max-width:490px)
+{
+    .form-inline
+    {
+        font-size: 60px;
+    }
+    .form-inline input
+    {
+        font-size: 48px;
+        color: white;
+    }
+    .result
+    {
+        font-size: 27px;
+    }
+}
+@media screen and (max-width:370px)
+{
+    .form-inline
+    {
+        font-size: 40px;
+    }
+    .form-inline input
+    {
+        font-size: 38px;
+        color: white;
+    }
+    .result
+    {
+        font-size: 22px;
+    }
+}
