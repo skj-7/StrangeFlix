@@ -36,9 +36,15 @@
 		</div>
 	</div>
 	<% if (message != "") { %>
-	<div class="alert-success">
-		<%= message %>
-	</div>
+		<div class="alert-success">
+			<%= message %>
+		</div>
+	<% } %>
+
+	<% if (error != "") { %>
+		<div class="alert-danger">
+			<%= error %>
+		</div>
 	<% } %>
 	<div class="middle">
 		<form method="post" action="/admin/upload" enctype="multipart/form-data">

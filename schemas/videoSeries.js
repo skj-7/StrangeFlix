@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
 
-const video = require('../schemas/videos');
-
 require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
 const durationSchema = new mongoose.Schema({
+	_id: false,
 	hours: {
 		type: Number,
 		min: 0,
