@@ -17,4 +17,8 @@ homeRouter.get('/search',(req, res)=>{
     res.render('search.ejs',{"results":""});
 });
 
+homeRouter.get('/cart',(req, res)=>{
+    res.render('cart.ejs',{"cart":""});
+});
+
 module.exports = homeRouter;

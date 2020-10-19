@@ -70,10 +70,16 @@ body
 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 9px;
     color:#C3073F;
     font-size: 50px;
-    position: sticky;
+    position: relative;;
+}
+.sficon .logo
+{
+    display: flex;
+    flex-direction: row;
 }
 .sficon img
 {
@@ -82,6 +88,25 @@ body
     border-radius: 200px;
     border: 2px solid rgba(0, 0, 0, 0.753);
     font-weight: bold;
+}
+.sficon i
+{
+    position: absolute;
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    border: 3px double black;
+    border-radius: 10px;
+    background-color: #C3073F;
+    top: 0;
+    right: 0;
+}
+.sficon i:hover
+{
+    color: black;
+    box-shadow: 2px 2px 5px 8px #c3073f96;
 }
 .content
 {
@@ -288,5 +313,20 @@ body
     .modal-content 
     {
         width: 60%;
+    }
+  }
+  @media screen and (max-width:445px)
+  {
+    .sficon img
+    {
+        width: 50px;
+        height: 50px;
+        border-radius: 200px;
+        border: 2px solid rgba(0, 0, 0, 0.753);
+        font-weight: bold;
+    }
+    .sficon
+    {
+        font-size: 32px;
     }
   }

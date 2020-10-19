@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.topbar .back
+{
+    margin-top: 1%;
+    font-size: 44px;
+    color: white;
+}
+.topbar .back:hover
+{
+    color: #C3073F;
+}
+.display
+{
+    position: relative;
+}
+.display img
+{
+    width: 50%;
+    height: 400px;
+    z-index: 1;
+}
+.display b
+{
+    position: absolute;
+    color: #C3073F;
+    z-index: 2;
+    margin-top: 100px;
+    left: 80%;
+    font-size: 110px;
+}
+.selections
+{
+    text-align: center;
+    font-size: 40px;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+}
+.middle
+{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.videos
+{
+    display: flex;
+    flex-direction: column;
+}
+.content
+{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    border: 4px double rgba(199, 186, 186, 0.226);
+    border-radius: 20px;
+}
+.content img
+{
+    width: 250px;
+    height: 300px;
+    border-radius: 19px;
+}
+.content .details
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 27px;
+    text-align: center;
+}
+.content .btns
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.content .btn
+{
+    font-size: 24px;
+}
+.total
+{
+    border: 4px solid rgba(199, 186, 186, 0.226);
+    margin: 20px;
+    height: 330px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 10px 8px rgba(255, 255, 255, 0.555);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.total p
+{
+    font-size: 27px;
+    color: #C3073F;
+}
+.remove,
+.total a
+{
+    font-size: 23px;
+    background-color: #C3073F;
+    color: aliceblue;
+    padding: 8px;
+    border-radius: 6px;
+}
+.remove:hover,
+.total a:hover
+{
+    text-decoration:none;
+    color: white;
+    box-shadow: 2px 2px 6px 6px #c3073f6c;
+}
+
+
+
+@media screen and (max-width:1338px)
+{
+    .content .details p
+    {
+        font-size: 22px;
+    }
+    .content .btn
+    {
+        font-size: 16px;
+    }
+    .remove
+    {
+        font-size: 22px;
+    }
+    .content img
+    {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:1251px)
+{
+    .content .details p
+    {
+        font-size: 16px;
+    }
+    .total a
+    {
+        font-size: 16px;
+    }
+    .remove
+    {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width:960px)
+{
+    .content .details p
+    {
+        font-size: 11px;
+    }
+    .remove
+    {
+        font-size: 11px;
+    }
+    .total a
+    {
+        font-size: 12px;
+    }
+    .total p
+    {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:799px)
+{
+    .display img
+    {
+        height: 200px;
+    }
+    .display b
+    {
+        margin-top: 30px;
+        font-size: 70px;
+    }
+    .content
+    {
+        padding: 0;
+    }
+    .middle
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .total
+    {
+        width: 400px;
+        height: 250px;
+    }
+    .total p
+    {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:483px)
+{
+    .selections p
+    {
+        font-size: 20px;
+    }
+    .total
+    {
+        width: 300px;
+        height: 150px;
+    }
+    .total p
+    {
+        font-size: 23px;
+    }
+    .content
+    {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .display img
+    {
+        height: 100px;
+    }
+    .display b
+    {
+        margin-top: 10px;
+        font-size: 40px;
+    }
+    .content img
+    {
+        width: 100px;
+        height: 150px;
+    }
+}

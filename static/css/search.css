@@ -6,13 +6,13 @@
 }
 .form-inline
 {
-    font-size: 120px;
+    font-size: 80px;
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
 .form-inline input
 {
-    font-size: 100px;
+    font-size: 80px;
     color: white;
 }
 .result
