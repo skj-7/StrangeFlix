@@ -6,6 +6,7 @@ const fse = require('fs-extra');
 const multer = require('multer');
 const path = require('path');
 const videos = require('../schemas/videos');
+const videoSeries = require('../schemas/videoSeries');
 
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -32,13 +33,33 @@ const upload = multer({ storage: storage }).fields(
 );
 
 adminupload.get('/', (req, res) => {
-	res.render('adminUpload.ejs', { "message": "", "ID": "" });
-})
+	if (req.session.admin) {
+		res.render('adminUpload.ejs', { "message": "", "error": "" });
+	}
+	else {
+		res.redirect('/admin/login');
+	}
+});
+
+adminupload.post('/checkseries', (req, res) => {
+	var Name = req.body.SeriesName;
+
+	videoSeries.findOne({ seriesTitle: Name }, (error, data) => {
+		if (error)
+			return console.log(error);
+		else if (data == null) {
+			res.json({ "isPresent": "false" });
+		}
+		else
+			res.json({ "isPresent": "true" });
+	});
+});
 
 adminupload.post('/', (req, res) => {
 	upload(req, res, function (err) {
 		if (err) {
-			return console.log(err);
+			console.log(err);
+			res.render('error.ejs', { "message": "", "error": "Unexpected error Occured!" });
 		}
 		else {
 			var Title = req.body.title;
@@ -51,32 +72,32 @@ adminupload.post('/', (req, res) => {
 			var Tags = req.body.tags.split(',');
 			var Category = req.body.category;
 
-			if (typeof req.files.video == 'undefined') {
-				console.log("No image selected!")
-			}
-			else {
+			videoSeries.findOne({ seriesTitle: SeriesName }, (error, data) => {
+				if (error) {
+					console.log(error);
+					res.render('error.ejs', { "message": "", "error": "Unexpected error Occured!" });
+				}
+				else if (data == null) {
+					res.render('adminUpload.ejs', {
+						"error": "",
+						"message": ""
+					});
+				}
+				else {
+					if (typeof req.files.video == 'undefined') {
+						console.log("No video selected!")
+					}
+					// else {
 
 
-			}
+					// }
+				}
+			});
 		}
-
-
 	});
 });
 
-// userdata.findOne({ email: Email }, (err, data) => {
-
-// 	// Now we can store the password hash in db.
-// 	var data = { fName: fname, lName: lname, email: Email, password: hash };
-// 	var mydata = new userdata(data);
-// 	mydata.save(function (err) {
-// 		if (err)
-// 			return console.error(err);
-// 	})
-
-	
-
-
+module.exports = adminupload;
 
 // 	adminupload.get('/download', (req, res) => {
 // 		var url = req.query.ytlink;
@@ -136,5 +157,3 @@ adminupload.post('/', (req, res) => {
 // 	video.on('end', function () {
 // 		console.log('finished downloading!')
 // 	})
-
-	module.exports = adminupload;
