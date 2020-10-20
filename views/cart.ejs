@@ -49,7 +49,7 @@
                 </div>
                 <div class="btns">
                     <a class="btn btn-danger"><p class="fa fa-inr" aria-hidden="true"> 39</p></a>
-                    <form action="/cart/remove" method="post">
+                    <form action="home/cart/remove" method="post">
                         <button class="remove">Remove from cart</button>
                     </form>
                 </div>
@@ -58,8 +58,9 @@
         <div class="total">
             <p>Total Videos: 2</p>
             <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> 78</i> </p>
-            <a href="">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </a>
+            <form action="home/pay" method="post">
+                <button class="pay">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+            </form>
         </div>
     </div>
 

@@ -106,7 +106,7 @@
     color: #C3073F;
 }
 .remove,
-.total a
+.total .pay
 {
     font-size: 23px;
     background-color: #C3073F;
@@ -115,7 +115,7 @@
     border-radius: 6px;
 }
 .remove:hover,
-.total a:hover
+.total .pay:hover
 {
     text-decoration:none;
     color: white;
@@ -151,7 +151,7 @@
     {
         font-size: 16px;
     }
-    .total a
+    .total .pay
     {
         font-size: 16px;
     }
@@ -170,7 +170,7 @@
     {
         font-size: 11px;
     }
-    .total a
+    .total .pay
     {
         font-size: 12px;
     }
