@@ -1,7 +1,7 @@
 const adminupload = require('express').Router();
 
-// const fs = require("fs");
-let fse = require('fs-extra');
+const fs = require("fs");
+const fse = require('fs-extra');
 // const youtubedl = require('youtube-dl')
 const multer = require('multer');
 const path = require('path');
@@ -11,13 +11,11 @@ const videoSeries = require('../schemas/videoSeries');
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		if (file.fieldname === "video") {
-			console.log("4");
-			console.log(req.body);
 			let path = `assets/videos`;
 			fse.mkdirsSync(path);
 			cb(null, path);
 		} else {
-			let path = `assets/thumbnails`;
+			let path = `assets/thumbnails/singles`;
 			fse.mkdirsSync(path);
 			cb(null, path);
 		}
@@ -29,85 +27,133 @@ var storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).fields(
 	[
-		{name: 'video', maxCount: 1},
-		{name: 'thumbnail', maxCount: 1}
+		{ name: 'video', maxCount: 1 },
+		{ name: 'thumbnail', maxCount: 1 }
 	]
 );
 
 adminupload.get('/', (req, res) => {
-	res.render('upload.ejs', { "message": "" });
-})
-
-adminupload.post('/file', (req, res) => {
-	console.log("1");
-	console.log(req.files);
-	console.log("2");
-	console.log(req.body);
-	req.body.idn = "sgvfb";
-	console.log("3");
-	console.log(req.body);
-	upload(req, res, function (err) {
-		if (err) {
-			console.log("here");
-			return console.log(err);
-		} else {
-			if (req.file == "undefined") {
-				console.log("No image selected!")
-			} else {
-				// let datecreated = new Date();
-				// let fullnames = req.body.firstname + ' ' + req.body.lastname;
-				// let formatedphone = '';
-				// let phone = req.body.personalphone;
-				// if (phone.charAt(0) == '0') {
-				// 	formatedphone = '+254' + phone.substring(1);
-				// } else if ((phone.charAt(0) == '+') && (phone.length > 12 || phone.length <= 15)) {
-				// 	formatedphone = phone
-				// }
-				// let teachers = {
-				// 	"teacherid": teacherid,
-				// 	"schoolcode": req.body.schoolcode,
-				// 	"fullnames": fullnames,
-				// 	"email": req.body.email,
-				// 	"dateofbirth": req.body.dateofbirth,
-				// 	"nationalid": req.body.nationalid,
-				// 	"personalphone": formatedphone,
-				// 	"profile": req.files.profile[0].path,
-				// 	"natid": req.files.natid[0].path,
-				// 	"certificate": req.files.certificate[0].path
-				// }
-				// connection.query('INSERT INTO teachers SET ?', teachers, (error, results, fields) => {
-				// 	`enter code here`
-				// 	if (error) {
-				// 		res.json({
-				// 			status: false,
-				// 			message: 'there are some error with query'
-				// 		})
-				// 		console.log(error);
-				// 	} else {
-						console.log("Saved successfully");
-				
-					// }
-					res.send("Good");
-			}
-		}
-	});			
+	if (req.session.admin) {
+		res.render('adminUpload.ejs', { "message": "", "error": "" });
+	}
+	else {
+		res.redirect('/admin/login');
+	}
 });
 
-// adminupload.get('/download', (req, res) => {
-// 	var url = req.query.ytlink;
+adminupload.post('/checkseries', (req, res) => {
+	var Name = req.body.SeriesName;
 
-// 	const video = youtubedl(url, ['--format=18'], { cwd: __dirname });
+	videoSeries.findOne({ seriesTitle: Name }, (error, data) => {
+		if (error)
+			return console.log(error);
+		else if (data == null) {
+			res.json({ "isPresent": "false" });
+		}
+		else
+			res.json({ "isPresent": "true" });
+	});
+});
+
+adminupload.post('/', (req, res) => {
+	upload(req, res, function (err) {
+		if (err) {
+			console.log(err);
+			res.render('error.ejs', { "message": "", "error": "Unexpected error Occured!" });
+		}
+		else {
+			var Title = req.body.title;
+			var Price = req.body.price;
+			var Dhour = req.body.hours;
+			var Dmin = req.body.minutes;
+			var Dsec = req.body.seconds;
+			var SeriesName = req.body.series;
+			var Descr = req.body.description;
+			var Tags = req.body.tags.split(',');
+			var Category = req.body.category;
+
+			videoSeries.findOne({ seriesTitle: SeriesName }, (error, data) => {
+				if (error) {
+					console.log(error);
+					res.render('error.ejs', { "message": "", "error": "Unexpected error Occured!" });
+				}
+				else if (data == null) {
+					res.render('adminUpload.ejs', {
+						"error": "",
+						"message": ""
+					});
+				}
+				else {
+					if (typeof req.files.video == 'undefined') {
+						console.log("No video selected!")
+					}
+					// else {
+
+
+					// }
+				}
+			});
+		}
+	});
+});
+
+module.exports = adminupload;
+
+// 	adminupload.get('/download', (req, res) => {
+// 		var url = req.query.ytlink;
+
+// 		const video = youtubedl(url, ['--format=18'], { cwd: __dirname });
+// 		video.on('info', function (info) {
+// 			console.log('Download started')
+// 			console.log('filename: ' + info._filename)
+// 			console.log('size: ' + info.size)
+// 			video.pipe(fs.createWriteStream(info._filename + '.mp4'));
+// 		})
+
+// 		video.on('end', async () => {
+// 			await console.log('finished downloading!');
+// 			await res.status(200).render('upload.ejs', { "message": "uploaded" });
+// 		})
+// 	})
+
+// 	const output = 'myvideo.mp4'
+
+// 	let downloaded = 0
+
+// 	if (fs.existsSync(output)) {
+// 		downloaded = fs.statSync(output).size
+// 	}
+
+// 	const video = youtubedl('https://www.youtube.com/watch?v=179MiZSibco',
+// 		['--format=18'],
+// 		{ start: downloaded, cwd: __dirname })
+
+// 	// Will be called when the download starts.
 // 	video.on('info', function (info) {
 // 		console.log('Download started')
 // 		console.log('filename: ' + info._filename)
-// 		console.log('size: ' + info.size)
-// 		video.pipe(fs.createWriteStream(info._filename + '.mp4'));
+
+// 		// info.size will be the amount to download, add
+// 		let total = info.size + downloaded
+// 		console.log('size: ' + total)
+
+// 		if (downloaded > 0) {
+// 			// size will be the amount already downloaded
+// 			console.log('resuming from: ' + downloaded)
+
+// 			// display the remaining bytes to download
+// 			console.log('remaining bytes: ' + info.size)
+// 		}
 // 	})
 
-// 	video.on('end', async () => {
-// 		await console.log('finished downloading!');
-// 		await res.status(200).render('upload.ejs', { "message": "uploaded" });
-// 	})
-// })
+// 	video.pipe(fs.createWriteStream(output, { flags: 'a' }))
 
-module.exports = adminupload;
+// 	// Will be called if download was already completed and there is nothing more to download.
+// 	video.on('complete', function complete(info) {
+// 		'use strict'
+// 		console.log('filename: ' + info._filename + ' already downloaded.')
+// 	})
+
+// 	video.on('end', function () {
+// 		console.log('finished downloading!')
+// 	})
