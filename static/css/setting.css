@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+#sidebar:hover
+{
+    width: 280px;
+    
+}
+.icon
+{
+    font-size: 30px;
+}
+.icon:hover
+{
+    font-size: 33px;
+}
+#personal,
+#security,
+#subs
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form
+{
+    background-color: #C3073F;
+    border: 10px double black;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#personal p,
+#security p,
+#subs p
+{
+    text-align: center;
+    font-size: 40px;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+    width: 100%;
+}
+.form
+{
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+}
+.form input
+{
+    font-size: 25px;
+    outline: none;
+    border-radius: 7px;
+    padding: 3px;
+    border: 2px solid #C3073F;
+}
+.form label
+{
+    color: white;
+    font-size: 27px;
+}
+
+.form .change
+{
+    padding: 5px;
+}
+.form .change:hover
+{
+    background-color: #C3073F;
+    box-shadow: 2px 2px 6px 6px white;
+    color: aliceblue;
+}
+
+
+
+@media screen and (max-width:499px)
+{
+    .form input
+    {
+        font-size: 18px;
+    }
+    .form label
+    {
+        font-size: 18px;
+    }
+    #personal p,
+    #security p,
+    #subs p
+    {
+        font-size: 30px;
+    }
+    form
+    {
+        padding: 10px;
+    }
+}

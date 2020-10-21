@@ -110,6 +110,7 @@ section p
     font-size: 20px;
     border-radius: 10px;
     border: 2px solid #C3073F;
+    outline: none;
 }
 .signup
 {

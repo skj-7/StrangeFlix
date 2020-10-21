@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Settings</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/setting.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap/mdb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body onload="personal()">
+    <div class="sficon">
+        <div class="logo">
+            <img src="../static/icon.jpg" alt="">
+            <p>StrangeFlix</p>
+        </div>
+        <a href="/home/cart"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="msg">
+                <p>Are you sure you want to logout</p>
+                <span class="close">&times;</span>
+            </div>
+            <div class="confirm">
+                <a href="/login/logout" class="btn btn-danger">YES</a>
+            </div>
+        </div>
+    </div>
+    <div class="top">
+        <div id="sidebar">
+            <div class="icon" onclick="personal()">
+                <a><i class="fa fa-id-badge"></i></a>
+                <p>Personal</p>
+            </div>
+            <div class="icon" onclick="security()">
+                <a><i class="fa fa-key"></i></a>
+                <p>Security</p>
+            </div>
+            <div class="icon" onclick="subs()">
+                <a><i class="fa fa-youtube-play"></i></a>
+                <p>Subscription</p>
+            </div>
+        </div>
+        <div class="content">
+
+
+            <div id="personal">
+                <p>Personal Information</p>
+                <form action="/home/setting/personal" method="post">
+                    <div class="form">
+                        <label for="fname">First Name:</label>
+                        <input type="text" name="fname" id="fname" value="Sanskar" required>
+                    </div>
+                    <div class="form">
+                        <label for="fname">Last Name:</label>
+                        <input type="text" name="lname" id="lname" value="Jain" required>
+                    </div>
+                    <div class="form">
+                        <label for="age">Age:</label>
+                        <input type="number" name="age" id="age" value="18" min="18" required>
+                    </div>
+                    <div class="form">
+                        <label for="email">Email ID:</label>
+                        <input type="email" name="email" id="email" value="Sanskar@gmail.com" readonly>
+                    </div>
+                    <div class="form">
+                        <input type="submit" class="change" value="Change Details">
+                    </div>
+                </form>
+            </div>
+
+
+            <div id="security">
+                <p>Change Password</p>
+                <form action="/home/setting/changepass" method="post">
+                    <div class="form">
+                        <label for="oldpass">Current Password:</label>
+                        <input type="password" name="oldpass" id="oldpass" required>
+                    </div>
+                    <div class="form">
+                        <label for="newpass">New Password:</label>
+                        <input type="password" name="newpass" id="newpass"  required>
+                    </div>
+                    <div class="form">
+                        <label for="confirmpass">Confirm Password:</label>
+                        <input type="password" name="confirmpass" id="confirmpass" required>
+                    </div>
+                    <div class="form">
+                        <input type="submit" class="change" value="Change Password">
+                    </div>
+                </form>
+            </div>
+
+
+            <div id="subs">
+                <p>Subscription Details</p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script src="../static/fe_js/setting.js"></script>
+    <%- include ("footer") %>

@@ -58,7 +58,8 @@
         <div class="total">
             <p>Total Videos: 2</p>
             <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> 78</i> </p>
-            <form action="home/pay" method="post">
+            <form action="/home/payment" method="post">
+                <input type="text" name="amount" value="78" style="display: none;">
                 <button class="pay">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
             </form>
         </div>

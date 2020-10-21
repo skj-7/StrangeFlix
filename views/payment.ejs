@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <link rel="stylesheet" href="../static/css/payment.css">
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap/mdb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="sficon">
+        <div class="logo">
+            <img src="../static/icon.jpg" alt="">
+            <p>StrangeFlix</p>
+        </div>
+    </div>
+    <div class="confirmation">
+        <p>Confirm Payment</p>
+        <form method="post" id="register" action="/home/payment/paystack">
+            <i>Details</i>
+            <div class="form">
+                <label> E-Mail ID: </label>
+                <input type="text" name="email" id="email" value= <%= email %> readonly>
+            </div>
+            <div class="form">
+                <label> Name: </label>
+                <input type="text" name="name" id="name" value= <%= name %> readonly>
+            </div>
+            <div class="form">
+                <label>Net Billing Amount (&#x20B9;): </label>
+                <input type="number" name="amount" id="amount" value= <%= amount %> readonly>
+            </div>
+            <div class="form">
+                <input type="submit" value="Confirm" class="confirm">
+            </div>
+          </form>
+    </div>
+
+
+
+
+ <%- include ("footer") %>
