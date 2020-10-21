@@ -1,4 +1,11 @@
-.alert{
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.alert
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +23,9 @@
     color: black;
     text-shadow: none;
     border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .alert-danger
@@ -29,19 +39,13 @@
     color: black;
     text-shadow: none;
     border-radius: 9px;
-}
-
-.container
-{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    align-items: center;
 }
-/* 
-body::before {
+body::before{
     content: " ";
+    background:url('/static/img/404-error.jpg')no-repeat center/cover;
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -49,5 +53,15 @@ body::before {
     left: 0;
     top: 0;
     opacity: 1;
-} */
-
+  }
+  @media screen and (max-width:496px)
+  {
+    .alert-success
+    {
+        width: 250px;
+    }
+    .alert-danger
+    {
+        width: 250px;
+    }
+  }

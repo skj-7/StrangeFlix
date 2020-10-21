@@ -70,9 +70,10 @@
     border-radius: 200px;
     background-color: white;
 }
-body::before{
+body::before
+{
     content: " ";
-    background:url('/static/bg.jpg')repeat center/cover;
+    background:url('/static/img/bg.jpg')repeat center/cover;
     z-index: -1;
     position: absolute;
     width: 100%;
