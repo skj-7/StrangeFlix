@@ -2,7 +2,9 @@ const adminupload = require('express').Router();
 
 const fs = require("fs");
 const fse = require('fs-extra');
-const youtubedl = require('youtube-dl')
+const https = require('https');
+const url = require('url');
+const ytdl = require('ytdl-core');
 const multer = require('multer');
 const path = require('path');
 const videos = require('../schemas/videos');
@@ -106,22 +108,42 @@ adminupload.post('/', (req, res) => {
 							else {
 								var video_id = savedata._id;
 								if (typeof req.files.video == 'undefined') {
-									console.log("No video selected!")
-									var YTLink = req.body.ytlink;
-									var AS3Link = req.body.AS3link;
-									if(YTLink != "") {
-										const videodown = youtubedl(YTLink, ['--format=18'], { cwd: __dirname });
-										videodown.on('info', function (info) {
-											console.log('Download started')
-											console.log('filename: ' + info._filename)
-											console.log('size: ' + info.size)
-											// videodown.pipe(fs.createWriteStream(info._filename + '.mp4'));
-										})
+									console.log("Upload with links...")
+									var YTurl = req.body.ytlink;
+									var AS3url = req.body.AS3link;
+									if(YTurl != "") {
+										var videoVID = url.parse(YTurl, true).query.v;
 
-										// videodown.on('end', async () => {
-										// 	await console.log('finished downloading!');
-										// 	await res.render('adminUpload.ejs', { "message": "YT Video: " + Title + " successfully uploaded!", "error": "" });
-										// })
+										let redirectYTComp = () => {
+											console.log('Youtube video uploaded.')
+											res.render('adminUpload.ejs', { "message": "YT Video: " + Title + " successfully uploaded!", "error": "" })
+										}
+										
+										let uploadTN = () => {
+											https.get(`https://img.youtube.com/vi/${videoVID}/maxresdefault.jpg`, (res) => {
+
+												var stream = res.pipe(fs.createWriteStream(`./assets/thumbnails/singles/${video_id}.jpg`));
+												stream.on('finish', () => {
+													redirectYTComp();
+												});
+											}).on('error', (e) => {
+												console.error(e);
+											});
+										}
+										
+										let uploadYT = async () => {
+											var videoReadableStream = ytdl(YTurl, {quality: 'highest'});
+											let info = await ytdl.getInfo(YTurl);
+											
+											var videoName = info.videoDetails.title.replace('|','').toString('ascii');
+											var videoWritableStream = fs.createWriteStream('./assets/videos/'+ video_id + '.mp4');
+											var stream = videoReadableStream.pipe(videoWritableStream);
+
+											stream.on('finish', () => {
+												uploadTN();
+											});
+										}
+										uploadYT();      
 									}
 									else if(AS3Link != ""){
 										res.send("Ruk abhi!");
