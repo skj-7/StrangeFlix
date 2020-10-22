@@ -1,7 +1,7 @@
 const routerLogin = require('express').Router();
 var mongoose = require('mongoose');
 var bcrypt = require("bcrypt");
-var userdata = mongoose.model('Users');
+var userdata = require('../schemas/userData');
 
 routerLogin.get('/', (req, res) => {
 	if (req.session.user_id) {

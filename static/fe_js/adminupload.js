@@ -83,24 +83,24 @@ function nu()
     NU.style.display="block";
 }
 
-$(document).ready(function () {
-    $('#target').keyup(function (e) {
-        console.log('desired event fire!!!!!!!')
-        e.preventDefault();
-        var name = $("#target").val();
-        $.ajax({
-            type: "POST",
-            url: '/admin/upload/checkseries',
-            data: {
-                seriesName = name
-            },
-            contentType: "application/json; charset=utf-8",
-            success: function (result) {
-                if(result.isPresent == "false") {
-                    $(".alert-danger").append("Series Name: " + name + " does not exist. Register <a href=" + req.headers.host + "\/admin\/regseries> here </a>.");
-                    console.log(this.url);
-                }
-            }
-        });
-    });
-});
+// $(document).ready(function () {
+//     $('#target').keyup(function (e) {
+//         console.log('desired event fire!!!!!!!')
+//         e.preventDefault();
+//         var name = $("#target").val();
+//         $.ajax({
+//             type: "POST",
+//             url: '/admin/upload/checkseries',
+//             data: {
+//                 seriesName = name
+//             },
+//             contentType: "application/json; charset=utf-8",
+//             success: function (result) {
+//                 if(result.isPresent == "false") {
+//                     $(".alert-danger").append("Series Name: " + name + " does not exist. Register <a href=" + req.headers.host + "\/admin\/regseries> here </a>.");
+//                     console.log(this.url);
+//                 }
+//             }
+//         });
+//     });
+// });
