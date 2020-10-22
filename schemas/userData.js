@@ -30,7 +30,12 @@ var mySchema = new mongoose.Schema({
 		type: Number,
 		default: 0,
 		required: true
-	}
+	},
+	comments: [{
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		ref: 'Comments'
+    }]
 }, {
 	timestamps: true
 });
