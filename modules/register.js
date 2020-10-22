@@ -24,17 +24,14 @@ register.get('/', (req, res) => {
 })
 
 register.post('/', (req, res) => {
+	if (req.session.user_id) {
+		res.redirect('/home');
+	}
 	var fname = req.body.fName;
 	var lname = req.body.lName;
 	var Email = req.body.email;
+	var age = req.body.age;
 	var password = req.body.password;
-	if (fname == "" || lname == "" || Email == "" || password == "") {
-		res.render('register.ejs', {
-			"error": "Fill all the fields below",
-			"message": ""
-		});
-		return;
-	}
 	if (validator.validate(Email) == false) {
 		res.render('register.ejs', {
 			"error": "Email is invalid",
@@ -60,7 +57,7 @@ register.post('/', (req, res) => {
 					return;
 				}
 				// Now we can store the password hash in db.
-				var data = { fName: fname, lName: lname, email: Email, password: hash };
+				var data = { fName: fname, lName: lname, email: Email, age: age, password: hash };
 				var mydata = new userdata(data);
 				mydata.save(function (err) {
 					if (err)

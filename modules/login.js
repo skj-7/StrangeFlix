@@ -16,6 +16,9 @@ routerLogin.get('/', (req, res) => {
 });
 
 routerLogin.post('/',(req, res) => {
+	if (req.session.user_id) {
+		res.redirect('/home');
+	}
     var Email = req.body.email;
     var Password = req.body.password;
     if (Email == "" || Password == "") {
@@ -78,11 +81,5 @@ routerLogin.post('/',(req, res) => {
       	}
     })
 })
-
-// Logout endpoint
-routerLogin.get('/logout', (req, res) => {
-	req.session.destroy();
-	res.redirect('/login');
-});
 
 module.exports = routerLogin;
