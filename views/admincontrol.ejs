@@ -10,12 +10,14 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/admincontrol.css">
 </head>
+
 <body>
     <div class="nav">
         <header>
             <a href="/admin/upload">Upload</a>
             <a href="/admin/flags">Flags</a>
             <a href="/admin/users">Users</a>
+            <a href="/admin/regseries">Reg-Series</a>
         </header>
         <div class="mid">
             <img src="/static/icon.jpg" alt="">
@@ -49,33 +51,15 @@
                 <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                 <div class="detail">
                     <p>Name:<%= videoarray[i].title %></p>
-                    <p>Duration: <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %></p>
-                    <!-- <p>Description:<%=videoarray[i].description %></p>
-                    <p>Tags:<%=videoarray[i].tags %></p> -->
+                    <p>Duration:
+                        <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %>
+                    </p>
                     <p>Price: <%= videoarray[i].price %></p>
                     <p>Category: <%= videoarray[i].category %></p>
                 </div>
                 <div class="btns">
                     <button>Remove</button>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comments</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <% for(var j=0; j < videoarray[i].comments.length; j++) {%>
-                            <div id="comlist">
-                                <p class="fa fa-user-circle">Username:<%=videoarray[i].comments[j].username%></p>
-                                <p class="comment"><%=videoarray[i].comments[j].comment%></p>
-                                <div id="flag">
-                                    <% if (videoarray[i].comments[j].flag== "true") { %>
-                                    <p class="fa fa-flag"></p>
-                                    <button>Remove</button>
-                                    <% } %>
-                                </div>
-                                <hr>
-                            </div>
-                            <% } %>
-                        </div>
-                    </div>
+                    <button>Edit</button>
                 </div>
             </div>
             <% } %>
@@ -85,46 +69,19 @@
             <div class="vidseries">
                 <p class="series-name">Series name:<%=series[i].name %></p>
                 <div class="serial">
-                    <% for(var j=0;j<series[i].video.length;j++) {%>
-                    <div id="vid">
-                        <img id="thumbnail" src="<%= series[i].video[j].imgpath %>" alt="" onclick="play()">
-                        <div class="detail">
-                            <p>Name:<%= series[i].video[j].name %></p>
-                            <p>Duration:<%=series[i].video[j].duration %></p>
-                            <p>Description:<%=series[i].video[j].description %></p>
-                            <p>Tags:<%=series[i].video[j].tags %></p>
-                            <p>Category:<%=series[i].video[j].catagory %></p>
-                        </div>
-                        <div class="btns">
-                            <button>Remove</button>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comments</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <% for(var k=0;k<series[i].video[j].comments.length;k++) {%>
-                                    <div id="comlist">
-                                        <p class="fa fa-user-circle">
-                                            Username:<%=series[i].video[j].comments[k].username%></p>
-                                        <p class="comment"><%=series[i].video[j].comments[k].comment%></p>
-                                        <div id="flag">
-                                            <% if (videoarray[i].comments[j].flag== "true") { %>
-                                            <p class="fa fa-flag"></p>
-                                            <button>Remove</button>
-                                            <% } %>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <% } %>
-                                </div>
-                            </div>
-                        </div>
+                    <img src="/<%= series[i].thumbnail %>" alt="">
+                    <div class="btns">
+                        <button>Remove</button>
+                        <button>View</button>
                     </div>
-                    <% } %>
                 </div>
             </div>
             <% } %>
         </div>
     </div>
+
+
+    
     <script src="/static/fe_js/admincontrol.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -136,4 +93,5 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

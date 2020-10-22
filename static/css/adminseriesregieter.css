@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+body::before{
+    content: " ";
+    background:url('/static/adminbg.jpg')repeat center/cover;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 145%;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+  }
+  .nav{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content:space-evenly;
+  }
+  header{
+      position: absolute;
+       margin-top: 15px;
+       left: 0;
+  }
+  header a{
+      padding-right: 20px;
+      padding-left: 20px;
+      text-decoration: none;
+      font-size: 26px;
+      border-radius: 30px;
+      border: 2px ridge blue;
+  }
+  header a:hover{
+      background-color:blue;
+      color: white;
+      border-radius: 30px;
+  }
+  .upload-btn{
+    background-color:blue;
+    color: white;
+    border-radius: 30px;
+  }
+.mid{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.mid img
+{
+    height: 100%;
+    width: 80px;
+    border-radius: 3000px;
+}
+.mid p{
+    font-size: 45px;
+    padding-top: 10px;
+    padding-left: 3px;
+    text-align: center;
+    color: blue;
+    text-shadow:2px 2px purple;
+}
+  .topnav {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      right: 0;
+      height: 220px;
+      width: 200px;
+    }
+    
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .topnav #myLinks {
+      display: none;
+      margin-top: 19px;
+      background-color: blue;
+    }
+    
+    /* Style navigation menu links */
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+    
+    /* Style the hamburger menu */
+    .topnav a.icon {
+      
+      background: blue;
+      display: block;
+      height: 17px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    /* Add a grey background color on mouse-over */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Style the active link (or home/logo) */
+    .active {
+      background-color: #4CAF50;
+      color: white;
+    }
+form{
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 40%;
+    margin-right: 40%; */
+}
+input ,textarea,select
+{
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+}
+select
+{
+    font-size: 20px;
+}
+.upload
+{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    border: 1px solid black;
+    width: 330px;
+    padding: 10px;
+    border-radius: 2px;
+}
+.upload p
+{
+    font-size: 23px;
+}
+.formgroup
+{
+    display: flex;
+    flex-direction: column;
+}
+.form-group
+{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+.btn
+{
+    margin-top: 20px;
+    width: 140px;
+    height: 40px;
+    margin-left: 80px;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 200px;
+}
+.btn:hover
+{
+    background-color: whitesmoke;
+    color: blue;
+    border: 2px solid blue;
+}
+.alert-success
+{
+    margin-left: 40%;
+    margin-right: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 45px;
+    border: 2px solid green;
+    background-color: lightgreen;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+}
+#duration
+{
+    display: flex;
+    flex-direction: row;
+}
+#price
+{
+    display: flex;
+    flex-direction: row;
+}
+#sym
+{
+    width: 30px;
+    font-size: 25px;
+}
+#price-value
+{
+    width:266px ;
+}
+#duration input
+{
+    width: 90px;
+    margin-right: 10px;
+}
+.middle
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.files
+{
+    margin-top: 20px;
+}
+
+
+#yt
+{
+    display: none;
+}
+#s3
+{
+    display: none;
+}
+#nu
+{
+    display: none;
+}
+#wl
+{
+    display: none;
+}
+.selection
+{
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.selection p
+{
+    cursor: pointer;
+    font-size: 15px;
+    border: 2px double blue;
+    padding: 2px;
+    border-radius: 10px;
+    margin: 3px;
+}
+.selection p:hover
+{
+    font-size: 17px;
+}
+
+@media screen and (max-width:730px)
+{
+    form{
+        display: flex;
+        flex-direction: column;
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width:470px)
+{
+    input ,textarea,select
+{
+    width: 250px;
+    height: 40px;
+}
+.upload{
+    width: 250px;
+}
+}
