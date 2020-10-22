@@ -21,13 +21,7 @@ routerLogin.post('/',(req, res) => {
 	}
     var Email = req.body.email;
     var Password = req.body.password;
-    if (Email == "" || Password == "") {
-		res.render('login.ejs', {
-			"error": "Fill all the fields below",
-			"message": ""
-		});
-		return;
-    }
+
     userdata.findOne({ email:Email }, (err, user) => {
 		if (err) {
 			console.log(err);

@@ -58,7 +58,12 @@ const videoSchema = new mongoose.Schema({
 		required: true
 	},
 	duration: durationSchema,
-	tags: [String]
+	tags: [String],
+	comments: [{
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		ref: 'Comments'
+    }]
 }, {
 	timestamps: true
 });

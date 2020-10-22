@@ -44,15 +44,16 @@
             <button onclick="series()">Series</button>
         </div>
         <div id="middle-solo">
-            <% for(var i=0;i<videoarray.length;i++) {%>
+            <% for(var i=0; i < videoarray.length; i++) { %>
             <div id="vid">
-                <img id="thumbnail" src="<%= videoarray[i].imgpath %>" alt="" onclick="play()">
+                <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                 <div class="detail">
-                    <p>Name:<%= videoarray[i].name %></p>
-                    <p>Duration:<%=videoarray[i].duration %></p>
-                    <p>Description:<%=videoarray[i].description %></p>
-                    <p>Tags:<%=videoarray[i].tags %></p>
-                    <p>Category:<%=videoarray[i].catagory %></p>
+                    <p>Name:<%= videoarray[i].title %></p>
+                    <p>Duration: <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %></p>
+                    <!-- <p>Description:<%=videoarray[i].description %></p>
+                    <p>Tags:<%=videoarray[i].tags %></p> -->
+                    <p>Price: <%= videoarray[i].price %></p>
+                    <p>Category: <%= videoarray[i].category %></p>
                 </div>
                 <div class="btns">
                     <button>Remove</button>
@@ -60,7 +61,7 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comments</button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <% for(var j=0;j<videoarray[i].comments.length;j++) {%>
+                            <% for(var j=0; j < videoarray[i].comments.length; j++) {%>
                             <div id="comlist">
                                 <p class="fa fa-user-circle">Username:<%=videoarray[i].comments[j].username%></p>
                                 <p class="comment"><%=videoarray[i].comments[j].comment%></p>
