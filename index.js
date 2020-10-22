@@ -1,7 +1,7 @@
 const express = require('express');
 var bodyParser = require('body-parser');
-const fs=require("fs")
-const path=require("path")
+const fs = require("fs")
+const path = require("path")
 var mongoose = require('mongoose');
 var session = require('express-session');
 
@@ -34,7 +34,7 @@ app.use(session({
 }));
 
 //Router
-mainRouter = require("./modules/router");
+mainRouter = require("./modules/mainRouter");
 app.use("/", mainRouter);
 app.listen(port, () => {
 	console.log("Server Started!");

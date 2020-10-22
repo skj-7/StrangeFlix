@@ -1,5 +1,4 @@
 const routerLogin = require('express').Router();
-var mongoose = require('mongoose');
 var bcrypt = require("bcrypt");
 var userdata = require('../schemas/userData');
 
