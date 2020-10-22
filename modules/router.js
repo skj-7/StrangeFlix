@@ -16,4 +16,8 @@ router.use("/admin",adminRouter);
 
 router.use("/home",homeRouter);
 
+router.get('/',(req, res)=>{
+    res.render('index.ejs');
+});
+
 module.exports = router;
