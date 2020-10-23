@@ -1,6 +1,5 @@
 const verification = require('express').Router();
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const usertoken = require('../schemas/token');
 const userdata = require('../schemas/userData');
 

@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../static/css/video-info.css">
 </head>
 <body>
-    <p>Name:<%= video.name %></p>
+    <p>VideoID: <%= video._id %></p>
     <div class="video">
-        <img src="<%= video.imgpath %>" alt="">
+        <img src="/<%= video.thumbnail %>" alt="">
         <div class="info">
             <form method="post" action="/admin/upload/edit" enctype="multipart/form-data">
                 <div class="form-group">
@@ -59,13 +59,13 @@
     </div>
     <div class="commentSection">
         <div id="comlist">
-            <% for(var j=0; j < video.comments.length; j++) {%>
-            <p class="fa fa-user-circle">Username:<%=video.comments[j].username%></p>
-            <p class="comment"><%=video.comments[j].comment%></p>
+            <% for(var j=0; j < video.comments.length; j++) { %>
+            <p class="fa fa-user-circle">Username:<%= video.comments[j].username %></p>
+            <p class="comment"><%= video.comments[j].comment %></p>
             <div id="flag">
-                <% if (video.comments[j].flag== "true") { %>
-                <p class="fa fa-flag"></p>
-                <button>Remove</button>
+                <% if (video.comments[j].flag == "true") { %>
+                    <p class="fa fa-flag"></p>
+                    <button>Remove</button>
                 <% } %>
             </div>
             <hr>

@@ -50,10 +50,8 @@
             <div id="vid">
                 <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                 <div class="detail">
-                    <p>Name:<%= videoarray[i].title %></p>
-                    <p>Duration:
-                        <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %>
-                    </p>
+                    <p>Name: <%= videoarray[i].title %></p>
+                    <p>Duration: <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %></p>
                     <p>Price: <%= videoarray[i].price %></p>
                     <p>Category: <%= videoarray[i].category %></p>
                 </div>
@@ -65,9 +63,9 @@
             <% } %>
         </div>
         <div id="middle-series">
-            <% for(var i=0;i<series.length;i++) {%>
+            <% for(var i=0; i < series.length; i++) { %>
             <div class="vidseries">
-                <p class="series-name">Series name:<%=series[i].name %></p>
+                <p class="series-name">Series Name: <%= series[i].name %></p>
                 <div class="serial">
                     <img src="/<%= series[i].thumbnail %>" alt="">
                     <div class="btns">
