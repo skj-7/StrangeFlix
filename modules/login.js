@@ -1,5 +1,6 @@
 const routerLogin = require('express').Router();
 var bcrypt = require("bcrypt");
+const forgotPass = require('./forgotPass');
 var userdata = require('../schemas/userData');
 
 routerLogin.get('/', (req, res) => {
@@ -14,19 +15,7 @@ routerLogin.get('/', (req, res) => {
 	}
 });
 
-
-routerLogin.get('/forgot', (req, res) => {
-	res.render('forgotPassword.ejs', {"error": "","message": ""});
-});
-
-routerLogin.post('/forgot', (req, res) => {
-
-   //Email Verification Process
-   //Priyanshu yeh tumko karna h
-
-	res.render('changePassword.ejs', {"error": "","message": ""});
-});
-
+routerLogin.use("/forgot", forgotPass);
 
 routerLogin.post('/',(req, res) => {
 	if (req.session.user_id) {

@@ -6,7 +6,7 @@ var nodemailer = require('nodemailer');
 var bcrypt = require("bcrypt");
 const { getMaxListeners } = require('process');
 
-const usertoken = require('../schemas/token');
+const emailtoken = require('../schemas/emailVerToken');
 const userdata = require('../schemas/userData');
 
 require('dotenv').config();
@@ -65,7 +65,7 @@ register.post('/', (req, res) => {
 				})
 
 				//Mail Verification
-				var token = new usertoken({ _userId: mydata._id, token: crypto.randomBytes(16).toString('hex') });
+				var token = new emailtoken({ _userId: mydata._id, token: crypto.randomBytes(16).toString('hex') });
 
 				// Save the verification token
 				token.save(function (err) {
@@ -79,7 +79,7 @@ register.post('/', (req, res) => {
 					from: process.env.TOKEN_MAIL,
 					to: Email,
 					subject: 'Account Verification Token',
-					text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '\n\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
+					text: 'Hey ' + data.fName + ',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/verification\/email\/' + token.token + '\n\n\nRegards,\nStrangeFlix\n\nKeep Flixing! :)'
 				};
 				transporter.sendMail(mailOptions, function (err) {
 					if (err) {

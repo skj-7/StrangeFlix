@@ -10,7 +10,7 @@ router.use("/register", regRouter);
 
 router.use("/login", loginRouter);
 
-router.use("/confirmation", verifRouter);
+router.use("/verification", verifRouter);
 
 router.use("/admin", adminRouter);
 
