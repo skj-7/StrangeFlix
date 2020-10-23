@@ -15,6 +15,20 @@ routerLogin.get('/', (req, res) => {
 	}
 });
 
+
+routerLogin.get('/forgot', (req, res) => {
+	res.render('forgotPassword.ejs', {"error": "","message": ""});
+});
+
+routerLogin.post('/forgot', (req, res) => {
+
+   //Email Verification Process
+   //Priyanshu yeh tumko karna h
+
+	res.render('changePassword.ejs', {"error": "","message": ""});
+});
+
+
 routerLogin.post('/',(req, res) => {
 	if (req.session.user_id) {
 		res.redirect('/home');

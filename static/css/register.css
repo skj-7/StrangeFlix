@@ -134,7 +134,8 @@ section p
 {
     color: aliceblue;
 }
-.signin a:hover{
+.signin a:hover
+{
     color:yellow;
 }
 .social
@@ -180,6 +181,17 @@ section p
     text-align: center;
     text-decoration: double;
     font-family: 'Baloo 2', cursive;
+}
+
+.forgot a
+{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+.forgot a:hover
+{
+    color:yellow;
 }
 
 @media screen and (max-width:1460px)

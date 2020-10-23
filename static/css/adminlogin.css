@@ -17,7 +17,8 @@
     width: 60px;
     border-radius: 30px;
 }
-.nav p{
+.nav p
+{
     font-size: 45px;
     padding-top: 10px;
     padding-left: 3px;
@@ -25,7 +26,8 @@
     color: white;
     text-shadow:2px 2px black;
 }
-.alert{
+.alert
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
