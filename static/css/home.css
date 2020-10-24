@@ -194,6 +194,31 @@ body
 {
     color: #350513;
 }
+.burger
+{
+    display: none;
+}
+#menubar
+{
+    display: none;
+    background-color: #C3073F;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+#menubar a
+{
+    color: black;
+    /* margin-bottom: 3px; */
+    font-size: 27px;
+    font-family: 'Baloo 2', cursive;
+}
+#menubar a:hover
+{
+    font-size: 30px;
+    text-decoration: none;
+    background-color: #e593ace3;
+    color: #5e0520;
+}
 @media screen and (max-width:1036px)
 {
     .carousel-item img
@@ -304,6 +329,36 @@ body
     text-decoration: none;
     cursor: pointer;
   }
+  @media screen and (max-width:600px)
+  {
+      #sidebar
+      {
+          display: none;
+      }
+      .cart
+      {
+          display: none;
+      }
+      .burger
+      {
+          display: block;
+      }
+      .top
+      {
+          display: flex;
+          flex-direction: column;
+      }
+      #slider
+      {
+          padding: 5px;
+      }
+      .carousel-item img
+      {
+          height: 200px;
+          border-radius: 0;
+      }
+  }
+
   @media screen and (max-width:1160px)
   {
     .msg
@@ -328,5 +383,9 @@ body
     .sficon
     {
         font-size: 32px;
+    }
+    .burger i
+    {
+        font-size: 24px;
     }
   }

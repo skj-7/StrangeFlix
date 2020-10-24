@@ -4,6 +4,341 @@
     padding: 0;
     font-family: 'Baloo 2', cursive;
 }
+body
+{
+    background-color: black;
+}
+.top
+{
+    display: grid;
+    grid-template-columns: 0.5fr 18fr;
+}
+#sidebar
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: #5e0520;
+    font-size: 35px;
+    background-color: #C3073F;
+    width: 68px;
+    border: 5px double black;
+}
+#sidebar:hover
+{
+    width: 265px;
+    background-color: #ff145a;
+}
+ #sidebar i
+{
+    color:black;
+    margin-left: 10px;
+    padding-right: 25px;
+    font-size: 40px;
+}
+.icon
+{
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+.icon:hover
+{
+    font-size: 40px;
+    background-color: #e593ace3;
+    border-right: 10px solid #300915c9;
+    color: #5e0520;
+}
+.sficon
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 9px;
+    color:#C3073F;
+    font-size: 50px;
+    position: relative;;
+}
+.sficon .logo
+{
+    display: flex;
+    flex-direction: row;
+}
+.sficon img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 200px;
+    border: 2px solid rgba(0, 0, 0, 0.753);
+    font-weight: bold;
+}
+.sficon i
+{
+    position: absolute;
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 34px;
+    border: 3px double black;
+    border-radius: 10px;
+    background-color: #C3073F;
+    top: 0;
+    right: 0;
+}
+.sficon i:hover
+{
+    color: black;
+    box-shadow: 2px 2px 5px 8px #c3073f96;
+}
+.content
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.content p
+{
+    font-size: 39px;
+    color:#C3073F;
+}
+.imgs
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.imgs img
+{
+    width: 250px;
+    height: 300px;
+    border-radius: 20px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin: 15px;
+}
+.box
+{
+    position: relative;
+}
+.text
+{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+.text p
+{
+    color: white;
+    font-size: 18px;
+}
+.text button
+{
+    width: 50px;
+    text-align: center;
+    border-radius: 2020px;
+    font-size: 43px;
+    border: 2px solid black;
+}
+.box:hover img
+{
+    opacity: 0.19;
+    transform: scale(1.3);
+}
+.box:hover .text
+{
+    opacity: 1;
+}
+.footer
+{
+    margin-top: 50px;
+    background-color:#C3073F ;
+}
+.footer .fa
+{
+    font-size: 27px;
+}
+.footer-copyright,
+.footer-copyright a
+{
+    font-size: 27px;
+    text-decoration: none;
+}
+.footer .fa:hover,
+.footer-copyright a:hover,
+.footer-copyright .fa
+{
+    color: #350513;
+}
+@media screen and (max-width:1036px)
+{
+    .carousel-item img
+    {
+        width: 600px;
+        height: 450px;
+    }
+}
+@media screen and (max-width:880px)
+{
+    .carousel-item img
+    {
+        width: 500px;
+        height: 350px;
+    }
+    #sidebar
+    {
+        font-size: 24px;
+        width: 50px;
+    }
+    #sidebar:hover
+    {
+        font-size: 24px;
+        width: 200px;
+    }
+    #sidebar i
+    {
+        font-size: 28px;
+    }
+    .icon:hover
+    {
+        font-size: 26px;
+    }
+}
+@media screen and (max-width:620px)
+{
+    .carousel-item img
+    {
+        width: 400px;
+    }
+    .imgs img
+    {
+        width: 150px;
+        height: 200px;
+    }
+    .text p
+    {
+       color: white;
+       font-size: 12px;
+    }
+    .text button
+    {
+        font-size: 24px;
+        width: 30px;
+    }
+}
+body
+{
+    position: relative;
+}
+.modal {
+    display: none; 
+    position: absolute;
+    z-index: 5; 
+    left: 0;
+    top: 0;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+
+  .modal-content 
+  {
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    height: 20%;
+  }
+  .msg
+  {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 32px;
+      padding-right: 20px;
+      padding-left: 20px;
+  }
+
+  .close 
+  {
+    color: #aaa;
+    float: right;
+    font-size: 38px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus 
+  {
+    color: #C3073F;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  @media screen and (max-width:1160px)
+  {
+    .msg
+    {
+        font-size: 20px;
+    }
+    .modal-content 
+    {
+        width: 60%;
+    }
+  }
+  @media screen and (max-width:445px)
+  {
+    .sficon img
+    {
+        width: 50px;
+        height: 50px;
+        border-radius: 200px;
+        border: 2px solid rgba(0, 0, 0, 0.753);
+        font-weight: bold;
+    }
+    .sficon
+    {
+        font-size: 32px;
+    }
+  }
+  
+@media screen and (max-width:499px)
+{
+    .form input
+    {
+        font-size: 18px;
+    }
+    .form label
+    {
+        font-size: 18px;
+    }
+    #personal p,
+    #security p,
+    #subs p
+    {
+        font-size: 30px;
+    }
+    form
+    {
+        padding: 10px;
+    }
+    #sidebar:hover
+    {
+        width: 250px;
+    }
+}
 #sidebar:hover
 {
     width: 280px;

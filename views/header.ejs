@@ -19,7 +19,10 @@
             <img src="../static/icon.jpg" alt="">
             <p>StrangeFlix</p>
         </div>
-        <a href="/home/cart"><i class="fa fa-shopping-cart"></i></a>
+        <div class="menu">
+            <a class="burger" onclick="menu()"><i class="fa fa-bars"></i></a>
+            <a class="cart" href="/home/cart"><i class="fa fa-shopping-cart"></i></a>
+        </div> 
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -67,6 +70,17 @@
                 <p>LOGOUT</p>
             </div>
         </div>
+
+
+        <div class="menubar" id="menubar">
+            <a href="/home"><i class="fa fa-home"></i> Home</a><hr style="margin: 0;">
+            <a href="/home/cart"><i class="fa fa-shopping-cart"></i> Cart</a><hr style="margin: 0;">
+            <a href="/home/search"><i class="fa fa-search"></i >Search</a><hr style="margin: 0;">
+            <a href="/home/premium"><i class="fa fa-star"></i> Premium</a><hr style="margin: 0;">
+            <a href="/home/setting"><i class="fa fa-cog"></i> Setting</a><hr style="margin: 0;">
+            <a id="myBtn1"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+
         <!-- Scripts -->
 
         <script src="../static/fe_js/home.js"></script>
