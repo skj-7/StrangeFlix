@@ -1,27 +1,30 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
 
-    body 
-    {
+    body {
         background-color: black;
     }
 
-    .footer 
+    /* .container
     {
+        display: flex;
+        flex-direction: row;
+
+    } */
+    .footer {
         margin-top: 50px;
         background-color: #C3073F;
         font-family: 'Baloo 2', cursive;
+        position: relative;
     }
 
-    .footer .fa 
-    {
+    .footer .fa {
         font-size: 27px;
         color: white;
     }
 
     .footer-copyright,
-    .footer-copyright a 
-    {
+    .footer-copyright a {
         font-size: 27px;
         text-decoration: none;
         color: rgba(255, 255, 255, 0.685);
@@ -29,17 +32,33 @@
 
     .footer .fa:hover,
     .footer-copyright a:hover,
-    .footer-copyright .fa 
-    {
+    .footer-copyright .fa {
         color: #350513;
     }
 
-    @media screen and (max-width:503px)
-     {
+    .about {
+        position: absolute;
+        right: 0;
+        top: 20px;
+    }
+
+    .about a {
+        font-size: 24px;
+    }
+    .about a:hover
+    {
+        text-decoration: none;
+        color: black;
+    }
+    @media screen and (max-width:503px) {
 
         .footer-copyright,
         .footer-copyright a {
             font-size: 18px;
+        }
+
+        .about a {
+            font-size: 14px;
         }
     }
 </style>
@@ -74,7 +93,9 @@
                 </li>
             </ul>
             <!-- Social buttons -->
-
+        </div>
+        <div class="about">
+            <a href="/aboutUs">About Us</a>
         </div>
         <!-- Footer Elements -->
 

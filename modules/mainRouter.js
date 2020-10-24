@@ -25,6 +25,10 @@ router.get('/',(req, res) => {
     }
 });
 
+router.get('/aboutUs',(req, res) => {
+    res.render('aboutUs.ejs');
+});
+
 // Logout endpoint
 router.get('/logout', (req, res) => {
 	req.session.destroy();
