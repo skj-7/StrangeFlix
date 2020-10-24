@@ -15,7 +15,7 @@ adminrouter.use('/regseries', regseries);
 adminrouter.use('/upload', upload);
 
 adminrouter.get('/users', (req, res) => {
-    res.render('user-record.ejs',{"free":'',"ppv":"","premium":""});
+    res.render('adminUserRecord.ejs',{"free":'',"ppv":"","premium":""});
 })
 adminrouter.get('/flags', (req, res) => {
     res.render('flags-record.ejs',{"videoarray":'',"comments":""});

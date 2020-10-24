@@ -51,27 +51,42 @@
                 <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                 <div class="detail">
                     <p>Name: <%= videoarray[i].title %></p>
-                    <p>Duration: <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %></p>
+                    <p>Duration:
+                        <%= videoarray[i].duration.hours %>:<%= videoarray[i].duration.minutes %>:<%= videoarray[i].duration.seconds %>
+                    </p>
                     <p>Price: <%= videoarray[i].price %></p>
                     <p>Category: <%= videoarray[i].category %></p>
                 </div>
                 <div class="btns">
-                    <button>Remove</button>
-                    <button>Edit</button>
+                    <form action="" method="post">
+                        <button type="submit">Remove</button>
+                    </form>
+                    <form action="" method="post">
+                        <button type="submit">Edit</button>
+                    </form>
                 </div>
             </div>
             <% } %>
         </div>
         <div id="middle-series">
             <% for(var i=0; i < series.length; i++) { %>
-            <div class="vidseries">
-                <p class="series-name">Series Name: <%= series[i].name %></p>
-                <div class="serial">
-                    <img src="/<%= series[i].thumbnail %>" alt="">
-                    <div class="btns">
-                        <button>Remove</button>
-                        <button>View</button>
-                    </div>
+            <div id="vid">
+                <img id="thumbnail" src="/<%= series[i].thumbnail %>" alt="" onclick="play()">
+                <div class="detail">
+                    <p>Series-Title: <%= series[i].title %></p>
+                    <p>Series-Duration:
+                        <%= series[i].duration.hours %>:<%= series[i].duration.minutes %>:<%= series[i].duration.seconds %>
+                    </p>
+                    <p>Series-Price: <%= series[i].price %></p>
+                    <p>Series-Category: <%= series[i].category %></p>
+                </div>
+                <div class="btns">
+                    <form action="" method="post">
+                        <button type="submit">Remove</button>
+                    </form>
+                    <form action="" method="post">
+                        <button type="submit">View</button>
+                    </form>
                 </div>
             </div>
             <% } %>
@@ -79,7 +94,7 @@
     </div>
 
 
-    
+
     <script src="/static/fe_js/admincontrol.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
