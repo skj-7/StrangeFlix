@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="/static/css/video-info.css">
 </head>
 <body>
-    <p>VideoID: <%- video._id %></p>
+    <p class="id">VideoID: <%- video._id %></p>
     <div class="video">
-        <img src="/<%= video.thumbnail %>" alt="">
         <div class="info">
             <form method="post" action="/admin/edit/video/<%= video._id %>" enctype="multipart/form-data">
                 <div class="form-group">
@@ -36,7 +35,7 @@
     
                 <div class="form-group">
                     <label>Series Name (leave blank if none)</label>
-                    <input id="target" type="text" name="series" value=<%= video.series %>  class="form-control">
+                    <input id="target" type="text" name="series"  class="form-control"  value=<%= video.series %>>
                 </div>
     
                 <div class="form-group">
@@ -56,6 +55,7 @@
                 <input type="submit" class="btn" value="UPDATE">
             </form>
         </div>
+        <img src="/<%= video.thumbnail %>" alt="">
     </div>
     <hr>
     <hr>

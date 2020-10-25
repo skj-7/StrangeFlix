@@ -4,23 +4,36 @@
     padding: 0;
     font-family: 'Baloo 2', cursive;
 }
+body
+{
+    background-color: rgba(113, 113, 189, 0.733);
+}
+.id
+{
+    color: blue;
+    font-size: 38px;
+}
 .video
 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    margin-left:20px ;
 }
 .video img
 {
-    width: 250px;
+    width: 520px;
     height: 320px;
-    border-radius: 10px;
+    border-radius: 30px;
+    margin: 50px;
 }
 form
 {
     display: flex;
     flex-direction: column;
+    background-color: rgba(33, 33, 95, 0.411);
+    padding: 30px;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 input ,textarea,select
 {
@@ -104,9 +117,9 @@ input ,textarea,select
 }
 .episodes img
 {
-    width: 250px;
-    height: 320px;
-    border-radius: 10px;
+    width: 350px;
+    height: 220px;
+    border-radius: 20px;
 }
 .content
 {

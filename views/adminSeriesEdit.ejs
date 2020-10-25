@@ -9,9 +9,8 @@
 </head>
 
 <body>
-    <p>Name:<%= series.seriesTitle %></p>
-    <div class="video">
-        <img src="/<%= series.seriesThumbnail %>" alt="">
+    <p class="id">Name:<%= series.seriesTitle %></p>
+    <div class="video">  
         <div class="info">
             <form method="post" action="/admin/edit/series/<%= series._id %>" enctype="multipart/form-data">
                 <div class="form-group">
@@ -48,7 +47,7 @@
 
                 <div class="form-group">
                     <label>Series-Tags (Use "," to separate)</label>
-                    <input type="text" name="tags" value=<%= series.tags %> class="form-control">
+                    <input type="text" name="tags" class="form-control" value=<%= series.tags %> >
                 </div>
 
                 <div class="form-group">
@@ -58,6 +57,7 @@
                 <input type="submit" class="btn" value="UPDATE">
             </form>
         </div>
+        <img src="/<%= series.seriesThumbnail %>" alt="">
     </div>
     <div class="episodes">
         <% for(var i=0; i < series.videoList.length; i++) { %>
