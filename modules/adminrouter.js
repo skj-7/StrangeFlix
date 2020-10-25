@@ -5,10 +5,16 @@ const login = require('./adminlogin');
 const control = require('./admincontrol');
 const setting = require('./adminsetting');
 const regseries = require('./adminregseries');
+const editvideo = require('./admineditvideo');
+const editseries = require('./admineditseries');
 
 adminrouter.use('/login', login);
 
 adminrouter.use('/control', control);
+
+adminrouter.use('/edit/video', editvideo);
+
+adminrouter.use('/edit/series', editseries);
 
 adminrouter.use('/regseries', regseries);
 

@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series-Info</title>
-    <link rel="stylesheet" href="../static/css/series-info.css">
+    <link rel="stylesheet" href="/static/css/series-info.css">
 </head>
 
 <body>
-    <p>Name:<%= series.name %></p>
+    <p>Name:<%= series.seriesTitle %></p>
     <div class="video">
-        <img src="<%= series.imgpath %>" alt="">
+        <img src="/<%= series.seriesThumbnail %>" alt="">
         <div class="info">
-            <form method="post" action="/admin/upload/editSeries" enctype="multipart/form-data">
+            <form method="post" action="/admin/edit/series/<%= series._id %>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Series-Title</label>
-                    <input type="text" name="title" class="form-control" value=<%= series.name %> required>
+                    <input type="text" name="title" class="form-control" value=<%= series.seriesTitle %> required>
                 </div>
 
                 <div class="form-group">
                     <label>Series-Price</label>
                     <div id="price">
                         <input type="text" name="sym" id="sym" value=&#x20B9; readonly>
-                        <input type="number" value=<%= series.price %> name="price" id="price-value"
+                        <input type="number" value=<%= series.seriesPrice %> name="price" id="price-value"
                             class="form-control" min="0" required>
                     </div>
                 </div>
@@ -31,19 +31,19 @@
                 <div class="form-group">
                     <label>Series-Duration</label>
                     <div id="duration">
-                        <input type="number" name="hours" class="form-control" value=<%= series.hrs %> placeholder="hrs"
+                        <input type="number" name="hours" class="form-control" value=<%= series.seriesDuration.hours %> placeholder="hrs"
                             min="0" required>
-                        <input type="number" name="minutes" class="form-control" value=<%= series.mins %>
+                        <input type="number" name="minutes" class="form-control" value=<%= series.seriesDuration.minutes %>
                             placeholder="mins" min="0" required>
-                        <input type="number" name="seconds" class="form-control" value=<%= series.secs %>
+                        <input type="number" name="seconds" class="form-control" value=<%= series.seriesDuration.seconds %>
                             placeholder="secs" min="0" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Series-Description</label>
-                    <textarea type="text" name="description" rows="5" cols="30" value=<%= series.description %>
-                        class="form-control"></textarea>
+                    <textarea type="text" name="description" rows="5" cols="30" class="form-control"><%= series.seriesDescription %>
+                    </textarea>
                 </div>
 
                 <div class="form-group">
@@ -53,17 +53,17 @@
 
                 <div class="form-group">
                     <label>Series-Category</label>
-                    <input type="text" value=<%= series.category %> name="category">
+                    <input type="text" value=<%= series.seriesCategory %> name="category">
                 </div>
                 <input type="submit" class="btn" value="UPDATE">
             </form>
         </div>
     </div>
     <div class="episodes">
-        <% for(var i=0;i<series.videoarray.length;i++) {%>
+        <% for(var i=0; i < series.videoList.length; i++) { %>
             <div class="content">
-                <p>Title:<%= series.videoarray[i].name %></p>
-                <img src="<%= series.videoarray[i].imgpath %>" alt="">
+                <p>Title: <%= series.videoList[i] %></p>
+                <img src="<%= series.videoList[i] %>" alt="">
                 <div class="btn">
                     <button>Remove</button>
                     <button>Edit</button>

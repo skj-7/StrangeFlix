@@ -8,7 +8,6 @@ const durationSchema = new mongoose.Schema({
 	hours: {
 		type: Number,
 		min: 0,
-		max: 10,
 		default: 0
 	},
 	minutes: {

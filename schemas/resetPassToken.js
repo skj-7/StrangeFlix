@@ -4,7 +4,7 @@ const resetPassTokenSchema = new mongoose.Schema({
 	_userId: {
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
-		ref: 'User'
+		ref: 'Users'
 	},
 	token: {
 		type: String,

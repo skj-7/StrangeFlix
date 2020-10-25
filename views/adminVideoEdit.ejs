@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video-Info</title>
-    <link rel="stylesheet" href="../static/css/video-info.css">
+    <link rel="stylesheet" href="/static/css/video-info.css">
 </head>
 <body>
-    <p>VideoID: <%= video._id %></p>
+    <p>VideoID: <%- video._id %></p>
     <div class="video">
         <img src="/<%= video.thumbnail %>" alt="">
         <div class="info">
-            <form method="post" action="/admin/upload/edit" enctype="multipart/form-data">
+            <form method="post" action="/admin/edit/video/<%= video._id %>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control" value=<%= video[i].name %> required>
+                    <input type="text" name="title" class="form-control" value=<%= video.title %> required>
                 </div>
     
                 <div class="form-group">
@@ -28,9 +28,9 @@
                 <div class="form-group">
                     <label>Duration</label>
                     <div id="duration">
-                        <input type="number" name="hours" class="form-control" value=<%= video.hrs %> placeholder="hrs" min="0" required>
-                        <input type="number" name="minutes" class="form-control" value=<%= video.mins %> placeholder="mins" min="0" required>
-                        <input type="number" name="seconds" class="form-control" value=<%= video.secs %> placeholder="secs" min="0" required>
+                        <input type="number" name="hours" class="form-control" value=<%= video.duration.hours %> placeholder="hrs" min="0" required>
+                        <input type="number" name="minutes" class="form-control" value=<%= video.duration.minutes %> placeholder="mins" min="0" required>
+                        <input type="number" name="seconds" class="form-control" value=<%= video.duration.seconds %> placeholder="secs" min="0" required>
                     </div>
                 </div>
     
@@ -41,7 +41,7 @@
     
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea type="text" name="description" rows="5" cols="30" value=<%= video.description %> class="form-control"></textarea>
+                    <textarea type="text" name="description" rows="5" cols="30" class="form-control"><%= video.description %></textarea>
                 </div>
     
                 <div class="form-group">
@@ -57,18 +57,21 @@
             </form>
         </div>
     </div>
+    <hr>
+    <hr>
     <div class="commentSection">
         <div id="comlist">
             <% for(var j=0; j < video.comments.length; j++) { %>
-            <p class="fa fa-user-circle">Username:<%= video.comments[j].username %></p>
-            <p class="comment"><%= video.comments[j].comment %></p>
+            <p class="fa fa-user-circle">Username:<%= video.comments[j]._userId %></p>
+            <p class="comment"><%= video.comments[j].content %></p>
             <div id="flag">
-                <% if (video.comments[j].flag == "true") { %>
+                <% if (video.comments[j].flagged == true) { %>
                     <p class="fa fa-flag"></p>
                     <button>Remove</button>
                 <% } %>
             </div>
             <hr>
+            <% } %>
         </div>
     </div>
 </body>

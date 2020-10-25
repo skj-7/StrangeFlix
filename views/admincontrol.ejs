@@ -61,7 +61,7 @@
                     <form action="" method="post">
                         <button type="submit">Remove</button>
                     </form>
-                    <form action="" method="post">
+                    <form action="/admin/edit/video/<%= videoarray[i]._id %>" method="GET">
                         <button type="submit">Edit</button>
                     </form>
                 </div>
@@ -71,20 +71,21 @@
         <div id="middle-series">
             <% for(var i=0; i < series.length; i++) { %>
             <div id="vid">
-                <img id="thumbnail" src="/<%= series[i].thumbnail %>" alt="" onclick="play()">
+                <img id="thumbnail" src="/<%= series[i].seriesThumbnail %>" alt="" onclick="play()">
                 <div class="detail">
-                    <p>Series-Title: <%= series[i].title %></p>
-                    <p>Series-Duration:
-                        <%= series[i].duration.hours %>:<%= series[i].duration.minutes %>:<%= series[i].duration.seconds %>
+                    <p>Series-Title: <%= series[i].seriesTitle %></p>
+                    <p>Series-Duration: 
+                        <%= series[i].seriesDuration.hours %>:<%= series[i].seriesDuration.minutes %>:<%= series[i].seriesDuration.seconds %>
                     </p>
-                    <p>Series-Price: <%= series[i].price %></p>
-                    <p>Series-Category: <%= series[i].category %></p>
+                    <p>Series-Price: <%= series[i].seriesPrice %></p>
+                    <p>No. of Episodes: <%= series[i].episodeCount %></p>
+                    <p>Series-Category: <%= series[i].seriesCategory %></p>
                 </div>
                 <div class="btns">
                     <form action="" method="post">
                         <button type="submit">Remove</button>
                     </form>
-                    <form action="" method="post">
+                    <form action="/admin/edit/series/<%= series[i]._id %>" method="GET">
                         <button type="submit">View</button>
                     </form>
                 </div>

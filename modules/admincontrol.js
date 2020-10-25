@@ -8,7 +8,7 @@ admincontrol.get('/', (req, res) => {
 			if(err) {
 				return console.log(err);
 			}
-			console.log(vidarr);
+			
 			videoSeries.find({}, (err, seriesarr) => {
 				res.render('admincontrol.ejs', { "videoarray": vidarr, "series": seriesarr });
 			});
