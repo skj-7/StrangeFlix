@@ -59,14 +59,15 @@
         </div>
         <img src="/<%= series.seriesThumbnail %>" alt="">
     </div>
+    <h2 class="Episodes">EPISODES/PLAYLIST</h2>
     <div class="episodes">
         <% for(var i=0; i < series.videoList.length; i++) { %>
             <div class="content">
-                <p>Title: <%= series.videoList[i].title %></p>
+                <p class="epititle">Title: <%= series.videoList[i].title %></p>
                 <img src="/<%= series.videoList[i].thumbnail %>" alt="">
-                <div class="btn">
-                    <button>Remove</button>
-                    <button>Edit</button>
+                <div class="btns">
+                    <button class="btnepi">Remove</button>
+                    <button class="btnepi">Edit</button>
                 </div>
             </div>
         <% } %>

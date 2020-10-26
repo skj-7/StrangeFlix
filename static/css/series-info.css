@@ -110,20 +110,57 @@ input ,textarea,select
     width: 90px;
     margin-right: 10px;
 }
+.Episodes
+{
+    color: blue;
+    font-size: 58px;
+    text-align: center;
+}
 .episodes
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin: 20px;
+    flex-wrap: wrap;
 }
 .episodes img
 {
     width: 350px;
     height: 220px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 .content
 {
     display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    background-color: rgba(33, 33, 95, 0.411);
+    padding: 30px;
+}
+.epititle
+{
+    font-size: 25px;
+    color: black;
+}
+.btns
+{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.btnepi
+{
+    width: 140px;
+    height: 40px;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 200px;
+}
+.btnepi:hover
+{
+    background-color: whitesmoke;
+    color: blue;
+    border: 2px solid blue;
 }
