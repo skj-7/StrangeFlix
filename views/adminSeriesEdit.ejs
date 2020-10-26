@@ -63,13 +63,23 @@
     <div class="episodes">
         <% for(var i=0; i < series.videoList.length; i++) { %>
             <div class="content">
-                <p class="epititle">Title: <%= series.videoList[i].title %></p>
                 <img src="/<%= series.videoList[i].thumbnail %>" alt="">
+                <p class="epititle">Name: <%= series.videoList[i].title %></p>
+                <p>Duration:
+                    <%= series.videoList[i].duration.hours %>:<%= series.videoList[i].duration.minutes %>:<%= series.videoList[i].duration.seconds %>
+                </p>
+                <p>Price: <%= series.videoList[i].price %></p>
+                <p>Category: <%= series.videoList[i].category %></p>
                 <div class="btns">
-                    <button class="btnepi">Remove</button>
-                    <button class="btnepi">Edit</button>
+                    <form action="/admin/remove/video/<%= series.videoList[i]._id %>" method="GET">
+                        <button class="btnepi" type="submit">Remove</button>
+                    </form>
+                    <form action="/admin/edit/video/<%= series.videoList[i]._id %>" method="GET">
+                        <button class="btnepi" type="submit">Edit</button>
+                    </form>
                 </div>
             </div>
+            <hr>
         <% } %>
     </div>
 </body>

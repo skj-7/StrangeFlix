@@ -4,6 +4,7 @@ const upload = require('./adminupload');
 const login = require('./adminlogin');
 const control = require('./admincontrol');
 const setting = require('./adminsetting');
+const deletevs = require('./admindelete');
 const regseries = require('./adminregseries');
 const editvideo = require('./admineditvideo');
 const editseries = require('./admineditseries');
@@ -11,6 +12,8 @@ const editseries = require('./admineditseries');
 adminrouter.use('/login', login);
 
 adminrouter.use('/control', control);
+
+adminrouter.use('/remove', deletevs);
 
 adminrouter.use('/edit/video', editvideo);
 
