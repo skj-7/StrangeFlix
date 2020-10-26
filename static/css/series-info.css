@@ -26,7 +26,7 @@ body
     border-radius: 30px;
     margin: 50px;
 }
-form
+.details
 {
     display: flex;
     flex-direction: column;
@@ -120,7 +120,6 @@ input ,textarea,select
 {
     display: flex;
     flex-direction: row;
-    margin: 20px;
     flex-wrap: wrap;
 }
 .episodes img
@@ -135,6 +134,7 @@ input ,textarea,select
     display: flex;
     flex-direction: column;
     margin-right: 50px;
+    margin-left: 50px;
     background-color: rgba(33, 33, 95, 0.411);
     padding: 30px;
 }
