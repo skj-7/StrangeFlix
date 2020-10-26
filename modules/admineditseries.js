@@ -6,11 +6,12 @@ admineditseries.use(bodyParser.json());
 
 admineditseries.get('/:seriesID', (req, res) => {
     if (req.session.admin) {
-        videoSeries.findOne({ _id: req.params.seriesID }, (err, series) => {
+        videoSeries.findOne({ _id: req.params.seriesID }).populate('videoList')
+        .exec( (err, series) => {
             if(err) {
 				return console.log(err);
             }
-            
+            console.log(series);
             res.render('adminSeriesEdit.ejs', {"series": series});
         })
     }

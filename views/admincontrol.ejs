@@ -58,7 +58,7 @@
                     <p>Category: <%= videoarray[i].category %></p>
                 </div>
                 <div class="btns">
-                    <form action="" method="post">
+                    <form action="/admin/remove/video/<%= videoarray[i]._id %>" method="GET">
                         <button type="submit">Remove</button>
                     </form>
                     <form action="/admin/edit/video/<%= videoarray[i]._id %>" method="GET">

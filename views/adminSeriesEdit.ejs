@@ -62,8 +62,8 @@
     <div class="episodes">
         <% for(var i=0; i < series.videoList.length; i++) { %>
             <div class="content">
-                <p>Title: <%= series.videoList[i] %></p>
-                <img src="<%= series.videoList[i] %>" alt="">
+                <p>Title: <%= series.videoList[i].title %></p>
+                <img src="/<%= series.videoList[i].thumbnail %>" alt="">
                 <div class="btn">
                     <button>Remove</button>
                     <button>Edit</button>

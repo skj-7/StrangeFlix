@@ -46,7 +46,7 @@ adminupload.get('/', (req, res) => {
 });
 
 // adminupload.post('/checkseries', (req, res) => {
-// 	var Name = req.body.SeriesName;
+// 	var Name = req.body.seriesName;
 
 // 	videoSeries.findOne({ seriesTitle: Name }, (error, data) => {
 // 		if (error)
@@ -84,7 +84,7 @@ adminupload.post('/', (req, res) => {
 					}
 					else if (data == null && SeriesName != "") {
 						res.render('adminUpload.ejs', {
-							"error": "Series Name: " + name + " does not exist. Register <a href=" + req.headers.host + "\/admin\/regseries> here </a>.",
+							"error": "Series Name: " + SeriesName + " does not exist. Register on Reg-Series tab.",
 							"message": ""
 						});
 					}
@@ -106,108 +106,115 @@ adminupload.post('/', (req, res) => {
 							else {
 								var video_id = savedata._id;
 
-								//Upload with links
-								if (typeof req.files.video == 'undefined') {
-									console.log("Upload with links...")
-									var YTurl = req.body.ytlink;
-									var NMurl = req.body.AS3link;
-									// var NMurl = req.body.NMlink;
+								data.update({ $push: { videoList: video_id }, $set: { episodeCount: data.episodeCount+1 } },
+									(error, success) => {
+									if(error)
+										return console.log(error);
 
-									//Youtube Upload
-									if(YTurl != "") {
-										var videoVID = url.parse(YTurl, true).query.v;
+									//Upload with links
+									if (typeof req.files.video == 'undefined') {
+										console.log("Upload with links...")
+										var YTurl = req.body.ytlink;
+										var NMurl = req.body.NMlink;
+										if(NMurl == "")
+											var NMurl = req.body.AS3link;
 
-										let redirectYTComp = () => {
-											videos.findByIdAndUpdate(video_id, {
-												"thumbnail": `assets/thumbnails/singles/${video_id}.jpg`,
-												"filepath": 'assets/videos/'+ video_id + '.mp4'
-											}, (error, result) => {
-												if(error) {
-													console.log(error);
-													res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
-												}
-												console.log('Youtube video uploaded.')
-												res.render('adminUpload.ejs', { "message": "YT Video: " + Title + " successfully uploaded!", "error": "" })
-											});
-										}
+										//Youtube Upload
+										if(YTurl != "") {
+											var videoVID = url.parse(YTurl, true).query.v;
 
-										let uploadTN = () => {
-											https.get(`https://img.youtube.com/vi/${videoVID}/maxresdefault.jpg`, (res) => {
-
-												var stream = res.pipe(fs.createWriteStream(`./assets/thumbnails/singles/${video_id}.jpg`));
-												stream.on('finish', () => {
-													redirectYTComp();
+											let redirectYTComp = () => {
+												videos.findByIdAndUpdate(video_id, {
+													"thumbnail": `assets/thumbnails/singles/${video_id}.jpg`,
+													"filepath": 'assets/videos/'+ video_id + '.mp4'
+												}, (error, result) => {
+													if(error) {
+														console.log(error);
+														res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
+													}
+													console.log('Youtube video uploaded.')
+													res.render('adminUpload.ejs', { "message": "YT Video: " + Title + " successfully uploaded!", "error": "" })
 												});
-											}).on('error', (e) => {
-												console.error(e);
-											});
-										}
-										
-										let uploadYT = async () => {
-											var videoReadableStream = ytdl(YTurl, {quality: 'highest'});
-											let info = await ytdl.getInfo(YTurl);
+											}
+
+											let uploadTN = () => {
+												https.get(`https://img.youtube.com/vi/${videoVID}/maxresdefault.jpg`, (res) => {
+
+													var stream = res.pipe(fs.createWriteStream(`./assets/thumbnails/singles/${video_id}.jpg`));
+													stream.on('finish', () => {
+														redirectYTComp();
+													});
+												}).on('error', (e) => {
+													console.error(e);
+												});
+											}
 											
-											var videoName = info.videoDetails.title.replace('|','').toString('ascii');
-											var videoWritableStream = fs.createWriteStream('./assets/videos/'+ video_id + '.mp4');
-											var stream = videoReadableStream.pipe(videoWritableStream);
+											let uploadYT = async () => {
+												var videoReadableStream = ytdl(YTurl, {quality: 'highest'});
+												let info = await ytdl.getInfo(YTurl);
+												
+												var videoName = info.videoDetails.title.replace('|','').toString('ascii');
+												var videoWritableStream = fs.createWriteStream('./assets/videos/'+ video_id + '.mp4');
+												var stream = videoReadableStream.pipe(videoWritableStream);
 
-											stream.on('finish', () => {
-												uploadTN();
-											});
-										}
-										uploadYT();      
-									}
-
-									//Normal Link Upload
-									else if(NMurl != ""){
-										let redirectNMComp = () => {
-											fs.renameSync(req.files.thumbnail[0].path, req.files.thumbnail[0].path.replace('undefined', video_id));
-
-											videos.findByIdAndUpdate(video_id, {
-												"thumbnail": req.files.thumbnail[0].path.replace('undefined', video_id),
-												"filepath": 'assets/videos/'+ video_id + '.mp4'
-											}, (error, result) => {
-												if(error) {
-													console.log(error);
-													res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
-												}
-												console.log('Link video uploaded.')
-												res.render('adminUpload.ejs', { "message": "Normal Link Video: " + Title + " successfully uploaded!", "error": "" })
-											});
-										}
-
-										let uploadNM = () => {
-											// var proto = !NMurl.charAt(4).localeCompare('s') ? https : http;
-
-											https.get(NMurl, (res) => {
-												var stream = res.pipe(fs.createWriteStream('./assets/videos/'+ video_id + '.mp4'));
 												stream.on('finish', () => {
-													redirectNMComp();
+													uploadTN();
 												});
-											}).on('error', (e) => {
-												console.error(e);
-											});
+											}
+											uploadYT();      
 										}
-										uploadNM();
+
+										//Normal Link Upload
+										else if(NMurl != ""){
+											let redirectNMComp = () => {
+												fs.renameSync(req.files.thumbnail[0].path, req.files.thumbnail[0].path.replace('undefined', video_id));
+
+												videos.findByIdAndUpdate(video_id, {
+													"thumbnail": req.files.thumbnail[0].path.replace('undefined', video_id),
+													"filepath": 'assets/videos/'+ video_id + '.mp4'
+												}, (error, result) => {
+													if(error) {
+														console.log(error);
+														res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
+													}
+													console.log('Link video uploaded.')
+													res.render('adminUpload.ejs', { "message": "Normal Link Video: " + Title + " successfully uploaded!", "error": "" })
+												});
+											}
+
+											let uploadNM = () => {
+												// var proto = !NMurl.charAt(4).localeCompare('s') ? https : http;
+
+												https.get(NMurl, (res) => {
+													var stream = res.pipe(fs.createWriteStream('./assets/videos/'+ video_id + '.mp4'));
+													stream.on('finish', () => {
+														redirectNMComp();
+													});
+												}).on('error', (e) => {
+													console.error(e);
+												});
+											}
+											uploadNM();
+										}
 									}
-								}
-								// Upload with local files
-								else {
-									fs.renameSync(req.files.video[0].path, req.files.video[0].path.replace('undefined', video_id));
-									fs.renameSync(req.files.thumbnail[0].path, req.files.thumbnail[0].path.replace('undefined', video_id));
-									videos.findByIdAndUpdate(video_id, {
-										"thumbnail": req.files.thumbnail[0].path.replace('undefined', video_id),
-										"filepath": req.files.video[0].path.replace('undefined', video_id)
-									}, (error, result) => {
-										if(error) {
-											console.log(error);
-											res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
-										}
-										else {
-											res.render('adminUpload.ejs', { "message": "File: " + Title + " successfully uploaded!", "error": "" });
-										}
-									});
-								}
+									// Upload with local files
+									else {
+										fs.renameSync(req.files.video[0].path, req.files.video[0].path.replace('undefined', video_id));
+										fs.renameSync(req.files.thumbnail[0].path, req.files.thumbnail[0].path.replace('undefined', video_id));
+										videos.findByIdAndUpdate(video_id, {
+											"thumbnail": req.files.thumbnail[0].path.replace('undefined', video_id),
+											"filepath": req.files.video[0].path.replace('undefined', video_id)
+										}, (error, result) => {
+											if(error) {
+												console.log(error);
+												res.render('error.ejs', { "message": "Unexpected error Occured!", "error": error })
+											}
+											else {
+												res.render('adminUpload.ejs', { "message": "File: " + Title + " successfully uploaded!", "error": "" });
+											}
+										});
+									}
+								});
 							}
 						});
 					}

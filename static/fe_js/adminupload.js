@@ -6,6 +6,7 @@ function myFunction() {
         x.style.display = "block";
     }
 }
+
 function yt()
 {
     var YT=document.getElementById("yt");
@@ -126,6 +127,7 @@ function wl()
     NU.style.display="none";
     wl.style.display="block";
 }
+
 // $(document).ready(function () {
 //     $('#target').keyup(function (e) {
 //         console.log('desired event fire!!!!!!!')
@@ -140,7 +142,7 @@ function wl()
 //             contentType: "application/json; charset=utf-8",
 //             success: function (result) {
 //                 if(result.isPresent == "false") {
-//                     $(".alert-danger").append("Series Name: " + name + " does not exist. Register <a href=" + req.headers.host + "\/admin\/regseries> here </a>.");
+//                     $(".alert-danger").append("Series Name: " + name + " does not exist. Register on Reg-Series tab.");
 //                     console.log(this.url);
 //                 }
 //             }
