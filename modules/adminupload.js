@@ -114,7 +114,7 @@ adminupload.post('/', (req, res) => {
 									//Upload with links
 									if (typeof req.files.video == 'undefined') {
 										console.log("Upload with links...")
-										var YTurl = req.body.ytlink;
+										var YTurl = ""+req.body.ytlink;
 										var NMurl = req.body.NMlink;
 										if(NMurl == "")
 											var NMurl = req.body.AS3link;

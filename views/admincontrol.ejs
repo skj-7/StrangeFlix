@@ -82,7 +82,7 @@
                     <p>Series-Category: <%= series[i].seriesCategory %></p>
                 </div>
                 <div class="btns">
-                    <form action="" method="post">
+                    <form action="/admin/remove/series/<%= series[i]._id %>" method="GET">
                         <button type="submit">Remove</button>
                     </form>
                     <form action="/admin/edit/series/<%= series[i]._id %>" method="GET">
