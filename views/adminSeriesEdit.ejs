@@ -15,7 +15,7 @@
             <form class="details" method="post" action="/admin/edit/series/<%= series._id %>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Series-Title</label>
-                    <input type="text" name="title" class="form-control" value=<%= series.seriesTitle %> required>
+                    <input type="text" name="title" class="form-control" value="<%= series.seriesTitle %>" required>
                 </div>
 
                 <div class="form-group">
@@ -47,12 +47,12 @@
 
                 <div class="form-group">
                     <label>Series-Tags (Use "," to separate)</label>
-                    <input type="text" name="tags" class="form-control" value=<%= series.tags %> >
+                    <input type="text" name="tags" class="form-control" value="<%= series.tags %>" >
                 </div>
 
                 <div class="form-group">
                     <label>Series-Category</label>
-                    <input type="text" value=<%= series.seriesCategory %> name="category">
+                    <input type="text" value="<%= series.seriesCategory %>" name="category">
                 </div>
                 <input type="submit" class="btn" value="UPDATE">
             </form>

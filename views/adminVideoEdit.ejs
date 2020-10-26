@@ -13,7 +13,7 @@
             <form method="post" action="/admin/edit/video/<%= video._id %>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control" value=<%= video.title %> required>
+                    <input type="text" name="title" class="form-control" value="<%= video.title %>" required>
                 </div>
     
                 <div class="form-group">
@@ -35,7 +35,7 @@
     
                 <div class="form-group">
                     <label>Series Name (leave blank if none)</label>
-                    <input id="target" type="text" name="series"  class="form-control"  value=<%= video.series %>>
+                    <input id="target" type="text" name="series"  class="form-control"  value="<%= video.series %>">
                 </div>
     
                 <div class="form-group">
@@ -45,12 +45,12 @@
     
                 <div class="form-group">
                     <label>Tags (Use "," to separate)</label>
-                    <input type="text" name="tags" value=<%= video.tags %> class="form-control">
+                    <input type="text" name="tags" value="<%= video.tags %>" class="form-control">
                 </div>
     
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" value=<%= video.category %>  name="category">
+                    <input type="text" value="<%= video.category %>"  name="category">
                 </div>
                 <input type="submit" class="btn" value="UPDATE">
             </form>
