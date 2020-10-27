@@ -21,7 +21,7 @@
 .display img
 {
     width: 50%;
-    height: 400px;
+    height: 250px;
     z-index: 1;
 }
 .display b
@@ -63,8 +63,8 @@
 }
 .content img
 {
-    width: 250px;
-    height: 300px;
+    width: 320px;
+    height: 250px;
     border-radius: 19px;
 }
 .content .details
@@ -140,8 +140,8 @@
     }
     .content img
     {
-        width: 150px;
-        height: 200px;
+        width: 200px;
+        height: 140px;
     }
 }
 
@@ -183,7 +183,7 @@
 {
     .display img
     {
-        height: 200px;
+        height: 150px;
     }
     .display b
     {
@@ -241,7 +241,7 @@
     }
     .content img
     {
-        width: 100px;
-        height: 150px;
+        width: 150px;
+        height: 100px;
     }
 }

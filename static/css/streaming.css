@@ -194,6 +194,37 @@
     border-radius: 10px;
     padding: 10px;
 }
+
+.commentedit
+{
+    display: flex;
+    flex-direction: column;
+}
+.usertitle
+{
+    font-size: 22px;
+    color: #C3073F;
+    text-decoration: underline;
+}
+.commentedit textarea
+{
+    text-align: left;
+    outline: none;
+    border: 2px solid rgba(7, 7, 7, 0.082);
+}
+.cmt
+{
+    width: 120px;
+    margin: 3px;
+    background-color: #C3073F;
+    color: white;
+    border: 2px solid #C3073F;
+}
+.cmt:hover
+{
+    background-color: white;
+    color:#C3073F ;
+}
 .recom
 {
     margin-left: 20px;
@@ -211,7 +242,7 @@
 }
 .content p
 {
-    font-size: 34px;
+    font-size: 49px;
     color:#C3073F;
 }
 .imgs
@@ -222,12 +253,12 @@
 }
 .imgs img
 {
-    width: 250px;
-    height: 300px;
+    width: 350px;
+    height: 250px;
     border-radius: 20px;
     transition: .5s ease;
     backface-visibility: hidden;
-    margin: 15px;
+    margin: 25px;
 }
 .box
 {
@@ -249,7 +280,7 @@
 .text p
 {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 .text button
 {
@@ -259,10 +290,23 @@
     font-size: 43px;
     border: 2px solid black;
 }
+.text .add
+{
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 16px;
+}
+.text button:hover,
+.text .add:hover
+{
+    box-shadow: 2px 2px 7px 7px whitesmoke;
+}
 .box:hover img
 {
     opacity: 0.19;
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 .box:hover .text
 {
@@ -306,6 +350,39 @@
         font-size: 13px;
     }
 }
+@media screen and (max-width:620px)
+{
+    .imgs img
+    {
+        width: 270px;
+        height: 170px;
+        margin: 15px;
+    }
+    .text
+    {
+        font-size: 9px;
+    }
+    .text .add
+    {
+        font-size: 9px;
+        margin-top: 1px;
+    }
+    .box:hover img
+    {
+       opacity: 0.19;
+       transform: scale(1.1);
+    }
+    .text p
+    {
+       color: white;
+       font-size: 12px;
+    }
+    .text button
+    {
+        font-size: 24px;
+        width: 30px;
+    }
+}
 @media screen and (max-width:480px)
 {
     .recom p
@@ -340,24 +417,33 @@
     {
         font-size: 22px;
     }
-    .imgs img
-    {
-        width: 150px;
-        height: 200px;
-    }
-    .text p
-    {
-       color: white;
-       font-size: 12px;
-    }
-    .text button
-    {
-        font-size: 24px;
-        width: 30px;
-    }
     .descp p
     {
         padding: 0;
         font-size: 10px;
+    }
+    .text
+    {
+        font-size: 9px;
+    }
+    .text .add
+    {
+        font-size: 9px;
+        margin-top: 1px;
+    }
+    .box:hover img
+    {
+       opacity: 0.19;
+       transform: scale(1.1);
+    }
+    .text p
+    {
+       color: white;
+       font-size: 11px;
+    }
+    .text button
+    {
+        font-size: 20px;
+        width: 30px;
     }
 }

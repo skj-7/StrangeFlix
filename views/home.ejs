@@ -58,16 +58,46 @@
 </div>
 <div class="middle">
     <div class="content">
-        <p>Mirzapur S2</p>
+        <p>Series</p>
         <div class="imgs">
+            <% for(var i=0; i < series.length; i++) { %>
             <div class="box">
-                <img src="../static/img/m1.jpg" alt="">
-                <div class="text">Ep-1 <p>Genres: Action | Crime | Drama | Thriller</p>
+                <img src="/<%= series[i].seriesThumbnail %>" alt="">
+                <div class="text">
+                    <p>Series-Title: <%= series[i].seriesTitle %></p>
+                    <p>Series-Category: <%= series[i].seriesCategory %></p>
+                    <p>Series-Price:&#8377; <%= series[i].seriesPrice %></p>
+                    <p>No. of Episodes: <%= series[i].episodeCount %></p>
                     <form action="/home/play" method="post">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
+                    <form action="/home/addCart" method="post">
+                        <input class="add" type="submit" value="Add to Cart">
+                    </form>
                 </div>
             </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="content">
+        <p>Solo</p>
+        <div class="imgs">
+            <% for(var i=0; i < video.length; i++) { %>
+            <div class="box">
+                <img src="/<%= video[i].thumbnail %>" alt="">
+                <div class="text">
+                    <p>Title: <%= video[i].title %></p>
+                    <p>Category: <%= video[i].category %></p>
+                    <p>Price:&#8377; <%= video[i].price %></p>
+                    <form action="/home/play" method="post">
+                        <button type="submit" class="fa fa-play-circle-o"></button>
+                    </form>
+                    <form action="/home/addCart" method="post">
+                        <input class="add" type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <% } %>
         </div>
     </div>
 </div>

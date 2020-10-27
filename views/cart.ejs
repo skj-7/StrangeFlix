@@ -26,41 +26,32 @@
     </div>
     <div class="middle">
         <div class="videos">
+            <% for(var i=0; i < cartVideo.length; i++) { %>
             <div class="content">
-                <img src="../static/img/m1.jpg" alt="">
+                <img src="/<%= cartVideo[i].thumbnail %>" alt="">
                 <div class="details">
-                    <p>Mirzapur S2 episode-1</p>
-                    <p>Genres: Action | Crime | Drama | Thriller</p>
-                    <p>Duration:50:23</p>
+                    <p>Title: <%= cartVideo[i].title %></p>
+                    <p>Category: <%= cartVideo[i].category %></p>
+                    <p>Duration:<%= cartVideo[i].hrs %>:<%= cartVideo[i].min %>:<%= cartVideo[i].sec %></p>
                 </div>
                 <div class="btns">
-                    <a class="btn btn-danger"><p class="fa fa-inr" aria-hidden="true"> 39</p></a>
+                    <a class="btn btn-danger">
+                        <p class="fa fa-inr" aria-hidden="true"> <%= cartVideo[i].price %></p>
+                    </a>
                     <form action="/cart/remove" method="post">
                         <button class="remove">Remove from cart</button>
                     </form>
                 </div>
             </div>
-            <div class="content">
-                <img src="../static/img/m2.jpg" alt="">
-                <div class="details">
-                    <p>Mirzapur S2 episode-2</p>
-                    <p>Genres: Action | Crime | Drama | Thriller</p>
-                    <p>Duration:51:33</p>
-                </div>
-                <div class="btns">
-                    <a class="btn btn-danger"><p class="fa fa-inr" aria-hidden="true"> 39</p></a>
-                    <form action="home/cart/remove" method="post">
-                        <button class="remove">Remove from cart</button>
-                    </form>
-                </div>
-            </div>
+            <% } %>
         </div>
         <div class="total">
-            <p>Total Videos: 2</p>
-            <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> 78</i> </p>
+            <p>Total Videos: <%= totalCount %></p>
+            <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> <%= totalPrice %></i> </p>
             <form action="/home/payment" method="post">
-                <input type="text" name="amount" value="78" style="display: none;">
-                <button class="pay">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                <input type="text" name="amount" value="<%= totalPrice %>" style="display: none;">
+                <button class="pay">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                </button>
             </form>
         </div>
     </div>
