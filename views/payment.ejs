@@ -20,19 +20,19 @@
     </div>
     <div class="confirmation">
         <p>Confirm Payment</p>
-        <form method="post" id="register" action="/home/payment/paystack">
+        <form method="post" id="register" action="/payment/pay">
             <i>Details</i>
             <div class="form">
                 <label> E-Mail ID: </label>
-                <input type="text" name="email" id="email" value=" <%= email %>" readonly>
+                <input type="text" name="email" id="email" value="<%=user.email %>" readonly>
             </div>
             <div class="form">
                 <label> Name: </label>
-                <input type="text" name="name" id="name" value= "<%= name %>" readonly>
+                <input type="text" name="full_name" id="name" value= "<%=user.name %>" readonly>
             </div>
             <div class="form">
                 <label>Net Billing Amount (&#x20B9;): </label>
-                <input type="number" name="amount" id="amount" value= <%= amount %> readonly>
+                <input type="number" name="amount" id="amount" value= <%=user.amount %> readonly>
             </div>
             <div class="form">
                 <input type="submit" value="Confirm" class="confirm">

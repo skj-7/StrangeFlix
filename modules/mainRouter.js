@@ -5,6 +5,7 @@ const loginRouter = require("./login");
 const verifRouter = require("./verification");
 const adminRouter = require("./adminrouter");
 const userRouter = require('./userRouter');
+const paymentRouter = require('./payment');
 
 router.use("/register", regRouter);
 
@@ -28,6 +29,8 @@ router.get('/',(req, res) => {
 router.get('/aboutUs',(req, res) => {
     res.render('aboutUs.ejs');
 });
+
+router.use('/payment', paymentRouter);
 
 // Logout endpoint
 router.get('/logout', (req, res) => {

@@ -45,15 +45,17 @@
             </div>
             <% } %>
         </div>
+        <% if (totalPrice != 0) { %>
         <div class="total">
             <p>Total Videos: <%= totalCount %></p>
             <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> <%= totalPrice %></i> </p>
-            <form action="/home/payment" method="post">
+            <form action="/payment" method="post">
                 <input type="text" name="amount" value="<%= totalPrice %>" style="display: none;">
                 <button class="pay">Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                 </button>
             </form>
         </div>
+        <% } %>
     </div>
 
 

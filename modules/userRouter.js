@@ -1,6 +1,5 @@
 const userRouter = require('express').Router();
 
-const paymentRouter = require('./payment');
 
 userRouter.get('/',(req, res)=>{
     res.render('home.ejs',{"series":"","video":""});
@@ -25,7 +24,5 @@ userRouter.get('/cart',(req, res)=>{
 userRouter.get('/setting',(req, res)=>{
     res.render('setting.ejs');
 });
-
-userRouter.use('/payment', paymentRouter);
 
 module.exports = userRouter;
