@@ -4,54 +4,99 @@ const users = require('../schemas/userData');
 const videos = require('../schemas/videos');
 const videoSeries = require('../schemas/videoSeries');
 
+cart.get('/', (req, res) => {
+	const userID = req.session.user_id;
+
+	if (userID) {
+		users.findById(userID).populate(["cart.itemsVideo", "cart.itemsSeries"])
+		.exec( (err, data) => {
+			if(err) {
+				return console.log(err);
+			}
+
+			let vidarr = data.cart.itemsVideo;
+			let seriesarr = data.cart.itemsSeries;
+			let price = data.cart.totalPrice;
+			let count = data.cart.totalCount;
+			
+			res.render('cart.ejs', {
+				"cartSeries": seriesarr, "cartVideo": vidarr, "totalPrice": price, "totalCount": count, "message": "", "error": ""
+			});
+		});
+	}
+	else {
+		res.redirect('/');
+	}
+});
+
 cart.get('/add/video/:videoID', (req, res) => {
-    const userID = req.session.user_id;
-    var videoID = req.params.videoID;
-    if (userID) {
-        videos.findById(videoID, (error, video) => {
-            if(error)
-                return console.error("Unable to find video!");
-            
-            let cost = video.price;
-            users.findByIdAndUpdate(userID, {
-                $push: { "cart.itemsVideo": videoID },
-                $inc: { totalCount: 1, totalPrice: cost }
-            }, (err, userdata) => {
-                req.session.data.message = "Video added to Cart."
-                res.redirect('/home');
-            })
-        })
-    }
-    else {
+	const userID = req.session.user_id;
+	var videoID = req.params.videoID;
+	if (userID) {
+		users.findById(userID, (err, userdata) => {
+			var isInArray = userdata.cart.itemsVideo.some(function (vidarrobj) {
+				return vidarrobj.equals(videoID);
+			});
+
+			if(isInArray == true) {
+				req.session.data.message = "Already added to Cart."
+				res.redirect('/home');
+				return;
+			}
+		
+			videos.findById(videoID, (error, video) => {
+				if(error)
+					return console.error("Unable to find video!");
+				
+				let cost = video.price;
+				userdata.updateOne( {
+					$push: { "cart.itemsVideo": videoID },
+					$inc: { "cart.totalCount": 1, "cart.totalPrice": cost }
+				}, (err, userdata) => {
+					req.session.data.message = "Video: \"" + video.title + "\" added to Cart."
+					res.redirect('/home');
+				});
+			})
+		})
+	}
+	else {
 		res.redirect('/login');
 	}
 })
 
 cart.get('/add/series/:seriesID', (req, res) => {
-    const userID = req.session.user_id;
-    var seriesID = req.params.seriesID;
-    if (userID) {
-        videoSeries.findById(seriesID, (error, series) => {
-            if(error)
-                return console.error("Unable to find series!");
-            
-            let cost = series.seriesPrice;
-            users.findByIdAndUpdate(userID, {
-                $push: { "cart.itemsSeries": seriesID },
-                $inc: { totalCount: 1, totalPrice: cost }
-            }, (err, userdata) => {
-                req.session.data.message = "Series added to Cart."
-                res.redirect('/home');
-            })
-        })
-    }
-    else {
+	const userID = req.session.user_id;
+	var seriesID = req.params.seriesID;
+	if (userID) {
+		users.findById(userID, (err, userdata) => {
+			var isInArray = userdata.cart.itemsSeries.some(function (seriesarrobj) {
+				return seriesarrobj.equals(seriesID);
+			});
+
+			if(isInArray == true) {
+				req.session.data.message = "Already added to Cart."
+				res.redirect('/home');
+				return;
+			}
+		
+			videoSeries.findById(seriesID, (error, series) => {
+				if(error)
+					return console.error("Unable to find video!");
+				
+				let cost = series.seriesPrice;
+				userdata.updateOne( {
+					$push: { "cart.itemsSeries": seriesID },
+					$inc: { "cart.totalCount": 1, "cart.totalPrice": cost }
+				}, (err, userdata) => {
+					req.session.data.message = "Series: \"" + series.seriesTitle + "\" added to Cart."
+					res.redirect('/home');
+				});
+			})
+		})
+	}
+	else {
 		res.redirect('/login');
 	}
 })
-
-cart.get('/',(req, res) =>{
-    res.render('cart.ejs',{"cartSeries":"","cartVideo":"","totalPrice":0,"totalCount":0,"soloCount":0,"seriesCount":0,"message": "","error":""});
-});
 
 module.exports = cart;

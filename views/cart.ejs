@@ -36,7 +36,7 @@
     </div>
     <div class="middle">
         <div class="videos">
-            <% if (soloCount != 0) { %>
+            <% if (cartVideo.length != 0) { %>
             <p class="type">Solo</p>
             <% for(var i=0; i < cartVideo.length; i++) { %>
             <div class="content">
@@ -44,7 +44,7 @@
                 <div class="details">
                     <p>Title: <%= cartVideo[i].title %></p>
                     <p>Category: <%= cartVideo[i].category %></p>
-                    <p>Duration:<%= cartVideo[i].hrs %>:<%= cartVideo[i].min %>:<%= cartVideo[i].sec %></p>
+                    <p>Duration: <%= cartVideo[i].duration.hours %>:<%= cartVideo[i].duration.minutes %>:<%= cartVideo[i].duration.seconds %></p>
                 </div>
                 <div class="btns">
                     <a class="btn btn-danger">
@@ -59,19 +59,19 @@
             <% } %>
 
 
-            <% if (seriesCount != 0) { %>
+            <% if (cartSeries.length != 0) { %>
             <p class="type">Series</p>
             <% for(var i=0; i < cartSeries.length; i++) { %>
             <div class="content">
-                <img src="/<%= cartSeries[i].thumbnail %>" alt="">
+                <img src="/<%= cartSeries[i].seriesThumbnail %>" alt="">
                 <div class="details">
-                    <p>Series-Title: <%= cartSeries[i].title %></p>
-                    <p>Series-Category: <%= cartSeries[i].category %></p>
-                    <p>Series-Duration:<%= cartSeries[i].hrs %>:<%= cartSeries[i].min %>:<%= cartSeries[i].sec %></p>
+                    <p>Title: <%= cartSeries[i].seriesTitle %></p>
+                    <p>No. of Episodes: <%= cartSeries[i].episodeCount %></p>
+                    <p>Category: <%= cartSeries[i].seriesCategory %></p>
                 </div>
                 <div class="btns">
                     <a class="btn btn-danger">
-                        <p class="fa fa-inr" aria-hidden="true"> <%= cartSeries[i].price %></p>
+                        <p class="fa fa-inr" aria-hidden="true"> <%= cartSeries[i].seriesPrice %></p>
                     </a>
                     <form action="/cart/remove" method="post">
                         <button class="remove">Remove from cart</button>

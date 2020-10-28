@@ -8,6 +8,7 @@ const { getMaxListeners } = require('process');
 
 const emailtoken = require('../schemas/emailVerToken');
 const userdata = require('../schemas/userData');
+const cartSchema = require('../schemas/cart');
 
 require('dotenv').config();
 
@@ -57,7 +58,7 @@ register.post('/', (req, res) => {
 					return;
 				}
 				// Now we can store the password hash in db.
-				var data = { fName: fname, lName: lname, email: Email, age: age, password: hash };
+				var data = { fName: fname, lName: lname, email: Email, age: age, password: hash, "cart.totalCount": 0, "cart.totalPrice": 0 };
 				var mydata = new userdata(data);
 				mydata.save(function (err) {
 					if (err)
