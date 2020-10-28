@@ -1,5 +1,7 @@
+const { getMaxListeners } = require('process');
+
 const paystack = (request) => {
-    const MySecretKey = 'Bearer sk_test_69f7965e43b37f9cfd42ce51cfbff0f94dedc8f5';
+    const MySecretKey = process.env.PAYSTACK_BEARER_KEY;
     
     const initializePayment = (form, mycallback) => {
         const options = {

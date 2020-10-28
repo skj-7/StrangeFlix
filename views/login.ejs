@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/static/css/register.css" rel="stylesheet">
     <title>Login</title>
 </head>
@@ -24,41 +26,48 @@
                 <p>Login</p>
             </section>
             <% if (message != "") { %>
-                <div class="alert-success">
-                    <%= message %>
-                </div>
+            <div class="alert-success">
+                <%= message %>
+            </div>
             <% } %>
 
             <% if (error != "") { %>
-                <div class="alert-danger">
-                    <%= error %>
-                </div>
+            <div class="alert-danger">
+                <%= error %>
+            </div>
             <% } %>
-             
+
             <form action="/login" method="post">
-            <div class="form">
-                <label for="name">Email ID:</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <div class="form">
-                <label for="name">Password:</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-            <div class="form">
-                <input class="signup" type="submit" value="Sign In">
-            </div>
+                <div class="form">
+                    <label for="name">Email ID:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form">
+                    <label for="name">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form">
+                    <input class="signup" type="submit" value="Sign In">
+                </div>
             </form>
             <p class="signin">Do not have an Account? <a href="/register">Sign Up</a></p><br>
-            <hr style="width: 200px;"><br>
+            <hr style="width: 200px; margin-bottom: 7px;">
             <div class="forgot"><a href="/login/forgot">Forgot Password ?</a></div>
+            <hr style="width: 200px; margin-top: 4px; margin-bottom: 4px;">
+            <p>Sign Up/Sign In using</p>
+            <div class="social">
+                <a class="google" href="/googleLogin"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
+                <a class="fb" href="/fbLogin"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            </div>
         </div>
         <div class="slider">
             <img class="mySlides" src="/static/img/ott2.jpg">
-                <img class="mySlides" src="/static/img/ott.jpg">
-                <img class="mySlides" src="/static/img/ott1.jpg">
+            <img class="mySlides" src="/static/img/ott.jpg">
+            <img class="mySlides" src="/static/img/ott1.jpg">
             <p>Unlimited movies, TV shows and more.</p>
         </div>
     </div>
-    <script src="/static/fe_js/register.js"></script> 
+    <script src="/static/fe_js/register.js"></script>
 </body>
+
 </html>
