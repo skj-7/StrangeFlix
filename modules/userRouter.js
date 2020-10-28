@@ -13,21 +13,21 @@ userRouter.get('/aboutUs',(req, res) => {
 userRouter.use('/payment', payment);
 
 userRouter.post('/play',(req, res)=>{
-    res.render('streaming.ejs',{"playedvideo":"" ,"selfComments":"","otherComments":"","recom":""});
+    res.render('streaming.ejs',{"message": "","error":"","playedvideo":"" ,"selfComments":"","otherComments":"","recom":""});
 });
 
 userRouter.get('/premium',(req, res)=>{
-    res.render('premium.ejs',{"premium":"false"});
+    res.render('premium.ejs',{"premium":"false","message": "","error":""});
 });
 
 userRouter.get('/search',(req, res)=>{
-    res.render('search.ejs',{"results":""});
+    res.render('search.ejs',{"results":"","message": "","error":""});
 });
 
 userRouter.use('/cart', cart);
 
 userRouter.get('/setting',(req, res)=>{
-    res.render('setting.ejs');
+    res.render('setting.ejs',{"message": "","error":""});
 });
 
 module.exports = userRouter;

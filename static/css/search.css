@@ -4,6 +4,12 @@
     padding: 0;
     font-family: 'Baloo 2', cursive;
 }
+.alert
+{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
 .form-inline
 {
     font-size: 80px;

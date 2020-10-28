@@ -21,6 +21,16 @@
         <img src="../static/img/dr.jpg" alt="">
         <b>CART</b>
     </class>
+    <% if (message != "") { %>
+        <div class="alert alert-success" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
     <div class="selections">
         <p>Your Selections</p>
     </div>

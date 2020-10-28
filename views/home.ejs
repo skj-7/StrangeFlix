@@ -1,12 +1,16 @@
 <%- include ("header") %>
 
-<% if (message != "") { %>
-    <div class="alert-success">
-        <%= message %>
-    </div>
-<% } %>
-
 <div id="slider">
+    <% if (message != "") { %>
+        <div class="alert alert-success" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>

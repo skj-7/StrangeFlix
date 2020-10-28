@@ -33,6 +33,12 @@
     left: 80%;
     font-size: 110px;
 }
+.alert
+{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
 .selections
 {
     text-align: center;

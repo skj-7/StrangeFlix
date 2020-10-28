@@ -2,7 +2,9 @@ const paymentRouter = require('express').Router();
 const request = require('request');
 
 paymentRouter.post('/',(req, res)=>{
-    var userData={"name":"","email":"","amount":req.body.amount};
+    //Add user name & email 
+    //example
+    var userData={"name":"Sanskar","email":"sanskar94511@gmail.com","amount":req.body.amount};
     res.render('payment.ejs',{"user":userData});
 });
 

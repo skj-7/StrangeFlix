@@ -2,6 +2,16 @@
 <%- include ("header") %>
 <link rel="stylesheet" href="../static/css/premium.css">
 <div class="top-right">
+    <% if (message != "") { %>
+        <div class="alert alert-success" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
     <% if (premium == "false") { %>
     <p>You are not a premium user</p>
     <p id="choose"> <i class="fa fa-hand-o-right"></i> Join Premium <i class="fa fa-hand-o-left"></i></p>

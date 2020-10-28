@@ -71,6 +71,12 @@
 {
     max-width: 50px;
 }
+.alert
+{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
 .mid
 {
     display: flex;

@@ -34,6 +34,16 @@
             </div>
         </div>
     </div>
+    <% if (message != "") { %>
+        <div class="alert alert-success" role="alert">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %>
     <div class="mid">
         <div class="player">
             <video class="player__video viewer" src="/<%= playedvideo.video %>"
