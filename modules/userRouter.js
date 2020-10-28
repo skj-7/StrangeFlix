@@ -4,6 +4,13 @@ const home = require('./home');
 const cart = require('./cartHandler');
 const payment = require('./payment');
 
+userRouter.get('/', (req, res) => {
+    if (req.session.user_id)
+        res.redirect('/home');
+    else
+        res.render('index.ejs');
+})
+
 userRouter.use("/home", home);
 
 userRouter.get('/aboutUs',(req, res) => {

@@ -17,7 +17,30 @@ cart.get('/add/video/:videoID', (req, res) => {
                 $push: { "cart.itemsVideo": videoID },
                 $inc: { totalCount: 1, totalPrice: cost }
             }, (err, userdata) => {
-                req.session.data.message = "Video added to Cart"
+                req.session.data.message = "Video added to Cart."
+                res.redirect('/home');
+            })
+        })
+    }
+    else {
+		res.redirect('/login');
+	}
+})
+
+cart.get('/add/series/:seriesID', (req, res) => {
+    const userID = req.session.user_id;
+    var seriesID = req.params.seriesID;
+    if (userID) {
+        videoSeries.findById(seriesID, (error, series) => {
+            if(error)
+                return console.error("Unable to find series!");
+            
+            let cost = series.seriesPrice;
+            users.findByIdAndUpdate(userID, {
+                $push: { "cart.itemsSeries": seriesID },
+                $inc: { totalCount: 1, totalPrice: cost }
+            }, (err, userdata) => {
+                req.session.data.message = "Series added to Cart."
                 res.redirect('/home');
             })
         })

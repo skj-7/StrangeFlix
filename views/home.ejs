@@ -82,7 +82,7 @@
                     <form action="/home/play" method="post">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
-                    <form action="/home/addCart" method="post">
+                    <form action="/cart/add/series/<%= series[i]._id %>" method="GET">
                         <input class="add" type="submit" value="Add to Cart">
                     </form>
                 </div>
@@ -103,7 +103,7 @@
                     <form action="/home/play" method="post">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
-                    <form action="/home/addCart" method="post">
+                    <form action="/cart/add/video/<%= video[i]._id %>" method="GET">
                         <input class="add" type="submit" value="Add to Cart">
                     </form>
                 </div>
