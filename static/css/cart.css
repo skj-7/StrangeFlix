@@ -52,6 +52,12 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
+.type
+{
+    font-size: 25px;
+    color: #C3073F;
+    text-align: center;
+}
 .videos
 {
     display: flex;

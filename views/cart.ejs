@@ -22,20 +22,22 @@
         <b>CART</b>
     </class>
     <% if (message != "") { %>
-        <div class="alert alert-success" role="alert">
-            <%= message %>
-        </div>
+    <div class="alert alert-success" role="alert">
+        <%= message %>
+    </div>
     <% } %>
     <% if (error != "") { %>
-        <div class="alert alert-danger" role="alert">
-            <%= error %>
-        </div>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
     <% } %>
     <div class="selections">
         <p>Your Selections</p>
     </div>
     <div class="middle">
         <div class="videos">
+            <% if (soloCount != 0) { %>
+            <p class="type">Solo</p>
             <% for(var i=0; i < cartVideo.length; i++) { %>
             <div class="content">
                 <img src="/<%= cartVideo[i].thumbnail %>" alt="">
@@ -54,10 +56,36 @@
                 </div>
             </div>
             <% } %>
+            <% } %>
+
+
+            <% if (seriesCount != 0) { %>
+            <p class="type">Series</p>
+            <% for(var i=0; i < cartSeries.length; i++) { %>
+            <div class="content">
+                <img src="/<%= cartSeries[i].thumbnail %>" alt="">
+                <div class="details">
+                    <p>Series-Title: <%= cartSeries[i].title %></p>
+                    <p>Series-Category: <%= cartSeries[i].category %></p>
+                    <p>Series-Duration:<%= cartSeries[i].hrs %>:<%= cartSeries[i].min %>:<%= cartSeries[i].sec %></p>
+                </div>
+                <div class="btns">
+                    <a class="btn btn-danger">
+                        <p class="fa fa-inr" aria-hidden="true"> <%= cartSeries[i].price %></p>
+                    </a>
+                    <form action="/cart/remove" method="post">
+                        <button class="remove">Remove from cart</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+
+
         </div>
         <% if (totalPrice != 0) { %>
         <div class="total">
-            <p>Total Videos: <%= totalCount %></p>
+            <p>Total Selections: <%= totalCount %></p>
             <p>Total Price: <i class="fa fa-inr" aria-hidden="true"> <%= totalPrice %></i> </p>
             <form action="/payment" method="post">
                 <input type="text" name="amount" value="<%= totalPrice %>" style="display: none;">

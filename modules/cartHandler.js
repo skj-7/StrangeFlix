@@ -50,6 +50,8 @@ cart.get('/add/series/:seriesID', (req, res) => {
 	}
 })
 
-module.exports = cart;
+cart.get('/',(req, res) =>{
+    res.render('cart.ejs',{"cartSeries":"","cartVideo":"","totalPrice":0,"totalCount":0,"soloCount":0,"seriesCount":0,"message": "","error":""});
+});
 
-// res.render('cart.ejs',{"cartVideo":"","totalPrice":0,"totalCount":0});
+module.exports = cart;
