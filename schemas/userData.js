@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const cartSchema = require('./cart');
+
 var mySchema = new mongoose.Schema({
 	fName: {
 		type: String,
@@ -35,7 +37,8 @@ var mySchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		required: true,
 		ref: 'Comments'
-    }]
+	}],
+	cart: cartSchema
 }, {
 	timestamps: true
 });

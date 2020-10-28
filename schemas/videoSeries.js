@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
+// require('mongoose-currency').loadType(mongoose);
+// var Currency = mongoose.Types.Currency;
 
 const durationSchema = new mongoose.Schema({
 	_id: false,
@@ -34,10 +34,9 @@ const seriesSchema = new mongoose.Schema({
 		required: true
 	},
 	seriesPrice: {
-		type: Currency,
+		type: Number,
 		required: true,
-		min: 0,
-		max: 5000000
+		min: 0
 	},
 	seriesThumbnail: {
 		type: String,

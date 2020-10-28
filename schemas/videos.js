@@ -39,10 +39,9 @@ const videoSchema = new mongoose.Schema({
 		required: true
 	},
 	price: {
-		type: Currency,
+		type: Number,
 		required: true,
-		min: 0,
-		max: 5000000
+		min: 0
 	},
 	thumbnail: {
 		type: String,
