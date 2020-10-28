@@ -70,7 +70,7 @@ verification.get('/passreset/:tokenID', (req, res) => {
 			res.render('changePassword.ejs', {
 				"error": "",
 				"message": "",
-				"id": user._id
+				"id": token._userId._id
 			});
 		}
 	});

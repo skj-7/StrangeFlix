@@ -25,7 +25,7 @@ admindelete.get('/video/:videoID', (req, res) => {
                     if (err2) throw err2;
                     console.log('Thumbnail File deleted!');
                     
-                    video._seriesId.updateOne({ $pull: { videoList: video_id }, $set: { episodeCount: video._seriesId.episodeCount-1 } },
+                    video._seriesId.updateOne({ $pull: { videoList: video_id }, $inc: { episodeCount: -1 } },
                     (error, success) => {
                         if(error)
                             return console.log(error);

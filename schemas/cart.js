@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
+    _id: false,
     totalCount: {
         type: Number,
         default: 0,
@@ -9,8 +10,9 @@ const cartSchema = new mongoose.Schema({
     },
     totalPrice: {
         type: Number,
-		required: true,
-		min: 0
+		default: 0,
+        min: 0,
+		required: true
     },
     itemsVideo: [{
 		type: mongoose.Schema.Types.ObjectId,
@@ -24,4 +26,4 @@ const cartSchema = new mongoose.Schema({
     }],
 });
 
-module.exports = cart;
+module.exports = cartSchema;

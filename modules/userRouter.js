@@ -1,9 +1,16 @@
 const userRouter = require('express').Router();
 
+const home = require('./home');
+const cart = require('./cartHandler');
+const payment = require('./payment');
 
-userRouter.get('/',(req, res)=>{
-    res.render('home.ejs',{"series":"","video":""});
+userRouter.use("/home", home);
+
+userRouter.get('/aboutUs',(req, res) => {
+    res.render('aboutUs.ejs');
 });
+
+userRouter.use('/payment', payment);
 
 userRouter.post('/play',(req, res)=>{
     res.render('streaming.ejs',{"playedvideo":"" ,"selfComments":"","otherComments":"","recom":""});
@@ -17,9 +24,7 @@ userRouter.get('/search',(req, res)=>{
     res.render('search.ejs',{"results":""});
 });
 
-userRouter.get('/cart',(req, res)=>{
-    res.render('cart.ejs',{"cartVideo":"","totalPrice":0,"totalCount":0});
-});
+userRouter.use('/cart', cart);
 
 userRouter.get('/setting',(req, res)=>{
     res.render('setting.ejs');
