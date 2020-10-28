@@ -106,7 +106,7 @@ adminupload.post('/', (req, res) => {
 							else {
 								var video_id = savedata._id;
 
-								data.updateOne({ $push: { videoList: video_id }, $set: { episodeCount: data.episodeCount+1 } },
+								data.updateOne({ $push: { videoList: video_id }, $inc: { episodeCount: 1 } },
 									(error, success) => {
 									if(error)
 										return console.log(error);

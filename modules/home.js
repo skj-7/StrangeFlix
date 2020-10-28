@@ -5,8 +5,10 @@ const videoSeries = require('../schemas/videoSeries');
 home.get('/',(req, res) => {
     if (req.session.user_id) {
         var msg = "";
-        if(req.session.data.message)
+        if(req.session.data.message) {
             msg = req.session.data.message;
+            req.session.data.message = null;
+        }
         
         videos.find({}, (err, vidarr) => {
 			if(err) {
