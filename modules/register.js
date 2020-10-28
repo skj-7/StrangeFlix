@@ -8,7 +8,6 @@ const { getMaxListeners } = require('process');
 
 const emailtoken = require('../schemas/emailVerToken');
 const userdata = require('../schemas/userData');
-const cartSchema = require('../schemas/cart');
 
 require('dotenv').config();
 
