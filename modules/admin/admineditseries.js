@@ -1,6 +1,6 @@
 const admineditseries = require('express').Router();
 const bodyParser = require('body-parser');
-const videoSeries = require('../schemas/videoSeries');
+const videoSeries = require('../../schemas/videoSeries');
 
 admineditseries.use(bodyParser.json());
 

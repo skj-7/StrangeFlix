@@ -1,6 +1,6 @@
 const adminlogin = require('express').Router();
 var bcrypt = require("bcrypt");
-const userdata = require('../schemas/userData');
+const userdata = require('../../schemas/userData');
 
 adminlogin.get('/', (req, res) => {
 	if (req.session.admin) {

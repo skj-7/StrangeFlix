@@ -4,7 +4,7 @@ const fs = require("fs");
 const fse = require('fs-extra');
 const multer = require('multer');
 const path = require('path');
-const videoSeries = require('../schemas/videoSeries');
+const videoSeries = require('../../schemas/videoSeries');
 
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {

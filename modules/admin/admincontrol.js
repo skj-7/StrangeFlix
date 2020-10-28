@@ -1,6 +1,6 @@
 const admincontrol = require('express').Router();
-const videos = require('../schemas/videos');
-const videoSeries = require('../schemas/videoSeries');
+const videos = require('../../schemas/videos');
+const videoSeries = require('../../schemas/videoSeries');
 
 admincontrol.get('/', (req, res) => {
 	if (req.session.admin) {

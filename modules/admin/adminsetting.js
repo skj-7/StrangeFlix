@@ -1,6 +1,6 @@
 const adminsetting = require('express').Router();
 var bcrypt = require("bcrypt");
-const userdata = require('../schemas/userData');
+const userdata = require('../../schemas/userData');
 
 adminsetting.get('/', (req, res) => {
 	res.render('adminsettings.ejs', {

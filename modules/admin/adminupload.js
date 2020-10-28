@@ -9,8 +9,8 @@ const url = require('url');
 const ytdl = require('ytdl-core');
 const multer = require('multer');
 const path = require('path');
-const videos = require('../schemas/videos');
-const videoSeries = require('../schemas/videoSeries');
+const videos = require('../../schemas/videos');
+const videoSeries = require('../../schemas/videoSeries');
 
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {

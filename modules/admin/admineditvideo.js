@@ -1,7 +1,7 @@
 const admineditvideo = require('express').Router();
 const bodyParser = require('body-parser');
-const videos = require('../schemas/videos');
-require('../schemas/comment');
+const videos = require('../../schemas/videos');
+require('../../schemas/comment');
 
 admineditvideo.use(bodyParser.json());
 

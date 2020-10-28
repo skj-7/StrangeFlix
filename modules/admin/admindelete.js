@@ -1,8 +1,8 @@
 const admindelete = require('express').Router();
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const videos = require('../schemas/videos');
-const videoSeries = require('../schemas/videoSeries');
+const videos = require('../../schemas/videos');
+const videoSeries = require('../../schemas/videoSeries');
 
 admindelete.use(bodyParser.json());
 
