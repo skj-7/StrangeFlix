@@ -1,5 +1,6 @@
 const facebook = require('express').Router();
 const passport = require('passport');
+const userdata = require('../schemas/userData');
 const { getMaxListeners } = require('process');
 const FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -36,7 +37,7 @@ facebook.get('/callback', passport.authenticate('facebook',
 { failureRedirect: '/fblogin/error' }), (req, res) => {
 
 	//Add this to database & session
-	var userData = { 'name': userProfile.displayName, 'id': userProfile.id };
+	var userData = { 'name': userProfile.displayName, 'email': userProfile.id };
 
 	userdata.findOne({ email: "fb=" + userData.email }, (err, data) => {
 		if (err)
