@@ -34,6 +34,10 @@
                 <a><i class="fa fa-youtube-play"></i></a>
                 <p>Subscription</p>
             </div>
+            <div class="icon">
+                <a href="/home"><i class="fa fa-home"></i></a>
+                <p>HOME</p>
+            </div>
         </div>
         <div class="content">
             <% if (message != "") { %>
@@ -82,14 +86,14 @@
                     </div>
                     <div class="form">
                         <label for="newpass">New Password:</label>
-                        <input type="password" name="newpass" id="newpass"  required>
+                        <input type="password" name="newpass" id="password"  required>
                     </div>
                     <div class="form">
                         <label for="confirmpass">Confirm Password:</label>
-                        <input type="password" name="confirmpass" id="confirmpass" required>
+                        <input type="password" name="confirmpass" id="confirmpassword" onkeyup="check()" required>
                     </div>
                     <div class="form">
-                        <input type="submit" class="change" value="Change Password">
+                        <input type="submit" class="change" id="submit" value="Change Password" disabled="disable">
                     </div>
                 </form>
             </div>

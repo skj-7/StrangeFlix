@@ -56,12 +56,12 @@
             <label for="old-pin">Old Pin</label>
             <input type="password" name="old_pin" id="old_pin" required>
             <label for="new-pin">New Pin</label>
-            <input type="password" name="new_pin" id="new_pin" required>
+            <input type="password" name="new_pin" id="password" required>
             <label for="confirm-pin">Confirm Pin</label>
-            <input type="password" name="confirm_pin" id="confirm_pin" required>
+            <input type="password" name="confirm_pin" id="confirmpassword" onkeyup="check()" required>
             <div class="btns">
                 <button type="reset" value="Reset">Reset</button>
-                <button type="submit" value="Submit">Submit</button>
+                <button type="submit" value="Submit" id="submit" disabled="disable">Submit</button>
             </div>
         </form>
     </div>
