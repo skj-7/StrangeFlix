@@ -1,23 +1,31 @@
 const paymentRouter = require('express').Router();
 const request = require('request');
-
-paymentRouter.post('/',(req, res)=>{
-    //Add user name & email 
-    //example
-    var userData={"name":"Sanskar","email":"sanskar94511@gmail.com","amount":req.body.amount};
-    res.render('payment.ejs',{"user":userData});
+const userdata = require('../schemas/userData');
+var Amount;
+paymentRouter.post('/', (req, res) => {
+    if (req.session.user_id) {
+        userdata.findById(req.session.user_id, (err, data) => {
+            if (err) {
+                return console.log(err);
+            }
+            Amount=req.body.amount;
+            var userData = { "name": data.fName+" "+data.lName, "email": data.email, "amount": req.body.amount };
+            res.render('payment.ejs', { "user": userData });
+        });
+    }
+    else {
+        res.redirect('/');
+    }
 });
 
-const {initializePayment, verifyPayment} = require('./pay-key')(request);
+const { initializePayment, verifyPayment } = require('./pay-key')(request);
 
 
-paymentRouter.post('/pay',(req,res)=>
-{
-    const form =req.body;
+paymentRouter.post('/pay', (req, res) => {
+    const form = req.body;
     form.amount *= 100;
-    initializePayment(form, (error, body)=>{
-        if(error)
-        {
+    initializePayment(form, (error, body) => {
+        if (error) {
             console.log(error);
             return res.redirect('/error')
             return;
@@ -27,20 +35,18 @@ paymentRouter.post('/pay',(req,res)=>
     });
 });
 
-paymentRouter.get('/callback',(req,res)=>
-{
+paymentRouter.get('/callback', (req, res) => {
     const ref = req.query.reference;
-    verifyPayment(ref, (error,body)=>{
-        if(error)
-        {
+    verifyPayment(ref, (error, body) => {
+        if (error) {
             console.log(error)
         }
-        response = JSON.parse(body); 
+        response = JSON.parse(body);
 
-//ADD subscription info to database........
+        //ADD subscription info to database........
 
-        res.redirect('/home');   
-    });    
+        res.redirect('/home');
+    });
 
 });
 
