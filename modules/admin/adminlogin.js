@@ -45,6 +45,7 @@ adminlogin.post('/', (req, res) => {
 				req.session.admin = "Authenticated";
 				req.session.user_id = data._id;
 				req.session.data = {
+					subCode: data.subscriptionCode,
 					email: data.email,
 					message: null
 				};

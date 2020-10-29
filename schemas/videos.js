@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
+// require('mongoose-currency').loadType(mongoose);
+// var Currency = mongoose.Types.Currency;
 
 const durationSchema = new mongoose.Schema({
 	_id: false,

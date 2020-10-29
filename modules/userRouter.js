@@ -25,10 +25,6 @@ userRouter.use('/payment', payment);
 
 userRouter.use('/purchased', purchased);
 
-userRouter.get('/premium',(req, res)=>{
-    res.render('premium.ejs',{"premium":0,"message": "","error":""});
-});
-
 userRouter.get('/search', (req, res) => {
     res.render('search.ejs',{"results":"","message": "","error":""});
 });
@@ -36,6 +32,17 @@ userRouter.get('/search', (req, res) => {
 userRouter.use('/cart', cart);
 
 userRouter.use('/setting', setting);
+
+userRouter.get('/premium', (req, res) => {
+    const userID = req.session.user_id;
+    const subCode = req.session.data.subCode;
+	if (userID) {
+        res.render('premium.ejs', { "premium": subCode, "message": "", "error": "" });
+    }
+	else {
+		res.redirect('/');
+	}
+});
 
 userRouter.get('/aboutUs', (req, res) => {
     res.render('aboutUs.ejs');
