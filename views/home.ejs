@@ -75,7 +75,7 @@
             <div class="box">
                 <img src="/<%= series[i].seriesThumbnail %>" alt="">
                 <div class="text">
-                    <form class="fav-icon" action="/addFav" method="post">
+                    <form class="fav-icon" action="/fav/add/series/<%= series[i]._id %>" method="GET">
                         <button type="submit" class="fa fa-heart-o"></button>
                     </form>
                     <p>Series-Title: <%= series[i].seriesTitle %></p>
@@ -100,7 +100,7 @@
             <div class="box">
                 <img src="/<%= video[i].thumbnail %>" alt="">
                 <div class="text">
-                    <form class="fav-icon" action="/addFav" method="post">
+                    <form class="fav-icon" action="/fav/add/video/<%= video[i]._id %>" method="GET">
                         <button type="submit" class="fa fa-heart-o"></button>
                     </form>
                     <p>Title: <%= video[i].title %></p>

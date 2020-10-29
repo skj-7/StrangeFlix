@@ -3,7 +3,6 @@ const stream = require('express').Router();
 const bodyParser = require('body-parser');
 const users = require('../schemas/userData');
 const videos = require('../schemas/videos');
-const series = require('../schemas/videoSeries');
 const videoSeries = require('../schemas/videoSeries');
 
 stream.use(bodyParser.json());
@@ -11,16 +10,10 @@ stream.use(bodyParser.json());
 stream.get('/:vid_id', (req, res) => {
 	const userID = req.session.user_id;
 	var videoID = req.params.vid_id;
-	console.log(videoID);
+	
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
 			var subCode = userdata.subscriptionCode;
-
-			let checkPurchase = async () => {
-				await userdata.purchased.listSolo.some(function (vidarrobj) {
-					return vidarrobj.equals(videoID);
-				});
-			}
 
 			let play = () => {
 				videos.findById(videoID).populate(["comments", "_seriesId"])

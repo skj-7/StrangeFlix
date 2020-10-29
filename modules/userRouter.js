@@ -2,6 +2,7 @@ const userRouter = require('express').Router();
 
 const home = require('./home');
 const stream = require('./streaming');
+const favourite = require('./favourite');
 const payment = require('./payment');
 const cart = require('./cartHandler');
 
@@ -15,6 +16,8 @@ userRouter.get('/', (req, res) => {
 userRouter.use("/home", home);
 
 userRouter.use('/watch', stream);
+
+userRouter.use('/fav', favourite);
 
 userRouter.get('/aboutUs',(req, res) => {
     res.render('aboutUs.ejs');
@@ -38,10 +41,6 @@ userRouter.get('/setting',(req, res)=>{
 
 userRouter.get('/purchased',(req, res)=>{
     res.render('purchased.ejs',{"subs":1,"series":"","video":""});
-});
-
-userRouter.get('/fav',(req, res)=>{
-    res.render('fav.ejs',{"series":"","video":""});
 });
 
 module.exports = userRouter;
