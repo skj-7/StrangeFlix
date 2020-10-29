@@ -1,18 +1,29 @@
 const stream = require('express').Router();
 
+const bodyParser = require('body-parser');
 const users = require('../schemas/userData');
 const videos = require('../schemas/videos');
+const series = require('../schemas/videoSeries');
 const videoSeries = require('../schemas/videoSeries');
 
-stream.get('/', (req, res) => {
+stream.use(bodyParser.json());
+
+stream.get('/:vid_id', (req, res) => {
 	const userID = req.session.user_id;
-	var videoID = req.query.v;
+	var videoID = req.params.vid_id;
+	console.log(videoID);
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
 			var subCode = userdata.subscriptionCode;
 
+			let checkPurchase = async () => {
+				await userdata.purchased.listSolo.some(function (vidarrobj) {
+					return vidarrobj.equals(videoID);
+				});
+			}
+
 			let play = () => {
-				videos.findById(videoID).populate(["comments", "_seriesId", "_seriesId.videoList"])
+				videos.findById(videoID).populate(["comments", "_seriesId"])
 				.exec( (error, videodata) => {
 					if(error) {
 						console.log(error);
@@ -38,16 +49,19 @@ stream.get('/', (req, res) => {
 					{
 						videos.find({}, (err, data) => {
 							if(err) return console.log(err);
-
 							recommendations = data;
 						})
 					}
 					else {
-						videos._seriesId.videoList.forEach(vid => {
-							if(vid._id != videoID)
-								recommendations.push(vid);
-						});
+						videoSeries.findById(videodata._seriesId, (error, seriesdata) => {
+							seriesdata.videoList.forEach(vid => {
+								if(vid._id != videoID) {
+									recommendations.push(vid);
+								}
+							});
+						})
 					}
+
 					res.render('streaming.ejs', {
 						"message": "", "error": "", 
 						"playedvideo": videodata, 
@@ -64,9 +78,11 @@ stream.get('/', (req, res) => {
 			}
 			else if(subCode == 1) {
 				var isPurchased = userdata.purchased.listSolo.some(function (vidarrobj) {
+					console.log(vidarrobj);
+					console.log(videoID);
 					return vidarrobj.equals(videoID);
 				});
-	
+
 				if(isPurchased == true) {
 					play();
 				}

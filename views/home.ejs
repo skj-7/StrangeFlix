@@ -82,7 +82,7 @@
                     <p>Series-Category: <%= series[i].seriesCategory %></p>
                     <p>Series-Price:&#8377; <%= series[i].seriesPrice %></p>
                     <p>No. of Episodes: <%= series[i].episodeCount %></p>
-                    <form action="/watch?v=<%= series[0]._id %>" method="GET">
+                    <form action="/watch/<%= series[0]._id %>" method="GET">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
                     <form action="/cart/add/series/<%= series[i]._id %>" method="GET">
@@ -106,7 +106,7 @@
                     <p>Title: <%= video[i].title %></p>
                     <p>Category: <%= video[i].category %></p>
                     <p>Price:&#8377; <%= video[i].price %></p>
-                    <form action="/watch?v=<%= video[i]._id %>" method="GET">
+                    <form action="/watch/<%= video[i]._id %>" method="GET">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
                     <form action="/cart/add/video/<%= video[i]._id %>" method="GET">
