@@ -14,14 +14,6 @@ adminsetting.post('/', (req, res) => {
 	var newPIN = req.body.new_pin;
 	var confirmPIN = req.body.confirm_pin;
 
-	if (oldPIN == "" || newPIN == "" || confirmPIN == "") {
-		res.render('adminsettings.ejs', {
-			"error": "Fill all the fields below",
-			"message": ""
-		});
-		return;
-	}
-
 	if (newPIN != confirmPIN) {
 		res.render('adminsettings.ejs', {
 			"error": "New PIN and Confirm PIN should be same. Retry",

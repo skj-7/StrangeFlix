@@ -49,7 +49,7 @@
 
             <div id="personal">
                 <p>Personal Information</p>
-                <form action="/setting/changePersonal" method="post">
+                <form action="/setting/personal" method="post">
                     <div class="form">
                         <label for="fname">First Name:</label>
                         <input type="text" name="fName" id="fname" value="<%= user.fName %>" required>
@@ -75,7 +75,7 @@
 
             <div id="security">
                 <p>Change Password</p>
-                <form action="/setting/changepass" method="post">
+                <form action="/setting/security" method="post">
                     <div class="form">
                         <label for="oldpass">Current Password:</label>
                         <input type="password" name="oldpass" id="oldpass" required>
