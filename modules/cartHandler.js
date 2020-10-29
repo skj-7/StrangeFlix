@@ -34,12 +34,22 @@ cart.get('/add/video/:videoID', (req, res) => {
 	var videoID = req.params.videoID;
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
-			var isInArray = userdata.cart.itemsVideo.some(function (vidarrobj) {
+			var isPurchased = userdata.purchased.listSolo.some(function (vidarrobj) {
 				return vidarrobj.equals(videoID);
 			});
 
-			if(isInArray == true) {
-				req.session.data.message = "Already added to Cart."
+			if(isPurchased == true) {
+				req.session.data.message = "You have already purchased this video";
+				res.redirect('/home');
+				return;
+			}
+
+			var isInCart = userdata.cart.itemsVideo.some(function (vidarrobj) {
+				return vidarrobj.equals(videoID);
+			});
+
+			if(isInCart == true) {
+				req.session.data.message = "Already added to Cart.";
 				res.redirect('/home');
 				return;
 			}
@@ -69,11 +79,21 @@ cart.get('/add/series/:seriesID', (req, res) => {
 	var seriesID = req.params.seriesID;
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
-			var isInArray = userdata.cart.itemsSeries.some(function (seriesarrobj) {
+			var isPurchased = userdata.purchased.listSeries.some(function (seriesarrobj) {
+				return seriesarrobj.equals(videoID);
+			});
+
+			if(isPurchased == true) {
+				req.session.data.message = "You have already purchased this video";
+				res.redirect('/home');
+				return;
+			}
+
+			var isInCart = userdata.cart.itemsSeries.some(function (seriesarrobj) {
 				return seriesarrobj.equals(seriesID);
 			});
 
-			if(isInArray == true) {
+			if(isInCart == true) {
 				req.session.data.message = "Already added to Cart."
 				res.redirect('/home');
 				return;

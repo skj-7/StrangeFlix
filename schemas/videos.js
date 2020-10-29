@@ -56,6 +56,18 @@ const videoSchema = new mongoose.Schema({
 		required: true
 	},
 	duration: durationSchema,
+	likes: {
+		type: Number,
+		required: true,
+		default: 0,
+		min: 0
+	},
+	dislikes: {
+		type: Number,
+		required: true,
+		default: 0,
+		min: 0
+	},
 	tags: [String],
 	comments: [{
 		type: mongoose.Schema.Types.ObjectId,

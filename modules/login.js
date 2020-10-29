@@ -68,7 +68,7 @@ routerLogin.post('/',(req, res) => {
 						req.session.user_id = user._id;
 						req.session.data = {
 							email: user.email,
-							verification: user.isVerified
+							message: null
 						};
 						res.redirect('/home');
 					}

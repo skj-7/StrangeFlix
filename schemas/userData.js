@@ -38,7 +38,31 @@ var mySchema = new mongoose.Schema({
 		required: true,
 		ref: 'Comments'
 	}],
-	cart: cartSchema
+	cart: cartSchema,
+	favourites: {
+		listSolo: [{
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: 'Videos'
+		}],
+		listSeries: [{
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: 'Series'
+		}]
+	},
+	purchased: {
+		listSolo: [{
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: 'Videos'
+		}],
+		listSeries: [{
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: 'Series'
+		}]
+	}
 }, {
 	timestamps: true
 });
@@ -46,3 +70,9 @@ var mySchema = new mongoose.Schema({
 var userdata = mongoose.model('Users', mySchema);
 
 module.exports = userdata;
+
+// subscriptionCode:
+// 0: Free user (No video)
+// 1: Pay-per-view user (Atleast 1 video)
+// 2: Monthly Premium
+// 3: Yearly Premium

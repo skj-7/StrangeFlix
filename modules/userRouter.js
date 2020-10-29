@@ -1,8 +1,9 @@
 const userRouter = require('express').Router();
 
 const home = require('./home');
-const cart = require('./cartHandler');
+const stream = require('./streaming');
 const payment = require('./payment');
+const cart = require('./cartHandler');
 
 userRouter.get('/', (req, res) => {
     if (req.session.user_id)
@@ -13,15 +14,13 @@ userRouter.get('/', (req, res) => {
 
 userRouter.use("/home", home);
 
+userRouter.use('/watch', stream);
+
 userRouter.get('/aboutUs',(req, res) => {
     res.render('aboutUs.ejs');
 });
 
 userRouter.use('/payment', payment);
-
-userRouter.post('/play',(req, res)=>{
-    res.render('streaming.ejs',{"message": "","error":"","playedvideo":"" ,"selfComments":"","otherComments":"","recom":""});
-});
 
 userRouter.get('/premium',(req, res)=>{
     res.render('premium.ejs',{"premium":"false","message": "","error":""});

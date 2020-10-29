@@ -43,6 +43,11 @@ adminlogin.post('/', (req, res) => {
 			}
 			else {
 				req.session.admin = "Authenticated";
+				req.session.user_id = data._id;
+				req.session.data = {
+					email: data.email,
+					message: null
+				};
 				res.redirect('/admin/control');
 			}
 		});
