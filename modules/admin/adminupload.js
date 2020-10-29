@@ -107,15 +107,15 @@ adminupload.post('/', (req, res) => {
 								var video_id = savedata._id;
 
 								data.updateOne({ $push: { videoList: video_id }, $inc: { episodeCount: 1 } },
-									(error, success) => {
+									async (error, success) => {
 									if(error)
 										return console.log(error);
 
 									//Upload with links
 									if (typeof req.files.video == 'undefined') {
 										console.log("Upload with links...")
-										var YTurl = ""+req.body.ytlink;
-										var NMurl = req.body.NMlink;
+										var YTurl = ""+req.body.ytlink+"";
+										var NMurl = ""+req.body.NMlink+"";
 										if(NMurl == "")
 											var NMurl = req.body.AS3link;
 
@@ -149,7 +149,7 @@ adminupload.post('/', (req, res) => {
 												});
 											}
 											
-											let uploadYT = async () => {
+											let uploadYT = async (YTurl) => {
 												var videoReadableStream = ytdl(YTurl, {quality: 'highest'});
 												let info = await ytdl.getInfo(YTurl);
 												
@@ -161,7 +161,7 @@ adminupload.post('/', (req, res) => {
 													uploadTN();
 												});
 											}
-											uploadYT();      
+											uploadYT(YTurl);      
 										}
 
 										//Normal Link Upload
