@@ -17,7 +17,7 @@ fav.get('/', (req, res) => {
     }
 	
 	if (userID) {
-		users.findById(userID).populate(["favourites.listSolo", "favourites.listSeries"])
+		users.findById(userID).populate(["favourites.listSolo", "favourites.listSeries", "favourites.listSeries.videoList"])
         .exec( (error, userdata) => {
             if(error) {
                 console.log(error);

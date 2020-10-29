@@ -114,8 +114,8 @@ adminupload.post('/', (req, res) => {
 									//Upload with links
 									if (typeof req.files.video == 'undefined') {
 										console.log("Upload with links...")
-										var YTurl = ""+req.body.ytlink+"";
-										var NMurl = ""+req.body.NMlink+"";
+										var YTurl = req.body.ytlink;
+										var NMurl = req.body.NMlink;
 										if(NMurl == "")
 											var NMurl = req.body.AS3link;
 
@@ -151,7 +151,7 @@ adminupload.post('/', (req, res) => {
 											
 											let uploadYT = async (YTurl) => {
 												var videoReadableStream = ytdl(YTurl, {quality: 'highest'});
-												let info = await ytdl.getInfo(YTurl);
+												let info = await ytdl.getInfo(YTurl+"");
 												
 												var videoName = info.videoDetails.title.replace('|','').toString('ascii');
 												var videoWritableStream = fs.createWriteStream('./assets/videos/'+ video_id + '.mp4');

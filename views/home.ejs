@@ -82,9 +82,11 @@
                     <p>Series-Category: <%= series[i].seriesCategory %></p>
                     <p>Series-Price:&#8377; <%= series[i].seriesPrice %></p>
                     <p>No. of Episodes: <%= series[i].episodeCount %></p>
-                    <form action="/watch/<%= series[0]._id %>" method="GET">
+                    <% if(series[i].videoList.length != 0) { %>
+                    <form action="/watch/<%= series[i].videoList[0]._id %>" method="GET">
                         <button type="submit" class="fa fa-play-circle-o"></button>
                     </form>
+                    <% } %>
                     <form action="/cart/add/series/<%= series[i]._id %>" method="GET">
                         <input class="add" type="submit" value="Add to Cart">
                     </form>

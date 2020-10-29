@@ -4,6 +4,7 @@ const home = require('./home');
 const stream = require('./streaming');
 const favourite = require('./favourite');
 const payment = require('./payment');
+const purchased = require('./purchased');
 const cart = require('./cartHandler');
 const setting = require('./setting');
 
@@ -20,17 +21,15 @@ userRouter.use('/watch', stream);
 
 userRouter.use('/fav', favourite);
 
-userRouter.get('/aboutUs',(req, res) => {
-    res.render('aboutUs.ejs');
-});
-
 userRouter.use('/payment', payment);
+
+userRouter.use('/purchased', purchased);
 
 userRouter.get('/premium',(req, res)=>{
     res.render('premium.ejs',{"premium":"false","message": "","error":""});
 });
 
-userRouter.get('/search',(req, res)=>{
+userRouter.get('/search', (req, res) => {
     res.render('search.ejs',{"results":"","message": "","error":""});
 });
 
@@ -38,8 +37,8 @@ userRouter.use('/cart', cart);
 
 userRouter.use('/setting', setting);
 
-userRouter.get('/purchased',(req, res)=>{
-    res.render('purchased.ejs',{"subs":1,"series":"","video":""});
+userRouter.get('/aboutUs', (req, res) => {
+    res.render('aboutUs.ejs');
 });
 
 module.exports = userRouter;

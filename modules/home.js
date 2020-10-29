@@ -1,5 +1,6 @@
 const home = require('express').Router();
 const videos = require('../schemas/videos');
+const series = require('../schemas/videoSeries');
 const videoSeries = require('../schemas/videoSeries');
 
 home.get('/',(req, res) => {
@@ -15,7 +16,7 @@ home.get('/',(req, res) => {
 				return console.log(err);
 			}
 			
-			videoSeries.find({}, (err, seriesarr) => {
+			videoSeries.find({}).populate('videoList').exec( (err, seriesarr) => {
 				res.render('home.ejs', { "series": seriesarr, "video": vidarr, "message": msg, "error": "" });
 			});
 		});
