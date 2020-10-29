@@ -5,6 +5,7 @@ const stream = require('./streaming');
 const favourite = require('./favourite');
 const payment = require('./payment');
 const cart = require('./cartHandler');
+const setting = require('./setting');
 
 userRouter.get('/', (req, res) => {
     if (req.session.user_id)
@@ -35,9 +36,7 @@ userRouter.get('/search',(req, res)=>{
 
 userRouter.use('/cart', cart);
 
-userRouter.get('/setting',(req, res)=>{
-    res.render('setting.ejs',{"message": "","error":""});
-});
+userRouter.use('/setting', setting);
 
 userRouter.get('/purchased',(req, res)=>{
     res.render('purchased.ejs',{"subs":1,"series":"","video":""});

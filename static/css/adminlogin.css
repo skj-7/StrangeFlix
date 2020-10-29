@@ -90,6 +90,7 @@ input[type="button"]
     height: 50px;
     font-size: 26px;
     border: 4px groove rgb(39, 24, 56);
+    outline: none;
 }
 input[type="button"]:hover
 {
