@@ -80,11 +80,11 @@ cart.get('/add/series/:seriesID', (req, res) => {
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
 			var isPurchased = userdata.purchased.listSeries.some(function (seriesarrobj) {
-				return seriesarrobj.equals(videoID);
+				return seriesarrobj.equals(seriesID);
 			});
 
 			if(isPurchased == true) {
-				req.session.data.message = "You have already purchased this video";
+				req.session.data.message = "You have already purchased this series";
 				res.redirect('/home');
 				return;
 			}
@@ -110,6 +110,58 @@ cart.get('/add/series/:seriesID', (req, res) => {
 				}, (err, userdata) => {
 					req.session.data.message = "Series: \"" + series.seriesTitle + "\" added to Cart."
 					res.redirect('/home');
+				});
+			})
+		})
+	}
+	else {
+		res.redirect('/login');
+	}
+})
+
+cart.get('/remove/video/:videoID', (req, res) => {
+	const userID = req.session.user_id;
+	var videoID = req.params.videoID;
+	if (userID) {
+		users.findById(userID, (err, userdata) => {
+		
+			videos.findById(videoID, (error, video) => {
+				if(error)
+					return console.error("Unable to find video!");
+				
+				let cost = video.price;
+				userdata.updateOne( {
+					$pull: { "cart.itemsVideo": videoID },
+					$inc: { "cart.totalCount": -1, "cart.totalPrice": -cost }
+				}, (err, userdata) => {
+					req.session.data.message = "Video: \"" + video.title + "\" removed from Cart."
+					res.redirect('/cart');
+				});
+			})
+		})
+	}
+	else {
+		res.redirect('/login');
+	}
+})
+
+cart.get('/remove/series/:seriesID', (req, res) => {
+	const userID = req.session.user_id;
+	var seriesID = req.params.seriesID;
+	if (userID) {
+		users.findById(userID, (err, userdata) => {
+		
+			videoSeries.findById(seriesID, (error, series) => {
+				if(error)
+					return console.error("Unable to find series!");
+				
+				let cost = series.seriesPrice;
+				userdata.updateOne( {
+					$pull: { "cart.itemsSeries": seriesID },
+					$inc: { "cart.totalCount": -1, "cart.totalPrice": -cost }
+				}, (err, userdata) => {
+					req.session.data.message = "Series: \"" + series.seriesTitle + "\" removed from Cart."
+					res.redirect('/cart');
 				});
 			})
 		})

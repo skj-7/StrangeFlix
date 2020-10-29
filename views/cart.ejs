@@ -50,7 +50,7 @@
                     <a class="btn btn-danger">
                         <p class="fa fa-inr" aria-hidden="true"> <%= cartVideo[i].price %></p>
                     </a>
-                    <form action="/cart/remove" method="post">
+                    <form action="/cart/remove/video/<%= cartVideo[i]._id %>" method="GET">
                         <button class="remove">Remove from cart</button>
                     </form>
                 </div>
@@ -73,7 +73,7 @@
                     <a class="btn btn-danger">
                         <p class="fa fa-inr" aria-hidden="true"> <%= cartSeries[i].seriesPrice %></p>
                     </a>
-                    <form action="/cart/remove" method="post">
+                    <form action="/cart/remove/series/<%= cartSeries[i]._id %>" method="GET">
                         <button class="remove">Remove from cart</button>
                     </form>
                 </div>
