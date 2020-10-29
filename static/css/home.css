@@ -42,6 +42,10 @@ body
     flex-direction: row;
     color: black;
 }
+.icon p
+{
+    font-size: 26px;
+}
 .icon:hover
 {
     font-size: 40px;
@@ -157,6 +161,7 @@ body
     font-size: 18px;
     color: white;
 }
+
 .text p
 {
     color: white;
@@ -182,6 +187,24 @@ body
 .text .add:hover
 {
     box-shadow: 2px 2px 7px 7px whitesmoke;
+}
+.fav-icon
+{
+    position: absolute;
+    left: 120%;
+    bottom: 80%;
+}
+.fav-icon button
+{
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+}
+.fav-icon button:hover
+{
+    box-shadow: none;
+    color: red;
 }
 .box:hover img
 {
@@ -267,9 +290,13 @@ body
     {
         font-size: 28px;
     }
+    .icon p
+    {
+        font-size: 23px;
+    }
     .icon:hover
     {
-        font-size: 26px;
+        transform: scale(1.3);
     }
     .carousel-caption h2
     {

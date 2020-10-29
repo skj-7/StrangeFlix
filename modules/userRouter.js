@@ -37,4 +37,12 @@ userRouter.get('/setting',(req, res)=>{
     res.render('setting.ejs',{"message": "","error":""});
 });
 
+userRouter.get('/purchased',(req, res)=>{
+    res.render('purchased.ejs',{"subs":1,"series":"","video":""});
+});
+
+userRouter.get('/fav',(req, res)=>{
+    res.render('fav.ejs',{"series":"","video":""});
+});
+
 module.exports = userRouter;

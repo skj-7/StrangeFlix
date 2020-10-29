@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo 2', cursive;
+}
+.myfav
+{
+    text-align: center;
+    font-size: 40px;
+    background-color: #C3073F;
+    color: white;
+    border: 3px double black;
+}
+.fav-icon button
+{
+    background: none;
+    border: none;
+    color: red;
+}
+.fav-icon button:hover
+{
+    box-shadow: none;
+    color: white;
+}

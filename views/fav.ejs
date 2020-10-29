@@ -1,0 +1,63 @@
+<%- include ("header") %>
+<link rel="stylesheet" href="../static/css/home.css">
+<link rel="stylesheet" href="../static/css/fav.css">
+<div class="topright">
+    <p class="myfav">Favourite</p>
+    <% if (series != "") { %>
+        <div class="content">
+            <p>Series</p>
+            <div class="imgs">
+                <% for(var i=0; i < series.length; i++) { %>
+                <div class="box">
+                    <img src="/<%= series[i].seriesThumbnail %>" alt="">
+                    <div class="text">
+                        <form class="fav-icon" action="/removeFav" method="post">
+                            <button type="submit" class="fa fa-heart"></button>
+                        </form>
+                        <p>Series-Title: <%= series[i].seriesTitle %></p>
+                        <p>Series-Category: <%= series[i].seriesCategory %></p>
+                        <p>Series-Price:&#8377; <%= series[i].seriesPrice %></p>
+                        <p>No. of Episodes: <%= series[i].episodeCount %></p>
+                        <form action="/home/play" method="post">
+                            <button type="submit" class="fa fa-play-circle"></button>
+                        </form>
+                        <form action="/cart/add/series/<%= series[i]._id %>" method="GET">
+                            <input class="add" type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+        <% if (video != "") { %>
+        <div class="content">
+            <p>Solo</p>
+            <div class="imgs">
+                <% for(var i=0; i < video.length; i++) { %>
+                <div class="box">
+                    <img src="/<%= video[i].thumbnail %>" alt="">
+                    <div class="text">
+                        <form class="fav-icon" action="/removeFav" method="post">
+                            <button type="submit" class="fa fa-heart"></button>
+                        </form>
+                        <p>Title: <%= video[i].title %></p>
+                        <p>Category: <%= video[i].category %></p>
+                        <p>Price:&#8377; <%= video[i].price %></p>
+                        <form action="/home/play" method="post">
+                            <button type="submit" class="fa fa-play-circle-o"></button>
+                        </form>
+                        <form action="/cart/add/video/<%= video[i]._id %>" method="GET">
+                            <input class="add" type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+</div>
+</div>
+
+
+<%- include ("footer") %>

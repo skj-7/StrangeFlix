@@ -1,0 +1,71 @@
+<%- include ("header") %>
+<link rel="stylesheet" href="../static/css/purchased.css">
+<link rel="stylesheet" href="../static/css/home.css">
+<div class="topright">
+    <% if (subs == 0) { %>
+    <div class="details">
+        <p class="subs">You haven't purchased anything</p>
+        <p class="des">To enjoy the premium content of StrangeFlix</p>
+        <a class="now" href="/premium">Subscribe Now</a>
+    </div>
+    <% } %>
+
+    <% if (subs == 2 || subs == 3) { %>
+    <div class="details">
+        <p class="subs">You are a premium user</p>
+        <p class="des">You can access all the content of StrangeFlix</p>
+        <p class="stream"><i class="fa fa-smile-o"></i> Keep Streaming <i class="fa fa-smile-o"></i></p>
+    </div>
+    <% } %>
+
+    <% if (subs == 1) { %>
+        <div class="details">
+            <p class="subs">Purchased Content</p>
+            <% if (series != "") { %>
+            <div class="content">
+                <p>Series</p>
+                <div class="imgs">
+                    <% for(var i=0; i < series.length; i++) { %>
+                    <div class="box">
+                        <img src="/<%= series[i].seriesThumbnail %>" alt="">
+                        <div class="text">
+                            <p>Series-Title: <%= series[i].seriesTitle %></p>
+                            <p>Series-Category: <%= series[i].seriesCategory %></p>
+                            <p>Series-Price:&#8377; <%= series[i].seriesPrice %></p>
+                            <p>No. of Episodes: <%= series[i].episodeCount %></p>
+                            <form action="/home/play" method="post">
+                                <button type="submit" class="fa fa-play-circle-o"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+            <% if (video != "") { %>
+            <div class="content">
+                <p>Solo</p>
+                <div class="imgs">
+                    <% for(var i=0; i < video.length; i++) { %>
+                    <div class="box">
+                        <img src="/<%= video[i].thumbnail %>" alt="">
+                        <div class="text">
+                            <p>Title: <%= video[i].title %></p>
+                            <p>Category: <%= video[i].category %></p>
+                            <p>Price:&#8377; <%= video[i].price %></p>
+                            <form action="/home/play" method="post">
+                                <button type="submit" class="fa fa-play-circle-o"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    <% } %>
+
+</div>
+</div>
+
+<%- include ("footer") %>
