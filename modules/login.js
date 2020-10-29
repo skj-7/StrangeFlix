@@ -67,6 +67,7 @@ routerLogin.post('/',(req, res) => {
 					else {
 						req.session.user_id = user._id;
 						req.session.data = {
+							subCode: user.subscriptionCode,
 							email: user.email,
 							message: null
 						};
