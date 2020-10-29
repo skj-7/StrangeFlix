@@ -26,7 +26,7 @@ userRouter.use('/payment', payment);
 userRouter.use('/purchased', purchased);
 
 userRouter.get('/premium',(req, res)=>{
-    res.render('premium.ejs',{"premium":"false","message": "","error":""});
+    res.render('premium.ejs',{"premium":0,"message": "","error":""});
 });
 
 userRouter.get('/search', (req, res) => {

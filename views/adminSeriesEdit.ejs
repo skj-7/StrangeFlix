@@ -12,17 +12,17 @@
     <p class="id">Name:<%= series.seriesTitle %></p>
     <div class="video">  
         <div class="info">
-            <form class="details" method="post" action="/admin/edit/series/<%= series._id %>" enctype="multipart/form-data">
+            <form class="details" method="post" action="/admin/edit/series/<%= series._id %>">
                 <div class="form-group">
                     <label>Series-Title</label>
-                    <input type="text" name="title" class="form-control" value="<%= series.seriesTitle %>" required>
+                    <input type="text" name="seriesTitle" class="form-control" value="<%= series.seriesTitle %>" required>
                 </div>
 
                 <div class="form-group">
                     <label>Series-Price</label>
                     <div id="price">
                         <input type="text" name="sym" id="sym" value=&#x20B9; readonly>
-                        <input type="number" value=<%= series.seriesPrice %> name="price" id="price-value"
+                        <input type="number" name="seriesPrice" value=<%= series.seriesPrice %>  id="price-value"
                             class="form-control" min="0" required>
                     </div>
                 </div>
@@ -30,29 +30,29 @@
                 <div class="form-group">
                     <label>Series-Duration</label>
                     <div id="duration">
-                        <input type="number" name="hours" class="form-control" value=<%= series.seriesDuration.hours %> placeholder="hrs"
+                        <input type="number" name="seriesDuration.hours" class="form-control" value=<%= series.seriesDuration.hours %> placeholder="hrs"
                             min="0" required>
-                        <input type="number" name="minutes" class="form-control" value=<%= series.seriesDuration.minutes %>
+                        <input type="number" name="seriesDuration.minutes" class="form-control" value=<%= series.seriesDuration.minutes %>
                             placeholder="mins" min="0" required>
-                        <input type="number" name="seconds" class="form-control" value=<%= series.seriesDuration.seconds %>
+                        <input type="number" name="seriesDuration.seconds" class="form-control" value=<%= series.seriesDuration.seconds %>
                             placeholder="secs" min="0" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Series-Description</label>
-                    <textarea type="text" name="description" rows="5" cols="30" class="form-control"><%= series.seriesDescription %>
+                    <textarea type="text" name="seriesDescription" rows="5" cols="30" class="form-control"><%= series.seriesDescription %>
                     </textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Series-Tags (Use "," to separate)</label>
-                    <input type="text" name="tags" class="form-control" value="<%= series.tags %>" >
+                    <input type="text" name="seriesTags" class="form-control" value="<%= series.seriesTags %>" >
                 </div>
 
                 <div class="form-group">
                     <label>Series-Category</label>
-                    <input type="text" value="<%= series.seriesCategory %>" name="category">
+                    <input type="text" value="<%= series.seriesCategory %>" name="seriesCategory">
                 </div>
                 <input type="submit" class="btn" value="UPDATE">
             </form>

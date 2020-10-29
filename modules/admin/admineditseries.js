@@ -7,16 +7,35 @@ admineditseries.use(bodyParser.json());
 admineditseries.get('/:seriesID', (req, res) => {
     if (req.session.admin) {
         videoSeries.findOne({ _id: req.params.seriesID }).populate('videoList')
-        .exec( (err, series) => {
-            if(err) {
-				return console.log(err);
-            }
-            console.log(series);
-            res.render('adminSeriesEdit.ejs', {"series": series});
-        })
+            .exec((err, series) => {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log(series);
+                res.render('adminSeriesEdit.ejs', { "series": series });
+            })
     }
     else
         res.redirect('/admin/login');
+});
+
+
+admineditseries.post('/:seriesID', (req, res) => {
+    if (req.session.admin) {
+        videoSeries.findOneAndUpdate({ _id: req.params.seriesID }, req.body, (err, data) => {
+            if (err) {
+                return console.log(err);
+            }
+            videoSeries.findOne({ _id: req.params.seriesID }).populate('videoList')
+                .exec((err, series) => {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log(series);
+                    res.render('adminSeriesEdit.ejs', { "series": series });
+                })
+        });
+    }
 });
 
 module.exports = admineditseries;

@@ -12,7 +12,7 @@
             <%= error %>
         </div>
     <% } %>
-    <% if (premium == "false") { %>
+    <% if (premium == 0 || premium == 1) { %>
     <p>You are not a premium user</p>
     <p id="choose"> <i class="fa fa-hand-o-right"></i> Join Premium <i class="fa fa-hand-o-left"></i></p>
     <div class="pack">
@@ -57,7 +57,7 @@
     </div>
     <% } %>
 
-    <% if (premium == "true") { %>
+    <% if (premium == 2 || premium == 3) { %>
         <div class="pro">
             <p>You are a premium user</p>
             <i class="fa fa-user-plus" aria-hidden="true"></i>
