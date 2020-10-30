@@ -47,19 +47,19 @@
             <div id="video">
                 <% for(var i=0;i<videoarray.length;i++) {%>
                 <div id="vid">
-                    <img id="thumbnail" src="<%= videoarray[i].imgpath %>" alt="" onclick="play()">
+                    <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                     <div class="detail">
-                        <p>Name:<%= videoarray[i].name %></p>
-                        <p>Duration:<%=videoarray[i].duration %></p>
+                        <p>Name:<%= videoarray[i].title %></p>
+                        <p>Duration: <%=videoarray[i].duration.hours %>:<%=videoarray[i].duration.minutes %>:<%=videoarray[i].duration.seconds %></p>
                         <p>Description:<%=videoarray[i].description %></p>
                         <p>Tags:<%=videoarray[i].tags %></p>
-                        <p>Category:<%=videoarray[i].catagory %></p>
+                        <p>Category:<%=videoarray[i].category %></p>
                     </div>
                     <div class="btns">
-                        <form action="/admin/flags/removeFlagVideo" method="post">
+                        <form action="/admin/flags/removeFlagVideo/<%= videoarray[i]._id %>" method="GET">
                             <button type="submit">Remove Flag</button>
                         </form>
-                        <form action="/admin/flags/removeVideo" method="post">
+                        <form action="/admin/flags/removeVideo/<%= videoarray[i]._id %>" method="GET">
                             <button type="submit">Remove Video</button>
                         </form>
                     </div>
@@ -69,16 +69,16 @@
             <div id="comment">
                 <% for(var i=0;i<comments.length;i++) {%>
                     <div id="list">
-                        <div class="fa fa-user-circle" id="com"><%=comments[i].username%></div>
-                        <p><%=comments[i].comment%></p>
+                        <div class="fa fa-user-circle" id="com"><%=comments[i]._userId%></div>
+                        <p><%=comments[i].content%></p>
                         <div class="btns-com">
-                            <form action="/admin/flags/removeFlagComment" method="post">
+                            <form action="/admin/flags/removeFlagComment/<%=comments[i]._id%>" method="GET">
                                 <button type="submit">Remove Flag</button>
                             </form>
-                            <form action="/admin/flags/removeComment" method="post">
+                            <form action="/admin/flags/removeComment/<%=comments[i]._id%>" method="GET">
                                 <button type="submit">Remove Comment</button>
                             </form>
-                            <form action="/admin/flags/blockUser" method="post">
+                            <form action="/admin/flags/blockUser/<%=comments[i]._userId%>" method="GET">
                                 <button type="submit">Block User</button>
                             </form>
                         </div>

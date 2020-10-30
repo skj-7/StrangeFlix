@@ -133,13 +133,6 @@ body
     {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    #video
-    {
-      display: flex;
-      flex-direction: column;
     }
     #vid
     {
@@ -196,8 +189,6 @@ body
     {
       display: none;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     #list
     {
@@ -206,7 +197,6 @@ body
       border: 2px solid blue;
       border-radius: 10px;
       padding: 20px;
-      text-align: center;
       margin: 20px;
     }
     #list p
