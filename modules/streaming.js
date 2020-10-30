@@ -10,6 +10,12 @@ stream.use(bodyParser.json());
 stream.get('/:vid_id', (req, res) => {
 	const userID = req.session.user_id;
 	var videoID = req.params.vid_id;
+
+	var msg = "";
+	if(req.session.data.message) {
+		msg = req.session.data.message;
+		req.session.data.message = null;
+	}
 	
 	if (userID) {
 		users.findById(userID, (err, userdata) => {
@@ -57,7 +63,7 @@ stream.get('/:vid_id', (req, res) => {
 					}
 
 					res.render('streaming.ejs', {
-						"message": "", "error": "", 
+						"message": msg, "error": "", 
 						"playedvideo": videodata, 
 						"selfComments": selfcmnt, "otherComments": othercmnt, 
 						"recom": recommendations

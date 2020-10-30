@@ -135,6 +135,8 @@
 		<p class="usertitle"><%= otherComments[i]._userId.fName %> <%= otherComments[i]._userId.lName %></p>
 		<p><%= otherComments[i].content %></p>
 		<form action="/comment/report" method="post">
+			<input type="text" name="vidID" value="<%= playedvideo._id %>" hidden>
+			<input type="text" name="commentID" value="<%= otherComments[i]._id %>" hidden>
 			<button type="submit" class="cmt"><i class="fa fa-flag"></i> Report</button>
 		</form>
 		<hr>

@@ -1,5 +1,6 @@
 const comment = require('express').Router();
 const bodyParser = require('body-parser');
+const flags = require('../schemas/flags');
 const users = require('../schemas/userData');
 const videos = require('../schemas/videos');
 const comments = require('../schemas/comment');
@@ -32,6 +33,7 @@ comment.post('/add', (req, res) => {
                         return console.log(error);
                     }
 
+                    req.session.data.message = "Comment added successfully";
                     res.redirect('/watch/' + videoID);
                 })
             })
@@ -51,6 +53,7 @@ comment.post('/update', (req, res) => {
         comments.findByIdAndUpdate(commentID, { $set: { "content": content }}, (error, cmntdata) => {
             if(error) return console.log(error);
 
+            req.session.data.message = "Comment updated successfully";
             res.redirect('/watch/' + videoID);
         })
     } else {
@@ -73,8 +76,32 @@ comment.post('/remove', (req, res) => {
                 comments.findByIdAndRemove(commentID, (error, cmnt) => {
                     if(error) return console.log(error);
 
+                    req.session.data.message = "Comment removed successfully";
                     res.redirect('/watch/' + videoID);
                 })
+            })
+        })
+    } else {
+		res.redirect('/login');
+	}
+})
+
+comment.post('/report', (req, res) => {
+    const userID = req.session.user_id;
+    var commentID = req.body.commentID;
+    var videoID = req.body.vidID;
+
+    if(userID) {
+        comments.findByIdAndUpdate(commentID, { $set: { "flagged": true }}, (error, cmntdata) => {
+            if(error) return console.log(error);
+
+            var data = new flags({ "flagtype": 0, "flagid": commentID });
+            data.save( (err, flagdata) => {
+                if (err) {
+                    return console.error(err);
+                }
+                req.session.data.message = "Comment successfully reported to admin."
+                res.redirect('/watch/' + videoID);
             })
         })
     } else {

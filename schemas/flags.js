@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const comment = require('./comment');
 
 const flagSchema = new mongoose.Schema({
     flagtype: {
@@ -16,3 +17,7 @@ const flagSchema = new mongoose.Schema({
 var flags = mongoose.model('Flags', flagSchema);
 
 module.exports = flags;
+
+// type code
+// 0: comment
+// 1: video
