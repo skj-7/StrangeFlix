@@ -16,7 +16,7 @@ stream.get('/:vid_id', (req, res) => {
 			var subCode = userdata.subscriptionCode;
 
 			let play = () => {
-				videos.findById(videoID).populate(["comments", "comments._userId", "_seriesId", "_seriesId.videoList"])
+				videos.findById(videoID).populate(["comments", "_seriesId", "comments._userId", "_seriesId.videoList"])
 				.exec( (error, videodata) => {
 					if(error) {
 						console.log(error);

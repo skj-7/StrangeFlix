@@ -72,14 +72,14 @@ paymentRouter.get('/callback', (req, res) => {
 			} else {
 				var cartVideos = userdata.cart.itemsVideo;
 				var cartSeries = userdata.cart.itemsSeries;
-				var servideos = [];
 
+				//concatenating series videos to cart videos
 				cartSeries.forEach(seriesdata => { 
-					servideos = servideos.concat(seriesdata.videoList);
+					cartVideos = cartVideos.concat(seriesdata.videoList);
 				});
 
 				users.findByIdAndUpdate(userID, {
-					$push: { "purchased.listSolo": { $each: cartVideos }, "purchased.listSolo": { $each: servideos }, "purchased.listSeries": { $each: cartSeries } },
+					$push: { "purchased.listSolo": { $each: cartVideos }, "purchased.listSeries": { $each: cartSeries } },
 					$set: { "subscriptionCode": 1, "cart.totalCount": 0, "cart.totalPrice": 0 , "cart.itemsVideo": [], "cart.itemsSeries": [] }
 				}, (error, data) => {
 					req.session.data.subCode = 1;
