@@ -16,7 +16,7 @@ stream.get('/:vid_id', (req, res) => {
 			var subCode = userdata.subscriptionCode;
 
 			let play = () => {
-				videos.findById(videoID).populate(["comments", "_seriesId", "_seriesId.videoList"])
+				videos.findById(videoID).populate(["comments", "comments._userId", "_seriesId", "_seriesId.videoList"])
 				.exec( (error, videodata) => {
 					if(error) {
 						console.log(error);
@@ -31,7 +31,7 @@ stream.get('/:vid_id', (req, res) => {
 					var recommendations = [];
 
 					videodata.comments.forEach(cmnt => {
-						var commentuser = cmnt._userId;
+						var commentuser = cmnt._userId._id;
 						if(commentuser.equals(userID) == true)
 							selfcmnt.push(cmnt);
 						else

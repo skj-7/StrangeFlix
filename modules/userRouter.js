@@ -6,6 +6,7 @@ const favourite = require('./favourite');
 const payment = require('./payment');
 const purchased = require('./purchased');
 const cart = require('./cartHandler');
+const comment = require('./comment');
 const likes = require('./likedislike');
 const setting = require('./setting');
 const search = require('./search');
@@ -26,6 +27,8 @@ userRouter.use('/likes', likes);
 userRouter.use('/fav', favourite);
 
 userRouter.use('/payment', payment);
+
+userRouter.use('/comment', comment);
 
 userRouter.use('/purchased', purchased);
 
