@@ -6,6 +6,7 @@ const favourite = require('./favourite');
 const payment = require('./payment');
 const purchased = require('./purchased');
 const cart = require('./cartHandler');
+const likes = require('./likedislike');
 const setting = require('./setting');
 const search = require('./search');
 
@@ -19,6 +20,8 @@ userRouter.get('/', (req, res) => {
 userRouter.use("/home", home);
 
 userRouter.use('/watch', stream);
+
+userRouter.use('/likes', likes);
 
 userRouter.use('/fav', favourite);
 

@@ -16,7 +16,7 @@ stream.get('/:vid_id', (req, res) => {
 			var subCode = userdata.subscriptionCode;
 
 			let play = () => {
-				videos.findById(videoID).populate(["comments", "_seriesId"])
+				videos.findById(videoID).populate(["comments", "_seriesId", "_seriesId.videoList"])
 				.exec( (error, videodata) => {
 					if(error) {
 						console.log(error);
@@ -38,6 +38,7 @@ stream.get('/:vid_id', (req, res) => {
 							othercmnt.push(cmnt);
 					});
 
+					console.log(videodata._seriesId);
 					if(videodata._seriesId == null)
 					{
 						videos.find({}, (err, data) => {
@@ -46,13 +47,11 @@ stream.get('/:vid_id', (req, res) => {
 						})
 					}
 					else {
-						videoSeries.findById(videodata._seriesId, (error, seriesdata) => {
-							seriesdata.videoList.forEach(vid => {
-								if(vid._id != videoID) {
-									recommendations.push(vid);
-								}
-							});
-						})
+						videodata._seriesId.videoList.forEach(vid => {
+							if(vid._id != videoID) {
+								recommendations.push(vid);
+							}
+						});
 					}
 
 					res.render('streaming.ejs', {

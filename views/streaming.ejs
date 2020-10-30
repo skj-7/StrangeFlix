@@ -85,11 +85,11 @@
                     <p>Tags: <%= playedvideo.tags %></p>
                 </div>
                 <div class="cat">
-                    <form action="home/video/like" method="post" class="like-btn">
+                    <form action="/likes/like/<%= playedvideo._id %>" method="GET" class="like-btn">
                         <button type="submit"><i class="fa fa-thumbs-o-up"><%= playedvideo.likes %></i></button>
                     </form>
 
-                    <form action="home/video/dislike" method="post" class="like-btn">
+                    <form action="/likes/dislike/<%= playedvideo._id %>" method="GET" class="like-btn">
                         <button type="submit"><i class="fa fa-thumbs-o-down"><%= playedvideo.dislikes %></i></button>
                     </form>
                 </div>
