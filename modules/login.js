@@ -63,6 +63,13 @@ routerLogin.post('/',(req, res) => {
 						});
 						return;
 					}
+					else if(user.blocked == true) {
+						res.render('login.ejs', {
+							"error": 'Sorry, your account has been temporarily suspended. Contact admin for more details.',
+							"message": ""
+						});
+						return;
+					}
 					else {
 						req.session.user_id = user._id;
 						req.session.data = {

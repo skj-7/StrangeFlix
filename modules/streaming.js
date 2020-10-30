@@ -1,6 +1,7 @@
 const stream = require('express').Router();
 
 const bodyParser = require('body-parser');
+const flags = require('../schemas/flags');
 const users = require('../schemas/userData');
 const videos = require('../schemas/videos');
 const videoSeries = require('../schemas/videoSeries');
@@ -10,14 +11,14 @@ stream.use(bodyParser.json());
 stream.get('/:vid_id', (req, res) => {
 	const userID = req.session.user_id;
 	var videoID = req.params.vid_id;
-
 	var msg = "";
-	if(req.session.data.message) {
-		msg = req.session.data.message;
-		req.session.data.message = null;
-	}
 	
 	if (userID) {
+		if(req.session.data.message) {
+			msg = req.session.data.message;
+			req.session.data.message = null;
+		}
+
 		users.findById(userID, (err, userdata) => {
 			var subCode = userdata.subscriptionCode;
 
@@ -99,5 +100,24 @@ stream.get('/:vid_id', (req, res) => {
 		res.redirect('/login');
 	}
 })
+
+stream.get('/report/:vid_id', (req, res) => {
+	const userID = req.session.user_id;
+	var videoID = req.params.vid_id;
+
+	if(userID) {
+		var data = new flags({ "flagtype": 1, "flagid": videoID });
+		data.save( (err, flagdata) => {
+			if (err) {
+				return console.error(err);
+			}
+
+			req.session.data.message = "Video successfully reported to admin."
+			res.redirect('/watch/' + videoID);
+		})
+    } else {
+		res.redirect('/login');
+	}
+});
 
 module.exports = stream;

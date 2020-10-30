@@ -26,7 +26,13 @@ var mySchema = new mongoose.Schema({
 	},
 	isVerified: {
 		type: Boolean,
-		default: false
+		default: false,
+		required: true
+	},
+	blocked: {
+		type: Boolean,
+		default: false,
+		required: true
 	},
 	subscriptionCode: {
 		type: Number,

@@ -101,7 +101,7 @@
 		<button class="btn  dropdown-toggle" onclick="comments()" id="btn-comment" type="button" aria-haspopup="true"
 			aria-expanded="false">Comments
 		</button>
-		<form action="/video/videoReport" method="post">
+		<form action="/watch/report/<%= playedvideo._id %>" method="GET">
 			<button type="submit" class="rep"><i class="fa fa-flag"></i> Report</button>
 		</form>
 	</div>
