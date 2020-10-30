@@ -41,4 +41,45 @@ comment.post('/add', (req, res) => {
 	}
 })
 
+comment.post('/update', (req, res) => {
+    const userID = req.session.user_id;
+    var commentID = req.body.commentID;
+    var videoID = req.body.vidID;
+    var content = req.body.content;
+
+    if(userID) {
+        comments.findByIdAndUpdate(commentID, { $set: { "content": content }}, (error, cmntdata) => {
+            if(error) return console.log(error);
+
+            res.redirect('/watch/' + videoID);
+        })
+    } else {
+		res.redirect('/login');
+	}
+})
+
+comment.post('/remove', (req, res) => {
+    const userID = req.session.user_id;
+    var commentID = req.body.commentID;
+    var videoID = req.body.vidID;
+
+    if(userID) {
+        users.findByIdAndUpdate(userID, { $pull: { comments: commentID }}, (err, userdata) => {
+            if(err) return console.log(err);
+
+            videos.findByIdAndUpdate(videoID, { $pull: { comments: commentID }}, (error, videodata) => {
+                if(error) return console.log(error);
+
+                comments.findByIdAndRemove(commentID, (error, cmnt) => {
+                    if(error) return console.log(error);
+
+                    res.redirect('/watch/' + videoID);
+                })
+            })
+        })
+    } else {
+		res.redirect('/login');
+	}
+})
+
 module.exports = comment;

@@ -116,12 +116,16 @@
 		<% for(var i=0; i < selfComments.length; i++) { %>
 		<p class="usertitle"><%= selfComments[i]._userId.fName %> <%= selfComments[i]._userId.lName %></p>
 		<div class="userBtn">
-			<form action="/video/commentEdit" method="post" class="commentedit">
-				<textarea name="comment" id="" cols="70" rows="3"><%= selfComments[i].content %></textarea>
+			<form action="/comment/update" method="post" class="commentedit">
+				<input type="text" name="commentID" value="<%= selfComments[i]._id %>" hidden>
+				<input type="text" name="vidID" value="<%= playedvideo._id %>" hidden>
+				<textarea name="content" id="" cols="70" rows="3"><%= selfComments[i].content %></textarea>
 				<input class="cmt" type="submit" value="Update">
 			</form>
 
-			<form action="/video/commentRemove" method="post">
+			<form action="/comment/remove" method="post">
+				<input type="text" name="commentID" value="<%= selfComments[i]._id %>" hidden>
+				<input type="text" name="vidID" value="<%= playedvideo._id %>" hidden>
 				<input class="cmt" type="submit" value="Remove">
 			</form>
 		</div>
@@ -130,7 +134,7 @@
 		<% for(var i=0; i < otherComments.length; i++) { %>
 		<p class="usertitle"><%= otherComments[i]._userId.fName %> <%= otherComments[i]._userId.lName %></p>
 		<p><%= otherComments[i].content %></p>
-		<form action="/video/commentReport" method="post">
+		<form action="/comment/report" method="post">
 			<button type="submit" class="cmt"><i class="fa fa-flag"></i> Report</button>
 		</form>
 		<hr>
