@@ -15,7 +15,7 @@
             <a href="/admin/upload">Upload</a>
             <a href="/admin/flags">Flags</a>
             <a class="user" href="/admin/users">Users</a>
-            <a  href="/admin/regseries">Reg-Series</a>
+            <a href="/admin/regseries">Reg-Series</a>
         </header>
         <div class="mid">
             <img src="/static/icon.jpg" alt="">
@@ -40,36 +40,50 @@
     </div>
     <div class="main">
         <div class="sider">
-            <button onclick="free()">Free</button>
+            <button onclick="free()">No Subscription</button>
             <button onclick="ppv()">Pay-per-view</button>
             <button onclick="premium()">Premium</button>
         </div>
         <div class="middle">
+            <p class="count">Total Users: <%= (premium.length + free.length + ppv.length)%></p>
             <p class="fa fa-users" id="icon"></p>
             <div id="free">
+                <p class="count">Total Users without Subscription: <%= free.length%></p>
                 <% for(var i=0;i<free.length;i++) {%>
-                    <div id="free-user">
-                        <p>USER NAME:<%= free[i].name %></p><hr>
-                        <p>USER ID:<%= free[i].Emailid %></p>
-                    </div>
+                <div id="free-user">
+                    <p>USER NAME:<%= free[i].fName %> <%= free[i].lName %></p>
+                    <hr>
+                    <p>USER ID:<%= free[i].email %></p>
+                </div>
                 <% } %>
             </div>
             <div id="ppv">
+                <p class="count">Total Users with pay per view videos: <%= ppv.length%></p>
                 <% for(var i=0;i<ppv.length;i++) {%>
-                    <div id="ppv-user">
-                        <p>USER NAME:<%= ppv[i].name %></p><hr>
-                        <p>USER ID:<%= ppv[i].Emailid %></p><hr>
-                        <p>Duration-left:<%=ppv[i].durationleft%></p>
-                    </div>
+                <div id="ppv-user">
+                    <p>USER NAME:<%= ppv[i].fName %> <%= ppv[i].lName %></p>
+                    <hr>
+                    <p>USER ID:<%= ppv[i].email %></p>
+                    <hr>
+                    <p>Subscription:Pay per view</p>
+                </div>
                 <% } %>
             </div>
             <div id="premium">
+                <p class="count">Total Users with premium pack: <%= premium.length%></p>
                 <% for(var i=0;i<premium.length;i++) {%>
-                    <div id="premium-user">
-                        <p>USER NAME:<%= premium[i].name %></p><hr>
-                        <p>USER ID:<%= premium[i].Emailid %></p><hr>
-                        <p>Duration-left:<%=premium[i].durationleft%></p>
-                    </div>
+                <div id="premium-user">
+                    <p>USER NAME:<%= premium[i].fName %> <%= premium[i].lName %></p>
+                    <hr>
+                    <p>USER ID:<%= premium[i].email %></p>
+                    <hr>
+                    <% if (premium[i].subscriptionCode == 2) { %>
+                    <p>Subscription: Monthly Premium</p>
+                    <% } %>
+                    <% if (premium[i].subscriptionCode == 3) { %>
+                    <p>Subscription: Yearly Premium</p>
+                    <% } %>
+                </div>
                 <% } %>
             </div>
         </div>

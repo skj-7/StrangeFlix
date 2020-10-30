@@ -24,6 +24,8 @@ stream.get('/:vid_id', (req, res) => {
 							"error": "Unable to find video.",
 							"message": "Check console at server.."
 						});
+						console.log("fghhh");
+						console.log(videodata);
 					}
 
 					var selfcmnt = [];

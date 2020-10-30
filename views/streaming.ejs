@@ -80,9 +80,9 @@
 			<p><%= playedvideo.title %></p>
 			<div class="likebar">
 				<div class="descp">
-					<p>Category: <%=playedvideo.category %></p>
-					<p>Description: <%= playedvideo.description %></p>
-					<p>Tags: <%= playedvideo.tags %></p>
+					<p><b>Category: </b> <%=playedvideo.category %></p>
+					<p><b>Description: </b><%= playedvideo.description %></p>
+					<p><b>Tags: </b><%= playedvideo.tags %></p>
 				</div>
 				<div class="cat">
 					<form action="/likes/like/<%= playedvideo._id %>" method="GET" class="like-btn">

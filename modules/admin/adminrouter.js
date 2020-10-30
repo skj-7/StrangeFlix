@@ -8,6 +8,8 @@ const deletevs = require('./admindelete');
 const regseries = require('./adminregseries');
 const editvideo = require('./admineditvideo');
 const editseries = require('./admineditseries');
+const userRecord = require('./adminUserRecord');
+const flagRecord = require('./adminFlagRecord');
 
 adminrouter.use('/login', login);
 
@@ -23,12 +25,9 @@ adminrouter.use('/regseries', regseries);
 
 adminrouter.use('/upload', upload);
 
-adminrouter.get('/users', (req, res) => {
-    res.render('adminUserRecord.ejs',{"free":'',"ppv":"","premium":""});
-})
-adminrouter.get('/flags', (req, res) => {
-    res.render('flags-record.ejs',{"videoarray":'',"comments":""});
-})
+adminrouter.use('/users', userRecord);
+
+adminrouter.use('/flags', flagRecord);
 
 adminrouter.use('/setting', setting);
 

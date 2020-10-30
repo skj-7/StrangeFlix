@@ -56,8 +56,12 @@
                         <p>Category:<%=videoarray[i].catagory %></p>
                     </div>
                     <div class="btns">
-                        <button>Remove Flag</button>
-                        <button>Remove Video</button>
+                        <form action="/admin/flags/removeFlagVideo" method="post">
+                            <button type="submit">Remove Flag</button>
+                        </form>
+                        <form action="/admin/flags/removeVideo" method="post">
+                            <button type="submit">Remove Video</button>
+                        </form>
                     </div>
                 </div>
                 <% } %>
@@ -68,8 +72,15 @@
                         <div class="fa fa-user-circle" id="com"><%=comments[i].username%></div>
                         <p><%=comments[i].comment%></p>
                         <div class="btns-com">
-                            <button>Remove Flag</button>
-                            <button>Remove Comment</button>
+                            <form action="/admin/flags/removeFlagComment" method="post">
+                                <button type="submit">Remove Flag</button>
+                            </form>
+                            <form action="/admin/flags/removeComment" method="post">
+                                <button type="submit">Remove Comment</button>
+                            </form>
+                            <form action="/admin/flags/blockUser" method="post">
+                                <button type="submit">Block User</button>
+                            </form>
                         </div>
                     </div>
                 <% } %>

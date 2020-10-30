@@ -133,12 +133,10 @@ body
     {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     #icon
     {
-      font-size: 170px;
+      font-size: 70px;
       text-align: center;
       background-color: rgba(177, 177, 226, 0.26);
       border: 1px solid rgba(136, 136, 187, 0.548);
@@ -149,8 +147,6 @@ body
     {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     #ppv-user,
     #premium-user,
@@ -161,27 +157,21 @@ body
       padding: 20px;
       margin: 10px;
       border: 2px solid blue;
-      border-radius: 10px;
       font-size: 20px;
-      text-align: center;
-    }
-    #ppv-user:hover,
-    #premium-user:hover,
-    #free-user:hover
-    {
-      font-size: 25px;
     }
     #ppv
     {
       display: none;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
     #premium
     {
       display: none;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    }
+    .count
+    {
+      font-size: 30px;
+      color: rgb(34, 12, 34);
+      text-align: center;
     }

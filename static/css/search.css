@@ -20,12 +20,12 @@
 }
 .form-inline i
 {
-    font-size: 80px;
+    font-size: 50px;
     color: white;
 }
 .form-inline input
 {
-    font-size: 80px;
+    font-size: 50px;
     color: white;
 }
 #myForm
@@ -96,29 +96,33 @@ select option
 }
 @media screen and (max-width:690px)
 {
-    .form-inline
+    .form-inline i
     {
-        font-size: 80px;
+        font-size: 30px;
     }
     .form-inline input
     {
-        font-size: 68px;
+        font-size: 30px;
         color: white;
     }
     .result
     {
         font-size: 37px;
     }
+    select option
+    {
+       font-size: 18px;
+    }
 }
 @media screen and (max-width:490px)
 {
-    .form-inline
+    .form-inline i
     {
-        font-size: 60px;
+        font-size: 25px;
     }
     .form-inline input
     {
-        font-size: 48px;
+        font-size: 27px;
         color: white;
     }
     .result
@@ -128,13 +132,13 @@ select option
 }
 @media screen and (max-width:370px)
 {
-    .form-inline
+    .form-inline i
     {
-        font-size: 40px;
+        font-size: 22px;
     }
     .form-inline input
     {
-        font-size: 38px;
+        font-size: 25px;
         color: white;
     }
     .result
