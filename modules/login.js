@@ -34,7 +34,6 @@ routerLogin.post('/',(req, res) => {
 			return;
 		}
 		else{
-			console.log(user);
 			if (user == null) {
 				res.render('login.ejs', {
 					"error": 'The email address ' + Email + ' is not associated with any account. Double-check your email address and try again.',

@@ -16,7 +16,9 @@ stream.get('/:vid_id', (req, res) => {
 			var subCode = userdata.subscriptionCode;
 
 			let play = () => {
-				videos.findById(videoID).populate(["comments", "_seriesId", "comments._userId", "_seriesId.videoList"])
+				videos.findById(videoID).populate([
+					{path: "comments", populate: { path: "_userId"}}, 
+					{path: "_seriesId", populate: { path: "videoList"}}])
 				.exec( (error, videodata) => {
 					if(error) {
 						console.log(error);
@@ -24,8 +26,6 @@ stream.get('/:vid_id', (req, res) => {
 							"error": "Unable to find video.",
 							"message": "Check console at server.."
 						});
-						console.log("fghhh");
-						console.log(videodata);
 					}
 
 					var selfcmnt = [];
@@ -72,8 +72,6 @@ stream.get('/:vid_id', (req, res) => {
 			}
 			else if(subCode == 1) {
 				var isPurchased = userdata.purchased.listSolo.some(function (vidarrobj) {
-					console.log(vidarrobj);
-					console.log(videoID);
 					return vidarrobj.equals(videoID);
 				});
 
