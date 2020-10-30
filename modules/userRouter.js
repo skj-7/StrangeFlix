@@ -7,6 +7,7 @@ const payment = require('./payment');
 const purchased = require('./purchased');
 const cart = require('./cartHandler');
 const setting = require('./setting');
+const search = require('./search');
 
 userRouter.get('/', (req, res) => {
     if (req.session.user_id)
@@ -25,9 +26,7 @@ userRouter.use('/payment', payment);
 
 userRouter.use('/purchased', purchased);
 
-userRouter.get('/search', (req, res) => {
-    res.render('search.ejs',{"results":"","message": "","error":""});
-});
+userRouter.use('/search', search);
 
 userRouter.use('/cart', cart);
 

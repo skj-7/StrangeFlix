@@ -12,14 +12,38 @@
 }
 .form-inline
 {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-inline i
+{
     font-size: 80px;
     color: white;
-    font-family: 'Times New Roman', Times, serif;
 }
 .form-inline input
 {
     font-size: 80px;
     color: white;
+}
+#myForm
+{
+    display: flex;
+    flex-direction: column;
+}
+.typo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+select option
+{
+    font-size: 18px;
 }
 .result
 {
@@ -40,6 +64,11 @@
 {
     max-width: 900px;
     max-height: 500px;
+}
+.searchResults
+{
+    display: flex;
+    flex-direction: column;
 }
 @media screen and (max-width:1190px)
 {
