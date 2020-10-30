@@ -20,6 +20,11 @@
     justify-content: center;
     align-items: center;
 }
+.Purdetails
+{
+    display: flex;
+    flex-direction: column;
+}
 .des 
 {
     font-size: 32px;

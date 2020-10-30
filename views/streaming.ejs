@@ -35,14 +35,14 @@
 		</div>
 	</div>
 	<% if (message != "") { %>
-		<div class="alert alert-success" role="alert">
-			<%= message %>
-		</div>
+	<div class="alert alert-success" role="alert">
+		<%= message %>
+	</div>
 	<% } %>
 	<% if (error != "") { %>
-		<div class="alert alert-danger" role="alert">
-			<%= error %>
-		</div>
+	<div class="alert alert-danger" role="alert">
+		<%= error %>
+	</div>
 	<% } %>
 	<div class="mid">
 		<div class="player">
@@ -97,9 +97,15 @@
 			</div>
 		</div>
 	</div>
-	<button class="btn  dropdown-toggle" onclick="comments()" id="btn-comment" type="button" aria-haspopup="true"
-		aria-expanded="false">Comments
-	</button>
+	<div class="operation">
+		<button class="btn  dropdown-toggle" onclick="comments()" id="btn-comment" type="button" aria-haspopup="true"
+			aria-expanded="false">Comments
+		</button>
+		<form action="/video/videoReport" method="post">
+			<button type="submit" class="rep"><i class="fa fa-flag"></i> Report</button>
+		</form>
+	</div>
+
 	<div id="comment-section">
 		<form action="/comment/add" method="post" class="comment-box">
 			<input type="text" name="vidID" value="<%= playedvideo._id %>" hidden>
@@ -108,25 +114,26 @@
 		</form>
 		<hr>
 		<% for(var i=0; i < selfComments.length; i++) { %>
-			<p class="usertitle"><%= selfComments[i]._userId.fName %> <%= selfComments[i]._userId.lName %></p>
-			
-			<form action="home/video/commentEdit" method="post" class="commentedit">
+		<p class="usertitle"><%= selfComments[i]._userId.fName %> <%= selfComments[i]._userId.lName %></p>
+		<div class="userBtn">
+			<form action="/video/commentEdit" method="post" class="commentedit">
 				<textarea name="comment" id="" cols="70" rows="3"><%= selfComments[i].content %></textarea>
 				<input class="cmt" type="submit" value="Update">
 			</form>
 
-			<form action="home/video/commentRemove" method="post">
+			<form action="/video/commentRemove" method="post">
 				<input class="cmt" type="submit" value="Remove">
 			</form>
-			<hr>
+		</div>
+		<hr>
 		<% } %>
 		<% for(var i=0; i < otherComments.length; i++) { %>
-			<p class="usertitle"><%= otherComments[i]._userId.fName %> <%= otherComments[i]._userId.lName %></p>
-			<p><%= otherComments[i].content %></p>
-			<form action="home/video/commentReport" method="post">
-				<button type="submit" class="cmt"><i class="fa fa-flag"></i> Report</button>
-			</form>
-			<hr>
+		<p class="usertitle"><%= otherComments[i]._userId.fName %> <%= otherComments[i]._userId.lName %></p>
+		<p><%= otherComments[i].content %></p>
+		<form action="/video/commentReport" method="post">
+			<button type="submit" class="cmt"><i class="fa fa-flag"></i> Report</button>
+		</form>
+		<hr>
 		<% } %>
 	</div>
 	<hr>
