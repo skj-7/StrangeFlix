@@ -104,23 +104,21 @@ adminupload.post('/', (req, res) => {
 							if (err)
 								return console.error(err);
 
-							var video_id = savedata._id;
+							var video_id = videodata._id;
 
 							let seriesdbupdate = async (serID) => {
-								await videoSeries.findByIdAndUpdate(serID, { 
+								videoSeries.findByIdAndUpdate(serID, { 
 									$push: { videoList: video_id }, 
 									$inc: { episodeCount: 1 } 
 								}, (error, seriesdata) => {
 									if(error)
 										return console.log(error);
-
-									return true;
 								})
 							}	
 
 							if(savedata._seriesId != null) {
 								console.log("Series DB update!");
-								seriesdbupdate();
+								seriesdbupdate(savedata._seriesId);
 							}
 
 							//Upload with links

@@ -11,7 +11,7 @@ admineditseries.get('/:seriesID', (req, res) => {
                 if (err) {
                     return console.log(err);
                 }
-                console.log(series);
+
                 res.render('adminSeriesEdit.ejs', { "series": series });
             })
     }
@@ -31,7 +31,7 @@ admineditseries.post('/:seriesID', (req, res) => {
                     if (err) {
                         return console.log(err);
                     }
-                    console.log(series);
+                    
                     res.render('adminSeriesEdit.ejs', { "series": series });
                 })
         });
