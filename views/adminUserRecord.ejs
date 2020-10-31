@@ -38,6 +38,17 @@
             </a>
         </div>
     </div>
+    <% if (message != "") { %>
+		<div class="alert-success">
+			<%= message %>
+		</div>
+	<% } %>
+
+	<% if (error != "") { %>
+		<div class="alert-danger">
+		   <%= error %>
+		</div>
+	<% } %>
     <div class="main">
         <div class="sider">
             <button onclick="free()">No Subscription</button>
@@ -56,6 +67,14 @@
                     <p>USER ID:<%= free[i].email %></p>
                     <hr>
                     <p>Blocked Status:<%= free[i].blocked %></p>
+                    <div class="btns-com">
+                        <form action="/admin/users/block/<%= free[i]._id %>" method="GET">
+                            <button type="submit">Block</button>
+                        </form>
+                        <form action="/admin/users/unblock/<%= free[i]._id %>" method="GET">
+                            <button type="submit">Unblock</button>
+                        </form>
+                    </div>
                 </div>
                 <% } %>
             </div>
@@ -70,6 +89,14 @@
                     <p>Subscription:Pay per view</p>
                     <hr>
                     <p>Blocked Status:<%= ppv[i].blocked %></p>
+                    <div class="btns-com">
+                        <form action="/admin/users/block/<%= ppv[i]._id %>" method="GET">
+                            <button type="submit">Block</button>
+                        </form>
+                        <form action="/admin/users/unblock/<%= ppv[i]._id %>" method="GET">
+                            <button type="submit">Unblock</button>
+                        </form>
+                    </div>
                 </div>
                 <% } %>
             </div>
@@ -89,6 +116,14 @@
                     <% } %>
                     <hr>
                     <p>Blocked Status:<%= premium[i].blocked %></p>
+                    <div class="btns-com">
+                        <form action="/admin/users/block/<%= premium[i]._id %>" method="GET">
+                            <button type="submit">Block</button>
+                        </form>
+                        <form action="/admin/users/unblock/<%= premium[i]._id %>" method="GET">
+                            <button type="submit">Unblock</button>
+                        </form>
+                    </div>
                 </div>
                 <% } %>
             </div>
