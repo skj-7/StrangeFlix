@@ -78,7 +78,8 @@
                 <% } %>
             </div>
             <div id="comment">
-                <% for(var i=0;i<comments.length;i++) {%>
+                <% if( comments != null) { %>
+                <% for(var i=0; i < comments.length; i++) { %>
                     <div id="list">
                         <div class="fa fa-user-circle" id="com">User ID:<%=comments[i]._userId%></div>
                         <p><%=comments[i].content%></p>
@@ -94,6 +95,7 @@
                             </form>
                         </div>
                     </div>
+                <% } %>
                 <% } %>
             </div>
         </div>

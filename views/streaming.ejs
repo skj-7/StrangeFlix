@@ -154,10 +154,10 @@
 						<p>Title: <%= recom[i].title %></p>
 						<p>Category: <%= recom[i].category %></p>
 						<p>Price:&#8377; <%= recom[i].price %></p>
-						<form action="/home/play" method="post">
+						<form action="/watch/<%= recom[i]._id %>" method="GET">
 							<button type="submit" class="fa fa-play-circle-o"></button>
 						</form>
-						<form action="/home/addCart" method="post">
+						<form action="/cart/add/video/<%= recom[i]._id %>" method="GET">
 							<input class="add" type="submit" value="Add to Cart">
 						</form>
 					</div>
@@ -166,10 +166,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<script src="../static/fe_js/vid-player.js"></script>
 

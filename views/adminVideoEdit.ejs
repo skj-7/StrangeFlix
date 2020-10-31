@@ -34,8 +34,10 @@
                 </div>
     
                 <div class="form-group">
+                    <% if( video._seriesId != null) { %>
                     <label>Series Name (leave blank if none)</label>
                     <input id="target" type="text" name=""  class="form-control"  value="<%= video._seriesId.seriesTitle %>" readonly>
+                    <% } %>
                 </div>
     
                 <div class="form-group">
