@@ -68,12 +68,16 @@
                     <hr>
                     <p>Blocked Status:<%= free[i].blocked %></p>
                     <div class="btns-com">
+                        <% if (free[i].blocked == false) { %>
                         <form action="/admin/users/block/<%= free[i]._id %>" method="GET">
                             <button type="submit">Block</button>
                         </form>
+                        <% } %>
+                        <% if (free[i].blocked == true) { %>
                         <form action="/admin/users/unblock/<%= free[i]._id %>" method="GET">
                             <button type="submit">Unblock</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>
@@ -90,12 +94,16 @@
                     <hr>
                     <p>Blocked Status:<%= ppv[i].blocked %></p>
                     <div class="btns-com">
+                        <% if (ppv[i].blocked == false) { %>
                         <form action="/admin/users/block/<%= ppv[i]._id %>" method="GET">
                             <button type="submit">Block</button>
                         </form>
+                        <% } %>
+                        <% if (ppv[i].blocked == true) { %>
                         <form action="/admin/users/unblock/<%= ppv[i]._id %>" method="GET">
                             <button type="submit">Unblock</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>
@@ -117,12 +125,16 @@
                     <hr>
                     <p>Blocked Status:<%= premium[i].blocked %></p>
                     <div class="btns-com">
+                        <% if (premium[i].blocked == false) { %>
                         <form action="/admin/users/block/<%= premium[i]._id %>" method="GET">
                             <button type="submit">Block</button>
                         </form>
+                        <% } %>
+                        <% if (premium[i].blocked == true) { %>
                         <form action="/admin/users/unblock/<%= premium[i]._id %>" method="GET">
                             <button type="submit">Unblock</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>
