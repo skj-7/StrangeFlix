@@ -54,6 +54,8 @@
                     <p>USER NAME:<%= free[i].fName %> <%= free[i].lName %></p>
                     <hr>
                     <p>USER ID:<%= free[i].email %></p>
+                    <hr>
+                    <p>Blocked Status:<%= free[i].blocked %></p>
                 </div>
                 <% } %>
             </div>
@@ -66,6 +68,8 @@
                     <p>USER ID:<%= ppv[i].email %></p>
                     <hr>
                     <p>Subscription:Pay per view</p>
+                    <hr>
+                    <p>Blocked Status:<%= ppv[i].blocked %></p>
                 </div>
                 <% } %>
             </div>
@@ -83,6 +87,8 @@
                     <% if (premium[i].subscriptionCode == 3) { %>
                     <p>Subscription: Yearly Premium</p>
                     <% } %>
+                    <hr>
+                    <p>Blocked Status:<%= premium[i].blocked %></p>
                 </div>
                 <% } %>
             </div>

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const videos = require('../../schemas/videos');
 const flags = require('../../schemas/flags');
 const comments = require('../../schemas/comment');
+var userdata = require('../../schemas/userData');
 
 flagRecord.use(bodyParser.json());
 
@@ -53,6 +54,25 @@ flagRecord.get('/removeComment/:ID', (req, res) => {
         comments.findByIdAndDelete(req.params.ID, (err) => {
             displayFun("Flagged comment is successfully removed", res);
         })
+    }
+    else
+        res.redirect('/admin/login');
+});
+
+flagRecord.get('/blockUser/:ID', (req, res) => {
+    if (req.session.admin) {
+        userdata.findById(req.params.ID , (er, data) => {
+            if(data.blocked == true)
+            {
+                displayFun("User is already blocked", res);
+            }
+            else
+            {
+                userdata.findByIdAndUpdate(req.params.ID,{blocked: true} ,(err) => {
+                    displayFun("User is temporarily blocked", res);
+                })
+            }
+        });
     }
     else
         res.redirect('/admin/login');
