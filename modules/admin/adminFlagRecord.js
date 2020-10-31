@@ -22,7 +22,7 @@ function displayFun(msg, res) {
                     FlaggedVid.push({ "_id": x.flagid });
                 });
                 videos.find({ $or: FlaggedVid }, (Er, VIDEO) => {
-                    res.render('flags-record.ejs', { "videoarray": VIDEO, "comments": COMMENT, "message": msg, "error": "" });
+                    res.render('adminFlagsRecord.ejs', { "videoarray": VIDEO, "comments": COMMENT, "message": msg, "error": "" });
                 });
             });
         });
@@ -37,9 +37,7 @@ flagRecord.get('/', (req, res) => {
         res.redirect('/admin/login');
 });
 
-
-
-flagRecord.get('/removeFlag/:ID', (req, res) => {
+flagRecord.get('/deflag/video/:ID', (req, res) => {
     if (req.session.admin) {
         flags.deleteOne({ flagid: req.params.ID }, (Err) => {
             displayFun("Flag is successfully removed", res);
@@ -49,25 +47,60 @@ flagRecord.get('/removeFlag/:ID', (req, res) => {
         res.redirect('/admin/login');
 });
 
-flagRecord.get('/removeComment/:ID', (req, res) => {
+flagRecord.get('/deflag/comment/:ID', (req, res) => {
+    var flagID = req.params.ID;
+
     if (req.session.admin) {
-        comments.findByIdAndDelete(req.params.ID, (err) => {
-            displayFun("Flagged comment is successfully removed", res);
+        flags.findById(flagID, (error, data) => {
+            var commentID = data.flagid;
+            comments.findByIdAndUpdate(commentID, { $set: { flagged: false }}, (err, commentdata) => {
+                data.deleteOne( (err, flagdata) => {
+                    if(err) return console.log(err);
+
+                    displayFun("Flag is successfully removed", res);
+                })
+            })
         })
     }
     else
         res.redirect('/admin/login');
 });
 
+flagRecord.get('/remove/comment/:ID', (req, res) => {
+    var commentID = req.params.ID;
+
+    if(req.session.admin) {
+        comments.findById(commentID, (err, commentdata) => {
+            if(err) return console.log(err);
+
+            var userID = commentdata._userId;
+            var videoID = commentdata._videoId;
+
+            userdata.findByIdAndUpdate(userID, { $pull: { comments: commentID }}, (err, userdata) => {
+                if(err) return console.log(err);
+    
+                videos.findByIdAndUpdate(videoID, { $pull: { comments: commentID }}, (error, videodata) => {
+                    if(error) return console.log(error);
+    
+                    commentdata.deleteOne( (error, cmnt) => {
+                        if(error) return console.log(error);
+    
+                        displayFun("Flagged comment is successfully removed", res);
+                    })
+                })
+            })
+        })
+    } else {
+		res.redirect('/admin/login');
+	}
+})
+
 flagRecord.get('/blockUser/:ID', (req, res) => {
     if (req.session.admin) {
         userdata.findById(req.params.ID , (er, data) => {
-            if(data.blocked == true)
-            {
+            if(data.blocked == true) {
                 displayFun("User is already blocked", res);
-            }
-            else
-            {
+            } else {
                 userdata.findByIdAndUpdate(req.params.ID,{blocked: true} ,(err) => {
                     displayFun("User is temporarily blocked", res);
                 })
