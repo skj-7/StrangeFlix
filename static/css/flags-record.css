@@ -236,3 +236,38 @@ body
       background-color: white;
       color: blue;
     }
+    .alert-success
+{
+    margin-left: 38%;
+    margin-right: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 85px;
+    border: 2px solid green;
+    background-color: lightgreen;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+}
+.alert-danger
+{
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 85px;
+    border: 2px solid red;
+    background-color: rgba(240, 128, 128, 0.363);
+    margin-bottom: 5px;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-radius: 9px;
+    margin-left: 38%;
+    margin-right: 40%;
+}

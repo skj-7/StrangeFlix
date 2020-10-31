@@ -38,6 +38,17 @@
             </a>
         </div>
     </div>
+    <% if (message != "") { %>
+		<div class="alert-success">
+			<%= message %>
+		</div>
+	<% } %>
+
+	<% if (error != "") { %>
+		<div class="alert-danger">
+		   <%= error %>
+		</div>
+	<% } %>
     <div class="main">
         <div class="sider">
             <button onclick="video()">Flagged Videos</button>
@@ -51,15 +62,15 @@
                     <div class="detail">
                         <p>Name:<%= videoarray[i].title %></p>
                         <p>Duration: <%=videoarray[i].duration.hours %>:<%=videoarray[i].duration.minutes %>:<%=videoarray[i].duration.seconds %></p>
-                        <p>Description:<%=videoarray[i].description %></p>
+                        <p>Price:<%=videoarray[i].price %></p>
                         <p>Tags:<%=videoarray[i].tags %></p>
                         <p>Category:<%=videoarray[i].category %></p>
                     </div>
                     <div class="btns">
-                        <form action="/admin/flags/removeFlagVideo/<%= videoarray[i]._id %>" method="GET">
+                        <form action="/admin/flags/removeFlag/<%= videoarray[i]._id %>" method="GET">
                             <button type="submit">Remove Flag</button>
                         </form>
-                        <form action="/admin/flags/removeVideo/<%= videoarray[i]._id %>" method="GET">
+                        <form action="/admin/remove/video/<%= videoarray[i]._id %>" method="GET">
                             <button type="submit">Remove Video</button>
                         </form>
                     </div>
@@ -69,10 +80,10 @@
             <div id="comment">
                 <% for(var i=0;i<comments.length;i++) {%>
                     <div id="list">
-                        <div class="fa fa-user-circle" id="com"><%=comments[i]._userId%></div>
+                        <div class="fa fa-user-circle" id="com">User ID:<%=comments[i]._userId%></div>
                         <p><%=comments[i].content%></p>
                         <div class="btns-com">
-                            <form action="/admin/flags/removeFlagComment/<%=comments[i]._id%>" method="GET">
+                            <form action="/admin/flags/removeFlag/<%=comments[i]._id%>" method="GET">
                                 <button type="submit">Remove Flag</button>
                             </form>
                             <form action="/admin/flags/removeComment/<%=comments[i]._id%>" method="GET">
