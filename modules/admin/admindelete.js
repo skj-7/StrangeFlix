@@ -1,6 +1,7 @@
 const admindelete = require('express').Router();
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const flags = require('../../schemas/flags');
 const videos = require('../../schemas/videos');
 const videoSeries = require('../../schemas/videoSeries');
 
@@ -29,18 +30,23 @@ admindelete.get('/video/:videoID', (req, res) => {
 						if(err)
 							return console.log(err);
 
-						if(seriesID != null) {
-							videoSeries.findByIdAndUpdate(seriesID,
-							{ $pull: { videoList: video_id }, $inc: { episodeCount: -1 } },
-							(error, success) => {
-								if(error)
-									return console.log(error);
+						flags.findOneAndDelete({"flagtype": 1, "flagid": video_id}, (error, flag) => {
+							if(error) return console.log(error);
 
+							if(seriesID != null) {
+								videoSeries.findByIdAndUpdate(seriesID,
+								{ $pull: { videoList: video_id }, $inc: { episodeCount: -1 } },
+								(error, success) => {
+									if(error) {
+										return console.log(error);
+									}
+
+									res.render('deletedmsg.ejs', {"type": "Video "+video.title});
+								})
+							} else {
 								res.render('deletedmsg.ejs', {"type": "Video "+video.title});
-							})
-						}
-						else
-							res.render('deletedmsg.ejs', {"type": "Video "+video.title});
+							}
+						})
 					});
 				})
 			});   

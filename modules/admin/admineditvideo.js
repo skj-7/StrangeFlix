@@ -7,7 +7,9 @@ admineditvideo.use(bodyParser.json());
 
 admineditvideo.get('/:vidID', (req, res) => {
     if (req.session.admin) {
-        videos.findOne({ _id: req.params.vidID }).populate(['comments', '_seriesId'])
+        videos.findOne({ _id: req.params.vidID }).populate([
+            {path: "comments", populate: { path: "_userId"}}, 
+            {path: "_seriesId"}])
             .exec((err, vid) => {
                 if (err) {
                     return console.log(err);

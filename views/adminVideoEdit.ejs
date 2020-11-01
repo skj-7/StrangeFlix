@@ -80,7 +80,7 @@
                 <p class="fa fa-flag"></p>
                 <% } %>
             </div>
-            <p class="fa fa-user-circle" id="USER">User ID:<%= video.comments[j]._userId %></p>
+            <p class="fa fa-user-circle" id="USER">User Name: <%= video.comments[j]._userId.fName %> <%= video.comments[j]._userId.lName %></p>
             <p class="comment"><i><%= video.comments[j].content %></i> </p>
             <hr>
         </div>

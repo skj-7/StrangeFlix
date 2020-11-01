@@ -9,8 +9,6 @@ var userdata = require('../../schemas/userData');
 flagRecord.use(bodyParser.json());
 
 flagRecord.get('/', (req, res) => {
-	var flgcomments = [];
-	var flgvideos = [];
 
 	if (req.session.admin) {
 		var msg = "";
@@ -18,10 +16,16 @@ flagRecord.get('/', (req, res) => {
 			msg = req.session.data.message;
 			req.session.data.message = null;
 		}
+		[
+            {path: "comments", populate: { path: "_userId"}}, 
+            {path: "_seriesId"}]
 
 		flags.find({ "flagtype": 0 }).populate({
 			path: 'flagid',
-			model: 'Comments'
+			model: 'Comments',
+			populate: {
+				path: "_userId"
+			}
 		}).exec( (error, commentdata) => {
 			if(error) {
 				return console.log(error);

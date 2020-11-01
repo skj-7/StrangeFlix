@@ -81,7 +81,7 @@
             <div id="comment">
                 <% for( var i=0; i < commentarray.length; i++) { %>
                     <div id="list">
-                        <div class="fa fa-user-circle" id="com">User ID:<%= commentarray[i].flagid._userId %></div>
+                        <div class="fa fa-user-circle" id="com">User Name: <%= commentarray[i].flagid._userId.fName %> <%= commentarray[i].flagid._userId.lName %></div>
                         <p><%= commentarray[i].flagid.content %></p>
                         <div class="btns-com">
                             <form action="/admin/flags/deflag/comment/<%= commentarray[i]._id %>" method="GET">
