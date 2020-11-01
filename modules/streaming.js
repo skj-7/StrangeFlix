@@ -106,14 +106,23 @@ stream.get('/report/:vid_id', (req, res) => {
 	var videoID = req.params.vid_id;
 
 	if(userID) {
-		var data = new flags({ "flagtype": 1, "flagid": videoID });
-		data.save( (err, flagdata) => {
-			if (err) {
-				return console.error(err);
-			}
+		flags.findOne({ "flagid": videoID }, (error, flagdata) => {
+            if(error) return console.log(error);
 
-			req.session.data.message = "Video successfully reported to admin."
-			res.redirect('/watch/' + videoID);
+            if(flagdata) {
+                req.session.data.message = "Video successfully reported to admin."
+                res.redirect('/watch/' + videoID);
+            } else {
+				var data = new flags({ "flagtype": 1, "flagid": videoID });
+				data.save( (err, flagdata) => {
+					if (err) {
+						return console.error(err);
+					}
+
+					req.session.data.message = "Video successfully reported to admin."
+					res.redirect('/watch/' + videoID);
+				})
+			}
 		})
     } else {
 		res.redirect('/login');

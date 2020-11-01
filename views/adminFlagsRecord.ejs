@@ -56,46 +56,45 @@
         </div>
         <div class="middle">
             <div id="video">
-                <% for(var i=0;i<videoarray.length;i++) {%>
+                <% for(var i=0; i < videoarray.length; i++) { %>
                 <div id="vid">
-                    <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
+                    <img id="thumbnail" src="/<%= videoarray[i].flagid.thumbnail %>" alt="" onclick="play()">
                     <div class="detail">
-                        <p>Name:<%= videoarray[i].title %></p>
-                        <p>Duration: <%=videoarray[i].duration.hours %>:<%=videoarray[i].duration.minutes %>:<%=videoarray[i].duration.seconds %></p>
-                        <p>Price:<%=videoarray[i].price %></p>
-                        <p>Tags:<%=videoarray[i].tags %></p>
-                        <p>Category:<%=videoarray[i].category %></p>
+                        <p>Name:<%= videoarray[i].flagid.title %></p>
+                        <p>Duration: <%=videoarray[i].flagid.duration.hours %>:<%=videoarray[i].flagid.duration.minutes %>:<%=videoarray[i].flagid.duration.seconds %></p>
+                        <p>Price:<%=videoarray[i].flagid.price %></p>
+                        <p>Tags:<%=videoarray[i].flagid.tags %></p>
+                        <p>Category:<%=videoarray[i].flagid.category %></p>
                     </div>
                     <div class="btns">
                         <form action="/admin/flags/deflag/video/<%= videoarray[i]._id %>" method="GET">
                             <button type="submit">Remove Flag</button>
                         </form>
-                        <form action="/admin/remove/video/<%= videoarray[i]._id %>" method="GET">
+                        <form action="/admin/remove/video/<%= videoarray[i].flagid._id %>" method="GET">
                             <button type="submit">Remove Video</button>
                         </form>
                     </div>
                 </div>
                 <% } %>
             </div>
+            
             <div id="comment">
-                <% if( comments != null) { %>
-                <% for(var i=0; i < comments.length; i++) { %>
+                <% for( var i=0; i < commentarray.length; i++) { %>
                     <div id="list">
-                        <div class="fa fa-user-circle" id="com">User ID:<%=comments[i]._userId%></div>
-                        <p><%=comments[i].content%></p>
+                        <div class="fa fa-user-circle" id="com">User ID:<%= commentarray[i].flagid._userId %></div>
+                        <p><%= commentarray[i].flagid.content %></p>
                         <div class="btns-com">
-                            <form action="/admin/flags/deflag/comment/<%=comments[i]._id%>" method="GET">
+                            <form action="/admin/flags/deflag/comment/<%= commentarray[i]._id %>" method="GET">
                                 <button type="submit">Remove Flag</button>
                             </form>
-                            <form action="/admin/flags/remove/comment/<%=comments[i]._id%>" method="GET">
+                            <form action="/admin/flags/remove/comment/<%= commentarray[i]._id %>" method="GET">
                                 <button type="submit">Remove Comment</button>
                             </form>
-                            <form action="/admin/flags/blockUser/<%=comments[i]._userId%>" method="GET">
+                            <form action="/admin/flags/blockUser/<%= commentarray[i].flagid._userId %>" method="GET">
                                 <button type="submit">Block User</button>
                             </form>
                         </div>
                     </div>
-                <% } %>
                 <% } %>
             </div>
         </div>

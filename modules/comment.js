@@ -92,17 +92,27 @@ comment.post('/report', (req, res) => {
     var videoID = req.body.vidID;
 
     if(userID) {
-        comments.findByIdAndUpdate(commentID, { $set: { "flagged": true }}, (error, cmntdata) => {
+        comments.findById(commentID, (error, cmntdata) => {
             if(error) return console.log(error);
 
-            var data = new flags({ "flagtype": 0, "flagid": commentID });
-            data.save( (err, flagdata) => {
-                if (err) {
-                    return console.error(err);
-                }
+            if(cmntdata.flagged == true) {
                 req.session.data.message = "Comment successfully reported to admin."
                 res.redirect('/watch/' + videoID);
-            })
+            } else {
+                cmntdata.updateOne( { $set: { "flagged": true }}, (error, cmntdata) => {
+                    if(error) return console.log(error);
+
+                    var data = new flags({ "flagtype": 0, "flagid": commentID });
+                    data.save( (err, flagdata) => {
+                        if (err) {
+                            return console.error(err);
+                        }
+
+                        req.session.data.message = "Comment successfully reported to admin."
+                        res.redirect('/watch/' + videoID);
+                    })
+                })
+            }
         })
     } else {
 		res.redirect('/login');
