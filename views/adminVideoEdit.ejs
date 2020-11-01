@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video-Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/video-info.css">
 </head>
+
 <body>
     <p class="id">VideoID: <%- video._id %></p>
     <div class="video">
@@ -15,44 +18,50 @@
                     <label>Title</label>
                     <input type="text" name="title" class="form-control" value="<%= video.title %>" required>
                 </div>
-    
+
                 <div class="form-group">
                     <label>Price</label>
                     <div id="price">
                         <input type="text" name="sym" id="sym" value=&#x20B9; readonly>
-                        <input type="number" name="price" value=<%= video.price %> id="price-value" class="form-control" min="0" required>
+                        <input type="number" name="price" value=<%= video.price %> id="price-value" class="form-control"
+                            min="0" required>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label>Duration</label>
                     <div id="duration">
-                        <input type="number" name="duration.hours" class="form-control" value=<%= video.duration.hours %> placeholder="hrs" min="0" required>
-                        <input type="number" name="duration.minutes" class="form-control" value=<%= video.duration.minutes %> placeholder="mins" min="0" required>
-                        <input type="number" name="duration.seconds" class="form-control" value=<%= video.duration.seconds %> placeholder="secs" min="0" required>
+                        <input type="number" name="duration.hours" class="form-control"
+                            value=<%= video.duration.hours %> placeholder="hrs" min="0" required>
+                        <input type="number" name="duration.minutes" class="form-control"
+                            value=<%= video.duration.minutes %> placeholder="mins" min="0" required>
+                        <input type="number" name="duration.seconds" class="form-control"
+                            value=<%= video.duration.seconds %> placeholder="secs" min="0" required>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <% if( video._seriesId != null) { %>
                     <label>Series Name (leave blank if none)</label>
-                    <input id="target" type="text" name=""  class="form-control"  value="<%= video._seriesId.seriesTitle %>" readonly>
+                    <input id="target" type="text" name="" class="form-control"
+                        value="<%= video._seriesId.seriesTitle %>" readonly>
                     <% } %>
                 </div>
-    
+
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea type="text" name="description" rows="5" cols="30" class="form-control"><%= video.description %></textarea>
+                    <textarea type="text" name="description" rows="5" cols="30"
+                        class="form-control"><%= video.description %></textarea>
                 </div>
-    
+
                 <div class="form-group">
                     <label>Tags (Use "," to separate)</label>
                     <input type="text" name="tags" value="<%= video.tags %>" class="form-control">
                 </div>
-    
+
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" value="<%= video.category %>"  name="category">
+                    <input type="text" value="<%= video.category %>" name="category">
                 </div>
                 <input type="submit" class="btn" value="UPDATE">
             </form>
@@ -62,25 +71,22 @@
     <hr>
     <hr>
     <div class="commentSection">
-        <div id="comlist">
-            <% for(var j=0; j < video.comments.length; j++) { %>
-            <p class="fa fa-user-circle">Username:<%= video.comments[j]._userId %></p>
-            <p class="comment"><i><%= video.comments[j].content %></i> </p>
+        <h1>COMMENTS</h1>
+        <div id="comlist"></div>
+        <% for(var j=0; j < video.comments.length; j++) { %>
+        <div class="COM">
             <div id="flag">
                 <% if (video.comments[j].flagged == true) { %>
-                    <p class="fa fa-flag"></p>
-                    <comment> May be we should let these buttons be here </comment>
-                    <form action="/admin/flags/remove/comment/<%= video.comments[j]._id %>" method="get">
-                        <input type="submit" class="btn" value="Remove comment">
-                    </form>
-                    <form action="/admin/flags/deflag/comment/<%= video.comments[j]._id %>" method="get">
-                        <input type="submit" class="btn" value="Remove Flag">
-                    </form>
+                <p class="fa fa-flag"></p>
                 <% } %>
             </div>
+            <p class="fa fa-user-circle" id="USER">User ID:<%= video.comments[j]._userId %></p>
+            <p class="comment"><i><%= video.comments[j].content %></i> </p>
             <hr>
-            <% } %>
         </div>
+        <% } %>
+    </div>
     </div>
 </body>
+
 </html>

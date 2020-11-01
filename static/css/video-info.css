@@ -122,3 +122,32 @@ input ,textarea,select
   color: black;
   border-radius: 20px;
 }
+.COM
+{
+    background-color: rgba(33, 33, 95, 0.411);
+    margin: 50px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.comment
+{
+    color: white;
+    font-size: 27px;
+    padding: 10px;
+}
+#USER
+{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 25px;
+}
+#flag 
+{
+    display: inline;
+}
+#flag .fa
+{
+    font-size: 30px;
+}
