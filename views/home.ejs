@@ -99,6 +99,7 @@
         <p>Solo</p>
         <div class="imgs">
             <% for(var i=0; i < video.length; i++) { %>
+            <% if(video[i]._seriesId == null) { %>
             <div class="box">
                 <img src="/<%= video[i].thumbnail %>" alt="">
                 <div class="text">
@@ -116,6 +117,7 @@
                     </form>
                 </div>
             </div>
+            <% } %>
             <% } %>
         </div>
     </div>

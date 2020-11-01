@@ -49,6 +49,7 @@
         </div>
         <div id="middle-solo">
             <% for(var i=0; i < videoarray.length; i++) { %>
+            <% if(videoarray[i]._seriesId == null) { %>
             <div id="vid">
                 <img id="thumbnail" src="/<%= videoarray[i].thumbnail %>" alt="" onclick="play()">
                 <div class="detail">
@@ -68,6 +69,7 @@
                     </form>
                 </div>
             </div>
+            <% } %>
             <% } %>
         </div>
         <div id="middle-series">

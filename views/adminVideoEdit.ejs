@@ -69,6 +69,7 @@
             <div id="flag">
                 <% if (video.comments[j].flagged == true) { %>
                     <p class="fa fa-flag"></p>
+                    <comment> May be we should let these buttons be here </comment>
                     <form action="/admin/flags/remove/comment/<%= video.comments[j]._id %>" method="get">
                         <input type="submit" class="btn" value="Remove comment">
                     </form>

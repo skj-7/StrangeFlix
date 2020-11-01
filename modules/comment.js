@@ -76,8 +76,17 @@ comment.post('/remove', (req, res) => {
                 comments.findByIdAndRemove(commentID, (error, cmnt) => {
                     if(error) return console.log(error);
 
-                    req.session.data.message = "Comment removed successfully";
-                    res.redirect('/watch/' + videoID);
+                    if(cmnt.flagged == true) {
+                        flags.findByIdAndDelete({"flagid": commentID}, (error, cmnt) => {
+                            if(error) return console.log(error);
+                            
+                            req.session.data.message = "Comment removed successfully";
+                            res.redirect('/watch/' + videoID);
+                        })
+                    } else {
+                        req.session.data.message = "Comment removed successfully";
+                        res.redirect('/watch/' + videoID);
+                    }
                 })
             })
         })
