@@ -26,7 +26,7 @@ body
     border-radius: 30px;
     margin: 50px;
 }
-form
+.form
 {
     display: flex;
     flex-direction: column;

@@ -147,6 +147,15 @@
     {
         font-size: 15px;
     }
+    .pro
+    {
+
+        font-size: 4rem;
+    }
+    .pro p
+    {
+        font-size: 4.5rem;
+    }
 }
 @media screen and (max-width:852px)
 {
@@ -226,5 +235,29 @@
     .benefits .tags i
     {
         font-size: 22px;
+    }
+    .pro
+    {
+
+        font-size: 3rem;
+    }
+    .pro p
+    {
+        font-size: 3.5rem;
+    }
+}
+@media screen and (max-width:448px)
+{
+    .pro
+    {
+        font-size: 2rem;
+    }
+    .pro p
+    {
+        font-size: 2.5rem;
+    }
+    .benefits
+    {
+        padding: 10px;
     }
 }

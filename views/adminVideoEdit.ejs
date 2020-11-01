@@ -10,7 +10,7 @@
     <p class="id">VideoID: <%- video._id %></p>
     <div class="video">
         <div class="info">
-            <form method="post" action="/admin/edit/video/<%= video._id %>">
+            <form method="post" action="/admin/edit/video/<%= video._id %>" class="form">
                 <div class="form-group">
                     <label>Title</label>
                     <input type="text" name="title" class="form-control" value="<%= video.title %>" required>
@@ -65,11 +65,16 @@
         <div id="comlist">
             <% for(var j=0; j < video.comments.length; j++) { %>
             <p class="fa fa-user-circle">Username:<%= video.comments[j]._userId %></p>
-            <p class="comment"><%= video.comments[j].content %></p>
+            <p class="comment"><i><%= video.comments[j].content %></i> </p>
             <div id="flag">
                 <% if (video.comments[j].flagged == true) { %>
                     <p class="fa fa-flag"></p>
-                    <button>Remove</button>
+                    <form action="/admin/flags/remove/comment/<%= video.comments[j]._id %>" method="get">
+                        <input type="submit" class="btn" value="Remove comment">
+                    </form>
+                    <form action="/admin/flags/deflag/comment/<%= video.comments[j]._id %>" method="get">
+                        <input type="submit" class="btn" value="Remove Flag">
+                    </form>
                 <% } %>
             </div>
             <hr>
