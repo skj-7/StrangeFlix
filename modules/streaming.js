@@ -47,12 +47,23 @@ stream.get('/:vid_id', (req, res) => {
 							othercmnt.push(cmnt);
 					});
 
-					console.log(videodata._seriesId);
 					if(videodata._seriesId == null)
 					{
 						videos.find({}, (err, data) => {
 							if(err) return console.log(err);
-							recommendations = data;
+
+							data.forEach(vid => {
+								if(vid._id != videoID && vid._seriesId == null) {
+									recommendations.push(vid);
+								}
+							});
+
+							res.render('streaming.ejs', {
+								"message": msg, "error": "", 
+								"playedvideo": videodata, 
+								"selfComments": selfcmnt, "otherComments": othercmnt, 
+								"recom": recommendations
+							});
 						})
 					}
 					else {
@@ -61,14 +72,14 @@ stream.get('/:vid_id', (req, res) => {
 								recommendations.push(vid);
 							}
 						});
-					}
 
-					res.render('streaming.ejs', {
-						"message": msg, "error": "", 
-						"playedvideo": videodata, 
-						"selfComments": selfcmnt, "otherComments": othercmnt, 
-						"recom": recommendations
-					});
+						res.render('streaming.ejs', {
+							"message": msg, "error": "", 
+							"playedvideo": videodata,
+							"selfComments": selfcmnt, "otherComments": othercmnt, 
+							"recom": recommendations
+						});
+					}
 				})    
 			}
 

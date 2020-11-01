@@ -45,20 +45,6 @@ adminupload.get('/', (req, res) => {
 	}
 });
 
-// adminupload.post('/checkseries', (req, res) => {
-// 	var Name = req.body.seriesName;
-
-// 	videoSeries.findOne({ seriesTitle: Name }, (error, data) => {
-// 		if (error)
-// 			return console.log(error);
-// 		else if (data == null) {
-// 			res.json({ "isPresent": "false" });
-// 		}
-// 		else
-// 			res.json({ "isPresent": "true" });
-// 	});
-// });
-
 adminupload.post('/', (req, res) => {
 	if (req.session.admin) {
 		upload(req, res, function (err) {

@@ -16,9 +16,6 @@ flagRecord.get('/', (req, res) => {
 			msg = req.session.data.message;
 			req.session.data.message = null;
 		}
-		[
-            {path: "comments", populate: { path: "_userId"}}, 
-            {path: "_seriesId"}]
 
 		flags.find({ "flagtype": 0 }).populate({
 			path: 'flagid',

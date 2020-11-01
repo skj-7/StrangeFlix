@@ -90,7 +90,7 @@
                             <form action="/admin/flags/remove/comment/<%= commentarray[i]._id %>" method="GET">
                                 <button type="submit">Remove Comment</button>
                             </form>
-                            <form action="/admin/flags/blockUser/<%= commentarray[i].flagid._userId %>" method="GET">
+                            <form action="/admin/flags/blockUser/<%= commentarray[i].flagid._userId._id %>" method="GET">
                                 <button type="submit">Block User</button>
                             </form>
                         </div>
