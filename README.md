@@ -1,6 +1,6 @@
 <h1 align="center">StrangeFlix</h1>
 <p align="center">
-<img src="readme/logo.jpg"/>
+<img alt="Logo" width="142px" src="readme/logo.jpg"/>
 </p>
 
 <p align="center">
@@ -91,5 +91,5 @@ Feel free to file an issue if you come across any bugs
 <img src="readme/avishkar.png" />
 </p>
 <p align="center">
-<img src="readme/MNNIT.png" />
+<img alt="MNNIT" width="112px" src="readme/MNNIT.png" />
 </p>
