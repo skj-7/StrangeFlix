@@ -16,8 +16,7 @@ Flixing in the Strangest way... or the BEST way... ;)
 2) [Installation](#install)
 3) [Go-through Videos](#gothru)
 4) [Tech-Stack Used](#depend)
-5) [Feedback](#feed)
-6) [Contributors](#contri)\ 
+5) [Contributors](#contri)
 
 <a name="fet"></a>
 ## Features
@@ -77,12 +76,20 @@ npm start
 * MongoDB (as Database)
 * fs Module (for File Handling)
 
-<a name="feed"></a>
-## Feedback
-Feel free to file an issue if you come across any bugs
-
 <a name="contri"></a>
 ## Contributors
 
 * [Priyanshu Gupta](github.com/wsLord)
 * [Sanskar Jain](github.com/skj-7)
+
+## Feedback
+Feel free to file an issue if you come across any bugs
+
+### Made at:
+
+<p align="center">
+<img src="readme/avishkar.png" />
+</p>
+<p align="center">
+<img src="readme/MNNIT.png" />
+</p>
