@@ -1,8 +1,25 @@
-# StrangeFlix
-Webster 2k20 Project - Online video streaming service
+<h1 align="center">StrangeFlix</h1>
+<p align="center">
+<img src="readme/logo.jpg"/>
+</p>
 
+<p align="center">
 Flixing in the Strangest way... or the BEST way... ;)
+</p>
 
+## Introduction
+  Webster 2k20 Project - Online video streaming service
+
+## Table of Contents:
+
+1) [Features](#fet)
+2) [Installation](#install)
+3) [Go-through Videos](#gothru)
+4) [Tech-Stack Used](#depend)
+5) [Feedback](#feed)
+6) [Contributors](#contri)\ 
+
+<a name="fet"></a>
 ## Features
 
 * User Control
@@ -30,11 +47,26 @@ users.
 normal uploads, and a website link.
   * Collecting payments from users with a payment gateway - [PayStack](www.paystack.com)
 
+<a name="install"></a> 
+## Installation
+1) Clone the repository using:
+```bash
+git clone https://github.com/wsLord/StrangeFlix.git
+```
+2) Install the dependencies given [below](#depend)
+3) Start MongoDB and set up admin controls
+4)  Run:
+```bash
+npm start
+```
+
+<a name="gothru"></a> 
 ## Go-through Videos
 
 * [User Control](https://youtu.be/DL2O1OuxEoc)
 * [Admin Control](https://youtu.be/hxYas4KMJ5w)
 
+<a name="depend"></a>
 ## Tech-Stack Used
 
 * NodeJS (ExpressJS)
@@ -43,10 +75,14 @@ normal uploads, and a website link.
 * Bootstrap
 * JavaScript
 * MongoDB (as Database)
-* fs Node Module (for File Handling)
+* fs Module (for File Handling)
 
-## Team
+<a name="feed"></a>
+## Feedback
+Feel free to file an issue if you come across any bugs
 
-* Priyanshu Gupta, CSE, 2nd Year
-* Sanskar Jain, CSE, 2nd Year
+<a name="contri"></a>
+## Contributors
 
+* [Priyanshu Gupta](github.com/wsLord)
+* [Sanskar Jain](github.com/skj-7)
